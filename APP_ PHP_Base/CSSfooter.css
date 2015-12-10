@@ -1,0 +1,38 @@
+
+footer {
+	background-color:rgb(40,40,40);
+	width:100%;
+        display: inline-block;
+}
+footer a h3{
+	text-align:center;
+	color:#409fb0; 
+      	display:inline;
+}
+footer a h3:hover{
+    text-decoration:underline;
+}
+
+
+footer img{
+	height:35px;
+	width:35px;
+	margin:0px 10px;
+}
+
+.image_footer{
+    width: 30%;
+    float: left;
+}
+.lien_footer{
+    width: 30%;
+    float:right;
+}
+.lien_footer h3{
+        margin:1em;
+}
+.nom_site_footer{
+    text-align: center;
+    color:#409fb0;
+    padding-bottom:10px;
+} 

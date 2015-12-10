@@ -1,0 +1,180 @@
+@CHARSET "ISO-8859-1";
+
+@font-face {
+    font-family: 'Police';
+    src: url('introheadr-base-webfont.ttf');
+}
+@font-face {
+    font-family: 'Police2';
+    src: url('introrustg-base2line-webfont.ttf');
+}
+
+body{
+	background-image: url("Images/Fond2.jpg");
+	//background-image: url("Images/Party.jpg");
+	margin:0;
+	bckground-repeat: no-repeat;
+	
+	
+}
+
+.logo{
+	height:52px;
+	width:125px;
+	margin-top:2px;
+	margin-left:1em;
+	}
+
+.gauche {
+	float:left;
+}
+
+.gauche a {
+	padding-left:1em;
+	padding-right:1em;
+}
+
+.droite {
+	float:right;
+}
+
+.droite a{
+	padding-left:1em;
+	padding-right:1em;
+	margin-right: 1em;
+}
+
+nav li{
+	display:inline;
+}
+
+nav ul a {
+	color: #409fb0;
+	font-size: 1.5em;
+	font-weight: bold;
+	font-family:Police;
+	text-transform:uppercase;
+	text-decoration:none;
+	background-color: white;
+	border-radius: 5px;
+	padding-top: 4px;
+}
+
+nav a:hover {
+	color: blue;
+}
+
+nav {
+	position: relative;
+}
+
+.barre_menu{
+	width:100%;
+	height:58px;
+	background-color:rgba(0,0,0,0.6);
+	background-attachment: fixed;
+	background-position: fixed;
+	
+
+}
+
+.faq2 {
+background-color: white;}
+
+.faq h1 {
+	margin: auto;
+	text-align: center;
+	font-size: 70px;
+	color: black;
+	margin-top: 10px;
+	font-family:Police;
+	border-bottom: #409fb0 10px solid;
+	border-radius: 15px;
+
+}
+	
+.faq p {
+	font-family: Police;
+	margin-left: 10px;
+	font-size: 32px;
+	margin-top: 38px;
+	text-align: center;
+	color: black;
+}
+
+.faq #faq2 p {
+	text-align: center;
+}
+
+
+.ttaide {
+	position: relative;
+	margin-top: -30px;
+	background-color: rgba(255,255,255,0.7);
+	margin-left: 25px;
+	margin-right: 25px;
+	padding-top: -1%;
+	padding-bottom: -1px;
+	border-radius: 7px;
+	display: block;
+}
+
+.taide {
+	position: relative;
+	margin-top: 70px;
+}
+
+.taide h2 {
+	margin-left: 30px;
+	font-family: Police2;
+}
+
+.taide p {
+	margin-left: 40px;
+	font-family: Police;
+	font-size: 22px;
+	margin-right: 40px;
+	margin-top: 1px;
+}
+
+.taide a:link {
+	text-decoration: none;
+	text-transform: bold;
+}
+
+
+footer {
+	background-color:rgba(0,0,0,0.3);
+}
+footer a h3{
+	text-align:center;
+	color:#409fb0;
+	margin:1em;
+	font-family:police;
+}
+
+footer h3{
+	font-family:police;
+	text-align:center;
+	color:#409fb0;
+	margin:1em;
+	padding-bottom:5px;
+}
+
+footer a:link {
+	text-decoration:none;
+}
+
+footer img{
+	height:35px;
+	width:35px;
+	margin:1em;
+}
+
+footer div {
+	text-align:center;
+}
+
+footer div h3{
+	display:inline;
+}
