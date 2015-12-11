@@ -1,0 +1,262 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1 nov. 2015, 13:14:51
+    Author     : Francois
+*/
+
+/* Import des polices */
+
+@font-face{
+    font-family: 'Police';
+    src: url('introheadr-base-webfont.ttf');
+}
+
+@font-face{
+    font-family: 'Police2';
+    src: url('introrustg-base2line-webfont.ttf');
+}
+
+body{
+    background-image: url('Images/Fond2.jpg');
+    
+    /*background-color:#E6E6E6;*/
+    margin:0;
+    font-family: Police;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.logo{
+    margin-top: 10px;
+    width:140px;
+    margin-left:7%;
+}
+
+nav img{
+    width:55px;
+    margin-top: 9px;
+    margin-right: -15px;
+}
+
+/*.boutonrecherche input{
+border:0;
+padding:12px 12px 13px 13px;
+font-size: 1em;
+font-weight: bold;
+text-transform:uppercase;
+}
+.boutonrecherche input[type="submit"]{
+background:#409fb0;
+}*/
+
+.gauche{
+    float:left;
+}
+
+.gauche a{
+    padding-left:1em;
+}
+
+.droite{
+    float:right;
+}
+
+.droite a{
+    padding-right:1em;
+    margin-right: 1em;
+}
+
+nav li{
+    display:inline-block;
+    margin-top: 9px;
+}
+
+nav a{
+    color:white;
+    font-size:1.5em;
+    font-weight: bold;
+    text-transform:uppercase;
+}
+
+.barre_menu{
+    position:absolute;
+    display: inline-block;
+    width:100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+header{
+    font-family:Police2;
+    display:block;
+    width:100%;
+    margin-left: 0px;
+    margin-top: -36px;
+    background-image: url("Images/Party.jpg");
+    height:33em;
+    background-repeat: no-repeat;
+    background-size: cover;/*Rogne l'image de façon à ce qu'elle prenne toute la largeur de l'écran et que ce qui dépasse en hauteur au dessus et au dessous soit coupé, sans déformer l'image*/
+    text-shadow: 3px 3px 5px #777;
+    box-shadow: 0px 3px 15px black;
+}
+
+header h1{
+    font-size:3em;
+    padding-top:110px;
+    text-align:center;
+}
+
+header p{
+    padding-left: 60%;
+    font-size: 1.4em;
+}
+
+.conteneur{
+    display: block;
+    text-align: center;
+    font-size: 2em;
+    margin-top: -15px;
+    border-radius: 5px;
+}
+
+.conteneur>display>li{
+    display:inline;
+}
+
+.petit_conteneur{
+    display:inline-table;
+    width: 25%;
+    background-color: rgb(40,40,40);
+    margin-top: 2em;
+    border-radius: 5px;
+}
+
+.petit_conteneur h3{
+    color:#409fb0;
+}
+
+.petit_conteneur p{
+    color:white;
+}
+
+.suggestion-évènement{
+    width:85%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    border: 3px solid black;
+}
+
+#e-un{
+    background-image: url('Images/PSGReal.jpg');
+}
+
+#e-deux{
+    background-image: url('Images/ColorRun.jpg');
+}
+
+.suggestion-évènement h3{
+    color:black;
+    padding: 2px 5px 5px 2px;
+    font-size:1.2em;
+    background-color: rgba(255,255,255,0.4);
+    display:inline-block; 
+}
+
+.titre{
+    margin-left: 1em;
+}
+
+.lieu{
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+}
+
+.date{
+    margin-right: 1em;
+}
+
+.suggestion-ville{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40%;
+    height:10em;
+    margin-bottom: 2em;
+    border: 3px solid black;
+}
+
+.suggestion-ville h3{
+    background-color: rgba(255,255,255,0.4);
+    display: inline-block;
+    margin-top: 10px;
+    padding:2px 5px 2px 5px;
+    font-size: 2em;
+}
+
+.plus{
+    color:#409fb0;
+    display:block;
+    margin-top:-40px;
+    margin-bottom: 50px;
+}
+
+#v-un{
+    background-image: url('Images/Paris.jpg');
+    margin-right: 30px;
+}
+
+#v-deux{
+    background-image: url('Images/Lyon.jpg');
+    margin-left: 27px;
+}
+
+footer {
+	background-color:rgb(40,40,40);
+	width:100%;
+        display: inline-block;
+}
+footer a h3{
+	text-align:center;
+	color:#409fb0; 
+      	display:inline;
+}
+footer a h3:hover{
+    text-decoration:underline;
+}
+
+
+footer img{
+	height:35px;
+	width:35px;
+	margin:0px 10px;
+}
+
+.image_footer{
+    width: 30%;
+    float: left;
+}
+.lien_footer{
+    width: 30%;
+    float:right;
+}
+.lien_footer h3{
+        margin:1em;
+}
+.nom_site_footer{
+    text-align: center;
+    color:#409fb0;
+    padding-bottom:10px;
+} 
