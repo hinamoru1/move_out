@@ -79,7 +79,7 @@ if ($IDimage_profil == 0)
 }
 else 
 {
-$reponse= $bdd->prepare("SELECT lien FROM multimedia WHERE type='image' AND IDmultimedia = :id");
+$reponse= $bdd->prepare("SELECT lien FROM multimedia WHERE IDmultimedia = :id");
 
 $reponse->execute(array('id' => $IDimage_profil));
 $donnees = $reponse->fetch();
