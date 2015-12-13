@@ -1,0 +1,95 @@
+@font-face{
+    font-family: 'Police';
+    src: url('introheadr-base-webfont.ttf');
+}
+
+@font-face{
+    font-family: 'Police2';
+    src: url('introrustg-base2line-webfont.ttf');
+}
+
+body{
+   // background-image: url('Images/Fond2.jpg');
+    
+    background-color:#E6E6E6;
+    margin:0;
+    font-family: Police;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+header{
+    text-align: center;
+}
+
+h1{
+    font-size: 35px;
+}
+
+section{
+    font-size:19px;
+    padding-left:17%;
+    padding-right: 17%;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.affichage{
+    display: inline-block;
+    padding-right: 15%;
+    padding-top: 10px;
+}
+
+/* Afin de redimentionner l'image pour qu'elle s'affiche toujours avec les mêmes dimension, en coupant ce qui dépasse'*/
+.image_profil{
+    margin-top: 10px;
+    display: inline-block;
+    height: 250px;
+    width: 208px;
+    background-position: 50% 50%;
+    background-size: cover;
+    
+}
+
+.infos{
+
+    display: inline-block;
+    padding-left:7%;
+    min-width:300px;
+    
+}
+
+.bouton{
+    color:white;
+    background-color: #409fb0;
+    border-radius: 5px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+fieldset a{
+    color:white;
+}
+
+.affichage_liste p{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+
+.affichage_liste div{
+    margin-top: 40px;
+}
+
+/* Juste pour la page de recheche à laquelle on a appliqué ce CSS*/
+form{
+    text-align: center;
+}
