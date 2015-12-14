@@ -45,21 +45,6 @@
                     </ol>
                 </fieldset>
             </li>
-            <li>
-            <fieldset>
-                <label>Acceptez-vous de recevoir la newsletter ? :</label>
-                <ol>
-                        <li>
-                            <input id=accepte_newsletter name="accepte_newsletter" value="1" type=radio checked>
-                            <label for=homme>Oui</label>
-                        </li>
-                        <li>
-                            <input id=accepte_newsletter name="accepte_newsletter" value="0" type=radio>
-                            <label for=femme>Non</label>
-                        </li>
-                </ol>
-            </li>
-            </fieldset>
         </ol>
         </fieldset>
 	    <fieldset>
@@ -77,6 +62,22 @@
                         <label for=mdp2>Confirmer le mdp*</label>
                         <input id=mot_de_passe_conf name=mot_de_passe_conf type=password required>
                     </li>
+			<li>
+			<fieldset>
+			
+                <label>Acceptez-vous de recevoir la newsletter ? :</label>
+                <ol>
+                        <li>
+                            <input id=accepte_newsletter name="accepte_newsletter" value="1" type=radio checked>
+                            <label for=homme>Oui</label>
+                        </li>
+                        <li>
+                            <input id=accepte_newsletter name="accepte_newsletter" value="0" type=radio>
+                            <label for=femme>Non</label>
+                        </li>
+                </ol>
+            </fieldset>
+			</li>
 	    </fieldset>
         <fieldset>
         <legend>Localisation</legend>
