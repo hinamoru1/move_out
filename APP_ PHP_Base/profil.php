@@ -39,7 +39,7 @@ catch(Exception $e)
 }
  
 
-$reponse= $bdd->prepare("SELECT * FROM utilisateur WHERE  IDutilisateur = :id");
+$reponse= $bdd->prepare("SELECT *,DATE_FORMAT(date_de_naissance, '%d/%m/%Y') AS date_de_naissance_fr FROM utilisateur WHERE  IDutilisateur = :id");
 
 $reponse->execute(array('id' => $_SESSION['id']));
 $donnees = $reponse->fetch();
@@ -52,7 +52,7 @@ $nom=$donnees['nom_utilisateur'];
 $prenom=$donnees['prenom_utilisateur'];
 $sexe=$donnees['sexe'];
 $mail=$donnees['adresse_mail'];
-$date_naissance=$donnees['date_de_naissance'];
+$date_naissance=$donnees['date_de_naissance_fr'];
 $dept_residence=$donnees['numero_departement_de_residence'];
 $newsletter=$donnees['accepte_newsletter'];
 $IDimage_profil=$donnees['IDimage_profil'];

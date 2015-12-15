@@ -24,7 +24,7 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-$reponse= $bdd->prepare("SELECT * FROM evenement WHERE  IDevenement = :id");
+$reponse= $bdd->prepare("SELECT *,DATE_FORMAT(date_creation, '%d/%m/%Y') AS date_creation_fr,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,DATE_FORMAT(date_fin, '%d/%m/%Y') AS date_fin_fr FROM evenement WHERE  IDevenement = :id");
 
 $reponse->execute(array('id' => $_GET['id']));
 $donnees = $reponse->fetch();
@@ -37,9 +37,9 @@ $ville=$donnees['ville'];
 $code_postal=$donnees['code_postal_evenement'];
 $pays=$donnees['pays'];
 $complement_adresse=$donnees['complement_adresse'];
-$date_creation=$donnees['date_creation'];
-$date_debut=$donnees['date_debut'];
-$date_fin=$donnees['date_fin'];
+$date_creation=$donnees['date_creation_fr'];
+$date_debut=$donnees['date_debut_fr'];
+$date_fin=$donnees['date_fin_fr'];
 $heure_debut=$donnees['heure_debut'];
 $heure_fin=$donnees['heure_fin'];
 $desc_accueil=$donnees['description_lieu_accueil'];
