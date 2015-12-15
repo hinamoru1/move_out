@@ -11,9 +11,8 @@
                 <ul class="lien_footer">
                     <a href="Qui_sommes_nous.html"><h3>Qui sommes-nous?</h3></a></li><!--
                 --><a href="Forum.html"><h3>Forum</h3></a></li><!--
-                --><a href="Confidentialite.html"><h3>Confidentialité</h3></a></li><!--
+                --><a href="confidentialité.php"><h3>Confidentialité</h3></a></li><!--
                 --></ul>
             </div>
             <h3 class="nom_site_footer">Move-out.com ®</h3>
 </footer>
-
