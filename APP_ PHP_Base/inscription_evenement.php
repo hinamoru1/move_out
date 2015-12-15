@@ -12,9 +12,11 @@ catch(Exception $e)
 
 $IDutilisateur=$_SESSION['id'];
 $IDevenement=$_GET['ide'];
+//$date_inscription=a;
+//$heure_inscription=b;
 
 
-$insert = $bdd->prepare("INSERT INTO  participe(IDevenement,IDutilisateur)  VALUES(?,?)");
+$insert = $bdd->prepare("INSERT INTO  participe(IDevenement,IDutilisateur,date_inscription,heure_inscription)  VALUES(?,?,CURDATE(),CURTIME())");
 $insert->bindParam(1, $IDevenement);
 $insert->bindParam(2, $IDutilisateur);
 //$insert->bindParam(3, $nom_evenement);

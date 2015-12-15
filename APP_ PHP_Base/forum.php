@@ -7,7 +7,9 @@
   </head>
  <h1>
        <p>Derniers sujets </p></h1>
-		
+	  
+  <p><div class="nouveau">
+<button id="nouveau_sujet" type=submit name="nouveau_sujet" >Nouveau Sujet</button></p></div>
 <?php
 try
 {
