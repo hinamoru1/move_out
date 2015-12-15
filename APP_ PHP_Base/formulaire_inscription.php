@@ -45,24 +45,6 @@
                     </ol>
                 </fieldset>
             </li>
-<<<<<<< HEAD
-=======
-            <li>
-            <fieldset>
-                <label>Acceptez-vous de recevoir la newsletter ? :</label>
-                <ol>
-                        <li>
-                            <input id="accepte_newsletter" name="accepte_newsletter" value="1" type=radio checked>
-                            <label for="accepte_newsletter">Oui</label>
-                        </li>
-                        <li>
-                            <input id="accepte_pas_newsletter" name="accepte_newsletter" value="0" type=radio>
-                            <label for="accepte_pas_newsletter">Non</label>
-                        </li>
-                </ol>
-            </li>
-            </fieldset>
->>>>>>> origin/master
         </ol>
         </fieldset>
 	    <fieldset>

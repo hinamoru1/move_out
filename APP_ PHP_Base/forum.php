@@ -6,22 +6,28 @@
 	<link rel="stylesheet" href="CSS_forum.css">
   </head>
  <h1>
-       <p>Derniers sujets </p></h1>
+       <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Derniers sujets </p>
+</h1>
 	  
-  <p><div class="nouveau">
-<button id="nouveau_sujet" type=submit name="nouveau_sujet" >Nouveau Sujet</button></p></div>
-<?php
-try
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=move_out;charset=utf8', 'root', '', 
-               /* La ligne qui suit est à rajouter pour obtenir des informations beaucoup plus précise lors des erreurs SQL*/
-               array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
+<p>
 
+<div class="nouveau">
+<a href="nouveau_sujet.php">
+<button id="nouveau_sujet" type=submit name="nouveau_sujet" >Nouveau Sujet</button>
+
+
+</a>
+
+</div>
+
+</p>
+
+
+
+
+
+
+<?php
 
 $reponse = $bdd-> query('SELECT IDtopic, topic.titre, utilisateur.pseudo, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin\') AS date_creation_fr FROM topic, utilisateur WHERE topic.IDutilisateur = utilisateur.IDutilisateur ORDER BY date_creation DESC LIMIT 0, 5');
 
@@ -33,12 +39,15 @@ while ($donnees = $reponse->fetch() )
 
 <div class="news">
 
-    <h4><a href="topic.php?sujet=<?php echo $donnees['IDtopic']; ?>">
+    <h4>
+	<a href="topic.php?sujet=<?php echo $donnees['IDtopic']; ?>">
 
-        <?php echo htmlspecialchars($donnees['titre']); ?>
-		
-        <em>le <?php echo $donnees['date_creation_fr']; ?></em> &nbsp;par <strong><?php echo htmlspecialchars($donnees['pseudo']); ?></strong></a>
-
+        <?php echo htmlspecialchars($donnees['titre']); ?>		
+        <li>
+			<em>le <?php echo $donnees['date_creation_fr']; ?></em> &nbsp;par 
+			<strong><?php echo htmlspecialchars($donnees['pseudo']); ?></strong>
+		</li>
+	</a>
     </h4>
 
     
@@ -48,7 +57,7 @@ while ($donnees = $reponse->fetch() )
 
     <br />
 
-    <em><a href="topic.php?sujet=<?php echo $donnees['IDtopic']; ?>">Afficher le sujet</a></em>
+    <em><a href="topic.php?sujet=<?php echo $donnees['IDtopic']; ?>" >Afficher le sujet</a></em>
 
     </p>
 
