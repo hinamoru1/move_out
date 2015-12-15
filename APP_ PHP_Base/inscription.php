@@ -12,6 +12,7 @@ session_start();
         <link rel='stylesheet' href='CSSnav.css'>
         <link rel='stylesheet' href='CSSfooter.css'>
         <link rel='stylesheet' href='CSSinscription.css'>
+        <script type="text/javascript" src="fonctionsJS.js"></script>
     </head>
     <body>
         <?php
