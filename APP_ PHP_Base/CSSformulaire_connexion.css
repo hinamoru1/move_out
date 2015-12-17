@@ -184,3 +184,8 @@ form#formulaire_de_connexion button:hover {
 form{
     margin-bottom: 60px;
 }
+
+
+#selection_photo{
+    min-width: 390px;
+}
