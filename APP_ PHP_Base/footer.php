@@ -11,8 +11,6 @@
                 <ul class="lien_footer">
                     <a href="Qui_sommes_nous.html"><h3>Qui sommes-nous?</h3></a></li><!--
                 --><a href="corpsforum.php"><h3>Forum</h3></a></li><!--
-                --><a href="Confidentialite.html"><h3>Confidentialité</h3></a></li><!--
-                --><a href="corpsforum.php"><h3>Forum</h3></a></li><!--
                 --><a href="confidentialité.php"><h3>Confidentialité</h3></a></li><!--
                 --></ul>
             </div>
