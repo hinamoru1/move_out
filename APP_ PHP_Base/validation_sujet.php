@@ -14,7 +14,7 @@ catch(Exception $e)
 
 if(isset($_POST['submit_sujet']))
 {
-		$req = $bdd->prepare('INSERT INTO topic (titre, message, IDutilisateur,date_creation) VALUES(?, ?, ?,CURTIME())');
+		$req = $bdd->prepare('INSERT INTO topic (titre, message_source, IDutilisateur,date_creation) VALUES(?, ?, ?,CURTIME())');
 
 		$req->execute(array($_POST['titre'], $_POST['message'], $_SESSION['id']));
 		

@@ -28,16 +28,24 @@ catch(Exception $e)
 	<p>
 
 	<?php
-$reponse = $bdd-> prepare('SELECT pseudo, titre, message FROM topic, utilisateur WHERE IDtopic = ?');
-$reponse->execute(array($_GET['sujet']));
+$reponse = $bdd-> prepare('SELECT pseudo, titre, message_source,texte FROM topic,messages,utilisateur WHERE messages.IDtopic= ? AND topic.IDtopic = ?');
+$reponse->execute(array($_GET['sujet'], $_GET['sujet']));
 
-$donnees = $reponse->fetch()
+$donnees= $reponse->fetch()
 ?>
 <fieldset>
+	<div class="titre">
 	<h1>
-		Titre : <?php echo htmlspecialchars($donnees['titre']); ?>
+		<?php echo htmlspecialchars($donnees['titre']); ?>
 
 	</h1>
-
-	<?php echo htmlspecialchars($donnees['message']); ?>
+	</div>
 </fieldset>
+	<div class="message">
+
+	<?php echo htmlspecialchars($donnees['message_source']);	?></br>
+	
+	<?php 
+	echo htmlspecialchars($donnees['texte']);
+	?>
+	</div>

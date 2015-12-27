@@ -103,3 +103,13 @@ button {
 	
 	font-size:1.5px;
 }			
+
+fieldset {
+
+		border : none;
+		margin-bottom: 10px;
+}
+.titre{
+	text-align: center;
+	color: black;
+}
