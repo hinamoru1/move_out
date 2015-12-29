@@ -1,6 +1,6 @@
 <nav>
                 <div class="gauche">
-                    <a href="headpage.php"><img class="logo" src="Images/Logocomplet.png" alt="Accueil"/></a>
+                    <a href="index.php"><img class="logo" src="Images/Logocomplet.png" alt="Accueil"/></a>
                 </div>
                 <div class="gauche">
                     <ul>

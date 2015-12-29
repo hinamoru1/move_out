@@ -23,7 +23,7 @@
 	<input type="text" id="titre" name="titre" size=30 placeholder="Votre titre de sujet içi"></br>
 	
 	<label for="message">Votre texte</label></br>
-	<textarea name="message" id="message" rows=20 cols=100 placeholder="Votre message içi"></textarea></br>
+	<textarea name="message" id="message" rows=20 cols=100 placeholder="Votre message ici"></textarea></br>
 	
 	<input type="submit" id="submit_sujet" name="submit_sujet" value="Envoyez">
 		

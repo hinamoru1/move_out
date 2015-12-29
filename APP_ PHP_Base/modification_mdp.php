@@ -10,11 +10,22 @@ session_start();
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel='stylesheet' href='CSSformulaire_connexion.css'>
+        <link rel='stylesheet' href='CSSnav.css'>
+        <link rel='stylesheet' href='CSSfooter.css'>
         <title>Modification du mot de passe</title>
     </head>
     <body>
-
-    <form id=inscription action ="validation_modif_mdp.php" method="post">
+        
+        
+    <?php
+        if (isset($_SESSION['id']))
+        {
+         include_once 'nav_connecte.php';   
+        
+    ?>
+    <br/><br/><br/>
+    <form id=formulaire_de_connexion action ="validation_modif_mdp.php" method="post">
         <fieldset>
             <legend>Entrez votre nouveau mot de passe:</legend>
             <ol>
@@ -30,6 +41,17 @@ session_start();
             <button id=sub_inscr type=submit name=sub_inscr >Valider</button>
 	</fieldset>
     </form>
-        
+    <?php
+    
+    }
+        else 
+        {
+        header('Location:formulaire_connection.php');
+         
+        }
+    include_once 'footer.php';
+    ?>
+    
+    
     </body>
 </html>

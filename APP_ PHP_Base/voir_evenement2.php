@@ -29,6 +29,7 @@ $reponse= $bdd->prepare("SELECT *,DATE_FORMAT(date_creation, '%d/%m/%Y') AS date
 $reponse->execute(array('id' => $_GET['id']));
 $donnees = $reponse->fetch();
 //On définit toutes les variables
+$id=$_GET['id'];
 $nom=$donnees['nom_evenement'];
 $num_rue=$donnees['numero_de_rue'];
 $bis=$donnees['bis'];

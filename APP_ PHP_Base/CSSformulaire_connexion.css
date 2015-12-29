@@ -81,10 +81,10 @@ form#formulaire_de_connexion legend {
     padding-bottom: 10px;
 }
 				
-form#formulaire_de_connexion > fieldset > legend:before {
+/*form#formulaire_de_connexion > fieldset > legend:before {
     content: "Etape " counter(fieldsets) ": ";
     counter-increment: fieldsets;
-}
+}*/
 				
 form#formulaire_de_connexion fieldset fieldset legend {
     color: #111111;

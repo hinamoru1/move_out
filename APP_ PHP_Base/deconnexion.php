@@ -19,5 +19,5 @@ session_destroy();
 </html>
 
 <?php 
-header('Location:headpage.php');
+header('Location:index.php');
     exit();?>
