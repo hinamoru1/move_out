@@ -202,8 +202,8 @@ catch(Exception $e)
     </article>
     
     <!-- Commentaires-->
-    <article>
-        <h2>commentaires</h2>
+    <article class="zone_commentaires">
+        <h2>commentaires :</h2>
         <?php include_once 'commentaires_evenement.php';?>
         <a href="#">gallerie</a>
     </article>

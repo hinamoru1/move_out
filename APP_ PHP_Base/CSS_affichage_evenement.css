@@ -152,3 +152,55 @@ td{
     font-weight: bold;
     text-decoration: underline;
 }
+
+.zone_commentaires{
+    margin-top: 35px;
+}
+
+textarea{
+    width: 80%;
+    height: 50px;
+}
+
+input{
+    margin-left:auto;
+    margin-right: 10%;
+    margin-bottom: 20px;
+    display: block;
+    background-color: #409fb0;
+    color:white;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.billet_commentaire {
+    padding: 4px;
+    font-size: 1.2em;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.billet_commentaire div{
+    display:inline-block;
+}
+
+.billet_commentaire p{
+    display: inline-block;
+    margin: 0px 7px 3px 7px;
+}
+
+#texte{
+    display: block;
+}
+
+.image_auteur{
+    height:60px;
+    width: 60px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    display: inline-block;
+    background-position: 50% 50%;
+    background-size: cover;
+}
