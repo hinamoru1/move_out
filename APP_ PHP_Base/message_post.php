@@ -17,5 +17,5 @@ if(isset($_POST['submit']))
 		$req->execute(array($_SESSION['id'], $_POST['message'],$_GET['sujet']));
 }
 
-header('Location: corpsforum.php');
+header('Location: topic.php?sujet='.$_GET['sujet']);
 ?>
