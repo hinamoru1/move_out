@@ -204,3 +204,7 @@ input{
     background-position: 50% 50%;
     background-size: cover;
 }
+.plus{
+    margin-top: 20px;
+    display:block;
+}
