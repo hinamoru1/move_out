@@ -69,20 +69,6 @@ $_SESSION['id']=$donnees['IDutilisateur'];
 	}
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Inscription terminée.</title>
-    </head>
-    <body>
-        
-        
-        <p>Votre compte a bien été créé. <br/><br/>
-            Cliquez <a href="profil.php">ici</a> pour accéder à votre profil. <br/><br/>
-            Cliquez <a href="headpage.php">ici</a> pour revenir à la page d'accueil.
-        </p>
-    </body>
-</html>
 
 <?php
 header('Location:profil.php');
