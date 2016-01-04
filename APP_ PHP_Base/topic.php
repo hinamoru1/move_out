@@ -28,16 +28,37 @@ catch(Exception $e)
 	<p>
 
 	<?php
-$reponse = $bdd-> prepare('SELECT pseudo, titre, message FROM topic, utilisateur WHERE IDtopic = ?');
+$reponse = $bdd-> prepare('SELECT pseudo, titre, message_source, date_creation FROM topic, utilisateur WHERE topic.IDtopic = ?');
 $reponse->execute(array($_GET['sujet']));
 
-$donnees = $reponse->fetch()
+$donnees= $reponse->fetch()
 ?>
 <fieldset>
+	<div class="titre">
 	<h1>
-		Titre : <?php echo htmlspecialchars($donnees['titre']); ?>
+		<?php echo '<p>'.htmlspecialchars($donnees['titre']). "&nbsp posté par &nbsp " .htmlspecialchars($donnees['pseudo']). '&nbspà&nbsp' .htmlspecialchars($donnees['date_creation']).'</p>' ; ?>
 
 	</h1>
-
-	<?php echo htmlspecialchars($donnees['message']); ?>
+	</div>
 </fieldset>
+	<div class="message">
+
+	<?php echo htmlspecialchars($donnees['message_source']);?></br>
+	
+	<?php 
+	$reponse = $bdd-> prepare('SELECT texte, pseudo FROM messages, utilisateur WHERE utilisateur.IDutilisateur=? , messages.IDtopic = ?');
+	$reponse->execute(array($_GET['sujet'], $_SESSION['id']));
+	while ($donnees= $reponse->fetch())
+	{
+	echo '<p>'.htmlspecialchars($donnees['pseudo']). '&nbsp:&nbsp'.htmlspecialchars($donnees['texte']). '</p>' ;?>  </br>
+	<?php
+	}
+	?>
+	</div>
+	<fieldset>
+	<form action ="message_post.php?sujet=<?php echo $_GET['sujet'] ;?>" method="post">
+	<label for="message">Répondre</label> : <textarea id="message" name="message" type="text" rows=2 >  </textarea> <br />
+	<button id=submit type=submit name=submit >Valider</button> </br>
+	</fieldset>
+	</p>
+	</form>

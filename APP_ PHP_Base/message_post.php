@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=move_out;charset=utf8', 'root', '', 
@@ -11,13 +10,11 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
-
-if(isset($_POST['submit_sujet']))
+if(isset($_POST['submit']))
 {
-		$req = $bdd->prepare('INSERT INTO topic (titre, message_source, IDutilisateur,date_creation) VALUES(?, ?, ?,CURTIME())');
+		$req = $bdd->prepare('INSERT INTO messages (IDutilisateur, texte,IDtopic,date_creation) VALUES(?, ?,?,CURTIME())');
 
-		$req->execute(array($_POST['titre'], $_POST['message'], $_SESSION['id']));
-		
+		$req->execute(array($_SESSION['id'], $_POST['message'],$_GET['sujet']));
 }
 
 header('Location: corpsforum.php');

@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Move-out: Accueil</title>
+        <title>Move-out: évènement</title>
         <link rel='stylesheet' href='CSS_affichage_evenement.css'>
         <link rel='stylesheet' href='CSSnav.css'>
         <link rel='stylesheet' href='CSSfooter.css'>
@@ -29,6 +29,7 @@ $reponse= $bdd->prepare("SELECT *,DATE_FORMAT(date_creation, '%d/%m/%Y') AS date
 $reponse->execute(array('id' => $_GET['id']));
 $donnees = $reponse->fetch();
 //On définit toutes les variables
+$id=$_GET['id'];
 $nom=$donnees['nom_evenement'];
 $num_rue=$donnees['numero_de_rue'];
 $bis=$donnees['bis'];

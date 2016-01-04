@@ -36,7 +36,8 @@
 <section class="affichage_liste">
     <h1>Mes évènements :</h1>
     <a href="formulaire_creation_evenement.php"><p class="bouton">Créer un évènement</p></a>
-    <div>   
+    <div>
+    <table>
 <?php
 //On écrit une boucle qui affiche tous les évènements créés par l'utilisateur
 //On définit une variable qui s'incrémentera de 1 à chaque boucle, les lignes paires seront grises, les impaires sblanches
@@ -45,19 +46,21 @@ while($donnees2 =$reponse2->fetch())
 {
     $style='';
     if($color % 2 ==0){$style=' style="background-color: silver"';}
-    echo '<p'.$style.'>'.$donnees2['nom_evenement'].' &nbsp&nbsp&nbsp&nbsp&nbsp--&nbsp&nbsp&nbsp&nbsp&nbsp '.$donnees2['date_debut'].' &nbsp&nbsp&nbsp&nbsp&nbsp--&nbsp&nbsp&nbsp&nbsp&nbsp '.$donnees2['numero_de_rue'].' '.$donnees2['rue'].', '.$donnees2['ville'].', '.$donnees2['pays'].' &nbsp&nbsp&nbsp&nbsp&nbsp<a class="bouton" href="voir_evenement2.php?id='.$donnees2['IDevenement'].'">&nbsp&nbspVoir&nbsp&nbsp</a></p>';
+    echo '<tr '.$style.'><td>'.$donnees2['nom_evenement'].'</td><td>'.$donnees2['date_debut'].'</td><td>'.$donnees2['numero_de_rue'].' '.$donnees2['rue'].', '.$donnees2['ville'].', '.$donnees2['pays'].'</td><td><a class="bouton" href="voir_evenement2.php?id='.$donnees2['IDevenement'].'">&nbsp&nbspVoir&nbsp&nbsp</a></td>';
     $color+=1;
     }
 //Si aucune boucle n'a été effectuée, on affiche que la requête est vide
 if($color==0){echo '<p>Vous n\'avez encore créé aucun évènement. </p>';}
 ?>  
+    </table>
     </div>
 </section>
 
 <!-- Affichons les évènements auxquels l'utilisateur participe-->
 <section class="affichage_liste">
     <h1>Evènements auxquels je participe :</h1>
-    <div>   
+    <div>
+    <table>
 <?php
 //On écrit une boucle qui affiche tous les évènements créés par l'utilisateur
 //On définit une variable qui s'incrémentera de 1 à chaque boucle, les lignes paires seront grises, les impaires blanches
@@ -66,12 +69,12 @@ while($donnees3 =$reponse3->fetch())
 {
     $style='';
     if($color % 2 ==0){$style=' style="background-color: silver"';}
-    echo '<p'.$style.'>'.$donnees3['nom_evenement'].' &nbsp&nbsp&nbsp&nbsp&nbsp--&nbsp&nbsp&nbsp&nbsp&nbsp '.$donnees3['date_debut'].' &nbsp&nbsp&nbsp&nbsp&nbsp--&nbsp&nbsp&nbsp&nbsp&nbsp '.$donnees3['numero_de_rue'].' '.$donnees3['rue'].', '.$donnees3['ville'].', '.$donnees3['pays'].' &nbsp&nbsp&nbsp&nbsp&nbsp<a class="bouton" href="voir_evenement2.php?id='.$donnees3['IDevenement'].'">&nbsp&nbspVoir&nbsp&nbsp</a></p>';
+    echo '<tr '.$style.'><td>'.$donnees3['nom_evenement'].'</td><td>'.$donnees3['date_debut'].'</td><td>'.$donnees3['numero_de_rue'].' '.$donnees3['rue'].', '.$donnees3['ville'].', '.$donnees3['pays'].'</td><td><a class="bouton" href="voir_evenement2.php?id='.$donnees3['IDevenement'].'">&nbsp&nbspVoir&nbsp&nbsp</a></td>';
     $color+=1;
     }
 //Si aucune boucle n'a été effectuée, on affiche que la requête est vide
 if($color==0){echo '<p>Vous ne participez encore à aucun évènement. </p>';}
-?>  
+?>  </table>
     </div>
     
 </section>
@@ -79,7 +82,8 @@ if($color==0){echo '<p>Vous ne participez encore à aucun évènement. </p>';}
 <!-- Affichons les évènements de la wishlist de l'utilisateur-->
 <section class="affichage_liste">
     <h1>Ma Wishlist :</h1>
-    <div>   
+    <div>
+    <table>
 <?php
 //On écrit une boucle qui affiche tous les évènements créés par l'utilisateur
 //On définit une variable qui s'incrémentera de 1 à chaque boucle, les lignes paires seront grises, les impaires sblanches
@@ -88,13 +92,14 @@ while($donnees4 =$reponse4->fetch())
 {
     $style='';
     if($color % 2 ==0){$style=' style="background-color: silver"';}
-    echo '<p'.$style.'>'.$donnees4['nom_evenement'].' &nbsp&nbsp&nbsp&nbsp&nbsp--&nbsp&nbsp&nbsp&nbsp&nbsp '.$donnees4['date_debut'].' &nbsp&nbsp&nbsp&nbsp&nbsp--&nbsp&nbsp&nbsp&nbsp&nbsp '.$donnees4['numero_de_rue'].' '.$donnees4['rue'].', '.$donnees4['ville'].', '.$donnees4['pays'].' &nbsp&nbsp&nbsp&nbsp&nbsp<a class="bouton" href="voir_evenement2.php?id='.$donnees4['IDevenement'].'">&nbsp&nbspVoir&nbsp&nbsp</a></p>';
+    echo '<tr '.$style.'><td>'.$donnees4['nom_evenement'].'</td><td>'.$donnees4['date_debut'].'</td><td>'.$donnees4['numero_de_rue'].' '.$donnees4['rue'].', '.$donnees4['ville'].', '.$donnees4['pays'].'</td><td><a class="bouton" href="voir_evenement2.php?id='.$donnees2['IDevenement'].'">&nbsp&nbspVoir&nbsp&nbsp</a></td>';
     $color+=1;
     }
 //Si aucune boucle n'a été effectuée, on affiche que la requête est vide
 if($color==0){echo '<p>Vous n\'avez encore ajouté aucun évènement à votre wishlist. </p>';}
 ?>  
     </div>
+    </table>
     
 </section>
 

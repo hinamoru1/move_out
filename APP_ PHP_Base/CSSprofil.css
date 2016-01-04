@@ -78,9 +78,18 @@ fieldset a{
     color:white;
 }
 
-.affichage_liste p{
+.affichage_liste table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.affichage_liste td{
     margin-top: 0;
     margin-bottom: 0;
+    padding: 7px 4px 5px 4px;  
+}
+
+.affichage_liste p{
     padding-top: 7px;
     padding-bottom: 5px;
 }
@@ -89,6 +98,9 @@ fieldset a{
     margin-top: 40px;
 }
 
+a>p :hover{
+    background-color: silver;
+}
 /* Juste pour la page de recheche à laquelle on a appliqué ce CSS*/
 form{
     text-align: center;

@@ -34,8 +34,6 @@ catch(Exception $e)
 			print "<h1><p><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspVous devez être connecté pour accéder au forum</strong></p></h1>";
 		}
 		include_once 'footer.php';
-	
-
         ?>
     </body>
 </html>
