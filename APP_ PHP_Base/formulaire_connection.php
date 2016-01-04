@@ -26,7 +26,7 @@ session_start();
         
         
         
-        <h1>connexion:</h1>
+        <h1>Connexion:</h1>
         <form id ="formulaire_de_connexion"action ="connection.php" method="post" >
                 <fieldset>
                     <ul>

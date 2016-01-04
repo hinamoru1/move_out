@@ -29,16 +29,9 @@ $reponse= $bdd->prepare("SELECT lien FROM multimedia WHERE IDmultimedia =:id");
 $reponse->execute(array('id' => $donnees['IDimage_profil']));
 $donnees2 = $reponse->fetch();
 
-if(isset($donnees2['lien'])){
-unlink($donnees2['lien']);
-}
-
-// Ensuite on supprime l'ancien lien dans la table multimedia
-if(isset($donnees['IDimage_profil']))
-{
-$req = $bdd->prepare('DELETE FROM multimedia WHERE IDmultimedia = :id');
-$req->execute(array('id' => $donnees['IDimage_profil']));
-}
+//Les insructions de suppression de l'ancienne image de profil et de suppression
+//de cette photo de la table multimedia sera faite grâce à ces instruction plus bas,
+//De façon à ce que l'ancienne photo ne soit pas modifiée si il y a un problème dans le chargement de la nouvelle
 
 
 // On teste si le fichier a bien été envoyé et s'il n'y a pas d'erreur
@@ -73,9 +66,21 @@ if (isset($_FILES['photo']) AND $_FILES['photo']['error'] == 0)
 //On execute le changement de photo uniquement si il n'y a eu aucun message d'erreur
 if($erreur==0 AND $taille==0 AND $extension==0)
 {
+    
+//Suppression du fichier de l'ancienne photo
+if(isset($donnees2['lien'])){
+unlink($donnees2['lien']);
+}
+
+// Ensuite on supprime l'ancien lien dans la table multimedia
+if(isset($donnees['IDimage_profil']))
+{
+$req = $bdd->prepare('DELETE FROM multimedia WHERE IDmultimedia = :id');
+$req->execute(array('id' => $donnees['IDimage_profil']));
+}
 
 
-//On ajoute ensuite ce lien dans la table multimédia de la base de données
+//On ajoute ensuite le nouveau lien dans la table multimédia de la base de données
 
 $insert = $bdd->prepare("INSERT INTO multimedia (lien,IDcreateur_multimedia) VALUES (?,?)");
         $insert->bindParam(1, $lien);
@@ -103,10 +108,12 @@ $insert= $bdd->prepare('UPDATE utilisateur SET IDimage_profil=? WHERE IDutilisat
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Modification de la photo de profil</title>
     </head>
     <body>
         <?php echo'<p>Votre nouvelle photo de profil a bien été définie.    <a href="profil.php">OK</a></p>';
+        header('Location:profil.php');
+exit();
 }//Fin de la boucle de réussite de changement de photo
 //On traite maintenant les différents messages 
 elseif ($extension==1) {echo'<p>Votre photo n\'est pas dans un format standard ( .jpg , .jpeg ,.png , .gif). Veuillez <a href="modification_photo_profil.php">reessayer</a></p>';}
