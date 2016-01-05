@@ -1,9 +1,7 @@
-<div>
-
-<h1> Politique de confidentialité du site. <h1>
-
-<h2> Introduction </h2>
-
+<div class="tete">
+<h1> Politique de confidentialité du site <h1>
+</div>
+<div class="texte">
 <p>Devant le développement des nouveaux outils de communication, il est nécessaire de porter une attention particulière à la protection de la vie privée. C'est pourquoi, nous nous engageons à respecter la confidentialité des renseignements personnels que nous collectons.
 Collecte des renseignements personnels </p>
 
@@ -74,3 +72,5 @@ Notre site Web contient des sections destinées aux enfants. La collecte de leur
 <ul>
   <li> Formulaire d'inscription </li>
 </ul>
+
+</div>

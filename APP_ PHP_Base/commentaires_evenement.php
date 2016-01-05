@@ -12,10 +12,31 @@ if(isset($_SESSION['id'])){
 
 <table>
 <?php
+//Gestion de la limitation du nombre de messages affichés
+//De base elle vaut 5
+//Si on demande plus de massages elle vaudra 40
+//Si on en demande encore plus on affiche tout
+//Si l'utilisateur s'amuse à mettre tout autre valeur ça ne marchera pas
+
 //On sélectionne le nom de l'auteur, la date, et le texte des différents commentaires
-$reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC,heure_ajout DESC");
+if(isset($_GET['limite']))
+{
+    if($_GET['limite']==40)
+    {
+       $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC,heure_ajout LIMIT 0,40");
+        $reponse->execute(array('id' => $id)); 
+    }
+    if($_GET['limit']=='tout')
+    {
+        $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC,heure_ajout");
         $reponse->execute(array('id' => $id));
-        
+    }
+}
+else
+{
+$reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC,heure_ajout LIMIT 0,5");
+        $reponse->execute(array('id' => $id));
+}   
         //On colore une fois sur deux les sections de commentaires, grâce à un style qui ne s'applique qu'une fois sur deux
         $color=0;
         while($donnees=$reponse->fetch())
@@ -25,11 +46,16 @@ $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajou
             $reponse2= $bdd->prepare("SELECT pseudo,IDimage_profil FROM utilisateur WHERE  IDutilisateur = :ida");
             $reponse2->execute(array('ida' => $donnees['IDutilisateur']));
             $donnees2 = $reponse2->fetch();
-            
             //On cherche maintenant le lien correspondant
+            
             $reponse3= $bdd->prepare("SELECT lien FROM multimedia WHERE IDmultimedia = :IDphoto");
             $reponse3->execute(array('IDphoto' => $donnees2['IDimage_profil']));
             $donnees3= $reponse3->fetch();
+            
+            if($donnees2['IDimage_profil']==0)
+            {
+                $donnees3['lien']="Images/defaultprofil.png";
+            }
             
             //Définition du style gris une fois sur deux
             $style='';
@@ -43,3 +69,23 @@ $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajou
 if($color==0){echo '<p>Il n\'y a aucun commentaire.</p>';}
 ?>
 </table>
+<div class="boutons_d_interaction">
+<?php
+//On prévoit l'appel de plus de résultats pour les commentaires
+//Si au moins une boucle a été effectuée
+if($color>=1)
+{
+if(isset($_GET['limit']))
+{
+    if($_GET['limit']==40)
+    {
+        echo'<a class="plus" href="voir_evenement2.php?id='.$_GET['id'].'&limit=tout">Afficher tous les commentaires</a><br/>';
+    }
+}
+ else 
+{
+    echo'<a class="plus" href="voir_evenement2.php?id='.$_GET['id'].'&limit=40">Afficher plus de commentaires</a><br/>';
+}
+}
+?>
+</div>
