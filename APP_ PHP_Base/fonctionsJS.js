@@ -1,7 +1,11 @@
-<script type="text/javascript">
+
 
 // fonction qui permet de verifier que deux element contiennent la meme choses
 function verify(element1, element2,faculta){   // La fonction reçois en paramètre les 3 éléments dont un facultatif
+
+		console.log(element1);
+				console.log(element2);
+						console.log(faculta);
         if(typeof faculta === 'undefined'){
 		faculta = 'information'}
         
@@ -30,21 +34,4 @@ function verify(element1, element2,faculta){   // La fonction reçois en paramè
                 confirmation=true;
         return confirmation;
  }
-// fin du script -->
-</script>
 
-
-        
-        
-</head>
-<body>
-
-<form name="form" onSubmit="return verify(this.pass,this.pass2,'mdp')">
-<!-- Sur l'événement onsSubmit on envoie la valeur des 2 champs à la fonction -->
-Entrez votre mot de passe : <input type="text" name="pass">
-Confirmez le mot de passe :<input type="password" name="pass2">
-<input type="submit" value="submit">
-</form>
-
-</body>
-</html>
