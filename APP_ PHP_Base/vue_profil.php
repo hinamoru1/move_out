@@ -13,14 +13,14 @@
             <legend>Informations du profil</legend>
             <?php
             if($admin==1){echo'<p> Vous êtes administrateur. </p>';}
-            if($nom!==''){echo'<p>Nom :  '.$nom.' </p>';}
-            if($prenom!==''){echo'<p>Prenom :  '.$prenom.' </p>';}
+            if($nom!==''){echo'<p>Nom :  '.htmlspecialchars($nom).' </p>';}
+            if($prenom!==''){echo'<p>Prenom :  '.htmlspecialchars($prenom).' </p>';}
             if($sexe==1){echo '<p>Sexe :  Homme</p>';}
             if($sexe==0){echo '<p>Sexe :  Femme</p>';}
-            echo '<p>Pseudo :  '.$pseudo.' </p>';
-            echo '<p>Adresse mail :  '.$mail.' </p>';
-            echo '<p>Date de naissance :  '.$date_naissance.' </p>';
-            if($dept_residence!==0){echo'<p>Departement de résidence :  '.$dept_residence.' </p>';}
+            echo '<p>Pseudo :  '.htmlspecialchars($pseudo).' </p>';
+            echo '<p>Adresse mail :  '.htmlspecialchars($mail).' </p>';
+            echo '<p>Date de naissance :  '.htmlspecialchars($date_naissance).' </p>';
+            if($dept_residence!==0){echo'<p>Departement de résidence :  '.htmlspecialchars($dept_residence).' </p>';}
             if($newsletter==0){echo '<p>Vous n\'acceptez pas de newsletter.<p/>';}
             if($newsletter==1){echo '<p>Vous acceptez la newsletter.<p/>';}
             ?>
@@ -46,7 +46,7 @@ while($donnees2 =$reponse2->fetch())
 {
     $style='';
     if($color % 2 ==0){$style=' style="background-color: silver"';}
-    echo '<tr '.$style.'><td>'.$donnees2['nom_evenement'].'</td><td>'.$donnees2['date_debut'].'</td><td>'.$donnees2['numero_de_rue'].' '.$donnees2['rue'].', '.$donnees2['ville'].', '.$donnees2['pays'].'</td><td><a class="bouton" href="voir_evenement2.php?id='.$donnees2['IDevenement'].'">&nbsp&nbspVoir&nbsp&nbsp</a></td>';
+    echo '<tr '.$style.'><td>'.htmlspecialchars($donnees2['nom_evenement']).'</td><td>'.htmlspecialchars($donnees2['date_debut']).'</td><td>'.htmlspecialchars($donnees2['numero_de_rue']).' '.htmlspecialchars($donnees2['rue']).', '.htmlspecialchars($donnees2['ville']).', '.htmlspecialchars($donnees2['pays']).'</td><td><a class="bouton" href="voir_evenement2.php?id='.htmlspecialchars($donnees2['IDevenement']).'">&nbsp&nbspVoir&nbsp&nbsp</a></td>';
     $color+=1;
     }
 //Si aucune boucle n'a été effectuée, on affiche que la requête est vide
@@ -69,7 +69,7 @@ while($donnees3 =$reponse3->fetch())
 {
     $style='';
     if($color % 2 ==0){$style=' style="background-color: silver"';}
-    echo '<tr '.$style.'><td>'.$donnees3['nom_evenement'].'</td><td>'.$donnees3['date_debut'].'</td><td>'.$donnees3['numero_de_rue'].' '.$donnees3['rue'].', '.$donnees3['ville'].', '.$donnees3['pays'].'</td><td><a class="bouton" href="voir_evenement2.php?id='.$donnees3['IDevenement'].'">&nbsp&nbspVoir&nbsp&nbsp</a></td>';
+    echo '<tr '.$style.'><td>'.htmlspecialchars($donnees3['nom_evenement']).'</td><td>'.htmlspecialchars($donnees3['date_debut']).'</td><td>'.htmlspecialchars($donnees3['numero_de_rue']).' '.htmlspecialchars($donnees3['rue']).', '.htmlspecialchars($donnees3['ville']).', '.htmlspecialchars($donnees3['pays']).'</td><td><a class="bouton" href="voir_evenement2.php?id='.htmlspecialchars($donnees3['IDevenement']).'">&nbsp&nbspVoir&nbsp&nbsp</a></td>';
     $color+=1;
     }
 //Si aucune boucle n'a été effectuée, on affiche que la requête est vide
@@ -92,7 +92,7 @@ while($donnees4 =$reponse4->fetch())
 {
     $style='';
     if($color % 2 ==0){$style=' style="background-color: silver"';}
-    echo '<tr '.$style.'><td>'.$donnees4['nom_evenement'].'</td><td>'.$donnees4['date_debut'].'</td><td>'.$donnees4['numero_de_rue'].' '.$donnees4['rue'].', '.$donnees4['ville'].', '.$donnees4['pays'].'</td><td><a class="bouton" href="voir_evenement2.php?id='.$donnees2['IDevenement'].'">&nbsp&nbspVoir&nbsp&nbsp</a></td>';
+    echo '<tr '.$style.'><td>'.htmlspecialchars($donnees4['nom_evenement']).'</td><td>'.htmlspecialchars($donnees4['date_debut']).'</td><td>'.htmlspecialchars($donnees4['numero_de_rue']).' '.htmlspecialchars($donnees4['rue']).', '.htmlspecialchars($donnees4['ville']).', '.htmlspecialchars($donnees4['pays']).'</td><td><a class="bouton" href="voir_evenement2.php?id='.htmlspecialchars($donnees4['IDevenement']).'">&nbsp&nbspVoir&nbsp&nbsp</a></td>';
     $color+=1;
     }
 //Si aucune boucle n'a été effectuée, on affiche que la requête est vide

@@ -44,7 +44,7 @@ while ($donnees = $reponse->fetch() )
 
         <?php echo htmlspecialchars($donnees['titre']); ?>		
         <li>
-			<em>le <?php echo $donnees['date_creation_fr']; ?></em> &nbsp;par 
+			<em>le <?php echo htmlspecialchars($donnees['date_creation_fr']); ?></em> &nbsp;par 
 			<strong><?php echo htmlspecialchars($donnees['pseudo']); ?></strong>
 		</li>
 	</a>
@@ -57,7 +57,7 @@ while ($donnees = $reponse->fetch() )
 
     <br />
 
-    <em><a href="topic.php?sujet=<?php echo $donnees['IDtopic']; ?>" >Afficher le sujet</a></em>
+    <em><a href="topic.php?sujet=<?php echo htmlspecialchars($donnees['IDtopic']); ?>" >Afficher le sujet</a></em>
 
     </p>
 

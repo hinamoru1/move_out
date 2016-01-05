@@ -87,7 +87,7 @@ catch(Exception $e)
         $reponse->execute(array('id' => $IDmultimedia));
         $donnees = $reponse->fetch();
         
-        $lien_image_evenement=$donnees['lien'];
+        $lien_image_evenement=  htmlspecialchars($donnees['lien']);
         //echo $lien_image_evenement;
         }
         ?>

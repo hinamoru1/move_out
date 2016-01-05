@@ -19,22 +19,22 @@ if(isset($_SESSION['id'])){
 //Si l'utilisateur s'amuse à mettre tout autre valeur ça ne marchera pas
 
 //On sélectionne le nom de l'auteur, la date, et le texte des différents commentaires
-if(isset($_GET['limite']))
+if(isset($_GET['limit']))
 {
-    if($_GET['limite']==40)
+    if($_GET['limit']==40)
     {
-       $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC,heure_ajout LIMIT 0,40");
+       $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout_fr, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC, heure_ajout DESC LIMIT 0,40");
         $reponse->execute(array('id' => $id)); 
     }
     if($_GET['limit']=='tout')
     {
-        $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC,heure_ajout");
+        $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout_fr, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC, heure_ajout DESC");
         $reponse->execute(array('id' => $id));
     }
 }
 else
 {
-$reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC,heure_ajout LIMIT 0,5");
+$reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout_fr, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC, heure_ajout DESC LIMIT 0,5");
         $reponse->execute(array('id' => $id));
 }   
         //On colore une fois sur deux les sections de commentaires, grâce à un style qui ne s'applique qu'une fois sur deux
@@ -62,8 +62,15 @@ $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajou
             if($color % 2 ==0){$style=' style="background-color: silver"';}
             $color+=1;
             
+            //On s'occupe de sécuriser les variebles de l'affichage
+            $donnees3['lien']=  htmlspecialchars($donnees3['lien']);
+            $donnees['date_ajout_fr'] = htmlspecialchars($donnees['date_ajout_fr']);
+            $donnees['heure_ajout']= htmlspecialchars($donnees['heure_ajout']);
+            $donnees2['pseudo']= htmlspecialchars($donnees2['pseudo']);
+            $donnees['texte']= htmlspecialchars($donnees['texte']);
+            
             //On peut maintenant afficher la ligne correspondant au commmentaire
-            echo '<tr class="billet_commentaire" '.$style.'><td class="image_auteur" style="background-image:url(\''.$donnees3['lien'].'\')"></td><td><div id="texte"><p>'.$donnees['date_ajout'].'</p><p>'.$donnees['heure_ajout'].'</p></div><div id="texte"><p>'.$donnees2['pseudo'].' :</p><p>'.$donnees['texte'].'</p></div></td></tr>';
+            echo '<tr class="billet_commentaire" '.$style.'><td class="image_auteur" style="background-image:url(\''.$donnees3['lien'].'\')"></td><td><div id="texte"><p>'.$donnees['date_ajout_fr'].'</p><p>'.$donnees['heure_ajout'].'</p></div><div id="texte"><p>'.$donnees2['pseudo'].' :</p><p>'.$donnees['texte'].'</p></div></td></tr>';
         }
 //Si aucune boucle n'a été effectuée, on affiche qu'il n'y a aucun commentaire pour cet évènement
 if($color==0){echo '<p>Il n\'y a aucun commentaire.</p>';}

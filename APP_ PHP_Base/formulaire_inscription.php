@@ -2,7 +2,7 @@
 	<div class="titre">
     <h1>Formulaire d'Inscription :</h1>
 	</div>
-    <form id="inscription" action="validation_inscription.php" method="post" onSubmit="return verify(this.mot_de_passe,this.mot_de_passe_conf,'mdp')">
+    <form id="inscription" action="validation_inscription.php" method="post" onSubmit="return verify(this.mot_de_passe,this.mot_de_passe_conf,'mdp'),verify(this.email,this.conf_email,'mail')">
 	
       <fieldset>
         <legend>Votre identité</legend>

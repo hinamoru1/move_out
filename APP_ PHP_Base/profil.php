@@ -46,16 +46,16 @@ $donnees = $reponse->fetch();
 
 //On définit des variables contenant les informations sur le site
 
-$admin=$donnees['admin'];
-$pseudo=$donnees['pseudo'];
-$nom=$donnees['nom_utilisateur'];
-$prenom=$donnees['prenom_utilisateur'];
-$sexe=$donnees['sexe'];
-$mail=$donnees['adresse_mail'];
-$date_naissance=$donnees['date_de_naissance_fr'];
-$dept_residence=$donnees['numero_departement_de_residence'];
-$newsletter=$donnees['accepte_newsletter'];
-$IDimage_profil=$donnees['IDimage_profil'];
+$admin=htmlspecialchars($donnees['admin']);
+$pseudo=htmlspecialchars($donnees['pseudo']);
+$nom=htmlspecialchars($donnees['nom_utilisateur']);
+$prenom=htmlspecialchars($donnees['prenom_utilisateur']);
+$sexe=htmlspecialchars($donnees['sexe']);
+$mail=htmlspecialchars($donnees['adresse_mail']);
+$date_naissance=htmlspecialchars($donnees['date_de_naissance_fr']);
+$dept_residence=htmlspecialchars($donnees['numero_departement_de_residence']);
+$newsletter=htmlspecialchars($donnees['accepte_newsletter']);
+$IDimage_profil=htmlspecialchars($donnees['IDimage_profil']);
 
 /*test
 echo $admin . '<br/>';

@@ -43,15 +43,15 @@ $donnees = $reponse->fetch();
 
 //On définit des variables contenant les informations sur le site
 
-$pseudo=$donnees['pseudo'];
-$nom=$donnees['nom_utilisateur'];
-$prenom=$donnees['prenom_utilisateur'];
-$sexe=$donnees['sexe'];
-$mail=$donnees['adresse_mail'];
-$mdp=$donnees['mot_de_passe'];
-$date_naissance=$donnees['date_de_naissance'];
-$dept_residence=$donnees['numero_departement_de_residence'];
-$newsletter=$donnees['accepte_newsletter'];
+$pseudo=htmlspecialchars($donnees['pseudo']);
+$nom=htmlspecialchars($donnees['nom_utilisateur']);
+$prenom=htmlspecialchars($donnees['prenom_utilisateur']);
+$sexe=htmlspecialchars($donnees['sexe']);
+$mail=htmlspecialchars($donnees['adresse_mail']);
+$mdp=htmlspecialchars($donnees['mot_de_passe']);
+$date_naissance=htmlspecialchars($donnees['date_de_naissance']);
+$dept_residence=htmlspecialchars($donnees['numero_departement_de_residence']);
+$newsletter=htmlspecialchars($donnees['accepte_newsletter']);
 
 
 // On inclue le formulaire de modification
