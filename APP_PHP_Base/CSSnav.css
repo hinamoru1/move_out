@@ -4,6 +4,11 @@
     margin-left:7%;
 }
 
+.home{
+    padding-bottom: 6px;
+    margin-left:2em;
+}
+
 nav img{
     width:55px;
     margin-top: 9px;
@@ -16,6 +21,7 @@ nav img{
 
 .gauche a{
     padding-left:1em;
+    display: inline-block;
 }
 
 .droite{
