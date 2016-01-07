@@ -35,7 +35,7 @@
 <!-- Affichons les évènements créés par l'utilisateur-->
 <section class="affichage_liste">
     <h1>Mes évènements :</h1>
-    <a href="formulaire_creation_evenement.php"><p class="bouton">Créer un évènement</p></a>
+    <a href="creation_evenement.php"><p class="bouton">Créer un évènement</p></a>
     <div>
     <table>
 <?php

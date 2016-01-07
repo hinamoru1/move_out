@@ -8,15 +8,15 @@ session_start();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Inscription</title>
+        <title>creation d'evenement</title>
         <link rel='stylesheet' href='CSSnav.css'>
         <link rel='stylesheet' href='CSSfooter.css'>
-        <link rel='stylesheet' href='CSSinscription.css'>
+        <link rel='stylesheet' href='CSSformulaire.css'>
     </head>
     <body>
         <?php
         include_once 'nav_non_connecte.php';
-        include_once 'formulaire_creation_evenement.php';
+        include_once 'formulaire_creation_evenement1.php';
         include_once 'footer.php';
         ?>
     </body>

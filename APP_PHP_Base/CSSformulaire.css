@@ -1,0 +1,175 @@
+@font-face{
+    font-family: 'Police';
+    src: url('introheadr-base-webfont.ttf');
+}
+
+@font-face{
+    font-family: 'Police2';
+    src: url('introrustg-base2line-webfont.ttf');
+}
+
+body{
+    background-image: url('Images/Fond2.jpg');
+    background-color:#F5F5F5;
+    margin:0;
+    font-family: Police;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/*form{
+    min-width: 300px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}*/
+
+
+
+html, body, h1, form, fieldset, legend, ol, li {
+	margin: auto;
+	padding: auto;
+	}
+
+.titre{
+	text-align: center;
+	color: black;
+}
+
+h1 {
+    font-size: 28px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+	
+.formulaire {
+    background: #409fb0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    counter-reset: fieldsets;
+    padding: 20px;
+    min-width: 300px;
+    max-width:400px;
+		}
+		
+.formulaire fieldset{
+    border: none;
+    margin-bottom: 10px;
+}
+		
+.formulaire fieldset:last-of-type {
+    margin-bottom: 0;
+}
+
+.formulaire legend {
+    color: #384313;
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+				
+.formulaire > fieldset > legend:before {
+    content: "Etape " counter(fieldsets) ": ";
+    counter-increment: fieldsets;
+}
+				
+.formulaire fieldset fieldset legend {
+    color: #111111;
+    font-size: 13px;
+    font-weight: normal;
+    padding-bottom: 0;
+}
+			
+.formulaire ol li {
+    background: #409fb0;
+    background: #409fb0;
+    border-color: #e3ebc3;
+    border-color: rgba(255,255,255,.6);
+    border-style: solid;
+    border-width: 2px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    line-height: 30px;
+    list-style: none;
+    padding: 5px 10px;
+    margin-bottom: 2px;
+}
+							
+.formulaire ol ol li {
+    background: none;
+    border: none;
+    float: left;
+}
+			
+.formulaire label {
+float: left;
+font-size: 16px;
+width: 200px;
+}
+				
+.formulaire fieldset fieldset label {
+background:none no-repeat left 50%;
+line-height: 20px;
+padding: 0 0 0 30px;
+width: auto;
+}
+			
+				
+.formulaire input:not([type=radio]),
+.formulaire textarea {
+    background: #ffffff;
+    border: none;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    font: italic 13px Georgia, "Times New Roman", Times, serif;
+    outline: none;
+    padding: 5px;
+    width: 200px;
+}
+					
+.formulaire input:not([type=submit]):focus,
+.formulaire textarea:focus {
+background: #eaeaea;
+}
+					
+.formulaire input[type=radio] {
+    float: left;
+    margin-left: 5px;
+}
+						
+.formulaire button {
+    background: grey;
+    border: none;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    color: #ffffff;
+    display: block;
+    font: 18px Georgia, "Times New Roman", Times, serif;
+    letter-spacing: 1px;
+    margin: auto;
+    padding: 7px 25px;
+    text-shadow: 0 1px 1px #000000;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+					
+.formulaire button:hover {
+    background: yellowgreen;
+    cursor: pointer;
+}

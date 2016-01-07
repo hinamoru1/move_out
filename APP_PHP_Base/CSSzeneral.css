@@ -1,0 +1,566 @@
++@font-face{
+ +    font-family: 'Police';
+ +    src: url('introheadr-base-webfont.ttf');
+ +}
+ +
+ +@font-face{
+ +    font-family: 'Police2';
+ +    src: url('introrustg-base2line-webfont.ttf');
+ +}
+ +body{
+ +	background-image: url('Images/Fond2.jpg');
+ +    background-color:#E6E6E6;
+ +    margin:0;
+ +    font-family: Police;
+ +}
+ +
+ +a{
+ +    text-decoration: none;
+ +    
+ +}
+ +
+ +a:hover{
+ +    text-decoration: underline;
+ +}
+ +
+ +html, body, h1, form, fieldset, legend {
+ +	margin: auto;
+ +	padding: auto;
+ +	}
+ +
+ +.titre{
+ +	text-align: center;
+ +	color: black;
+ +}
+ +
+ +h1 {
+ +    font-size: 28px;
+ +    margin-top:20px;
+ +    margin-bottom: 20px;
+ +	text-align: center;
+ +	color: black;
+ +}
+ +/* partie formulaire
+ +___________________________________________________________________________________________________________________________________________________________*/	
+ +form#formulaire_de_connexion, form#inscription, form#formulaire_creation_evenement, .modif {
+ +    background: #409fb0;
+ +    -moz-border-radius: 5px;
+ +    -webkit-border-radius: 5px;
+ +    -khtml-border-radius: 5px;
+ +    border-radius: 5px;
+ +    counter-reset: fieldsets;
+ +    padding: 20px;
+ +    min-width: 300px;
+ +    max-width:400px;
+ +		}
+ +		
+ +form#formulaire_de_connexion fieldset, form#inscription fieldset, form#formulaire_creation_evenement fieldset, .modif fieldset{
+ +    border: none;
+ +    margin-bottom: 10px;
+ +}
+ +		
+ +form#formulaire_de_connexion fieldset:last-of-type, form#inscription fieldset:last-of-type, form#formulaire_creation_evenement fieldset:last-of-type, .modif fieldset:last-of-type  {
+ +    margin-bottom: 0;
+ +}
+ +
+ +form#formulaire_de_connexion legend, form#inscription legend,form#formulaire_creation_evenement legend, .modif legend {
+ +    color: #384313;
+ +    font-size: 22px;
+ +    font-weight: bold;
+ +    padding-bottom: 10px;
+ +}
+ +				
+ +form#formulaire_de_connexion > fieldset > legend:before, form#inscription > fieldset > legend:before, form#formulaire_creation_evenement > fieldset > legend:before, .modif> fieldset > legend:before  {
+ +    content: "Etape " counter(fieldsets) ": ";
+ +    counter-increment: fieldsets;
+ +}
+ +				
+ +form#formulaire_de_connexion fieldset fieldset legend,form#inscription fieldset fieldset legend,form#formulaire_creation_evenement fieldset fieldset legend, .modif fieldset fieldset legend {
+ +    color: #111111;
+ +    font-size: 13px;
+ +    font-weight: normal;
+ +    padding-bottom: 0;
+ +}
+ +			
+ +form#formulaire_de_connexion ol li, form#inscription ol li, form#formulaire_creation_evenement ol li, .modif ol li {
+ +    background: #409fb0;
+ +    border-color: #e3ebc3;
+ +    border-color: rgba(255,255,255,.6);
+ +    border-style: solid;
+ +    border-width: 2px;
+ +    -moz-border-radius: 5px;
+ +    -webkit-border-radius: 5px;
+ +    -khtml-border-radius: 5px;
+ +    border-radius: 5px;
+ +    line-height: 30px;
+ +    list-style: none;
+ +    padding: 5px 10px;
+ +    margin-bottom: 2px;
+ +}
+ +							
+ +form#formulaire_de_connexion ol ol li, form#formulaire_de_connexion ol ol li, form#formulaire_de_connexion ol ol li , .modif ol ol li{
+ +    background: none;
+ +    border: none;
+ +    float: left;
+ +}
+ +			
+ +form#formulaire_de_connexion label, form#inscription label, form#formulaire_creation_evenement label, .modif label{
+ +float: left;
+ +font-size: 16px;
+ +width: 200px;
+ +}
+ +				
+ +form#formulaire_de_connexion fieldset fieldset label, form#inscription fieldset fieldset label, form#formulaire_creation_evenement fieldset fieldset label, .modif fieldset label {
+ +background:none no-repeat left 50%;
+ +line-height: 20px;
+ +padding: 0 0 0 0;
+ +width: auto;
+ +
+ +}
+ +			
+ +				
+ +form#formulaire_de_connexion input:not([type=radio]),form#inscription input:not([type=radio]),form#formulaire_creation_evenement input:not([type=radio]), .modif input:not([type=radio]),
+ +form#formulaire_de_connexion textarea,form#inscription textarea,form#formulaire_creation_evenement textarea, .modif textarea {
+ +    background: #ffffff;
+ +    border: none;
+ +    -moz-border-radius: 3px;
+ +    -webkit-border-radius: 3px;
+ +    -khtml-border-radius: 3px;
+ +    border-radius: 3px;
+ +    font: italic 13px Georgia, "Times New Roman", Times, serif;
+ +    outline: none;
+ +    padding: 5px;
+ +    width: 200px;
+ +}
+ +					
+ +form#formulaire_de_connexion input:not([type=submit]):focus, form#inscription input:not([type=submit]):focus, form#formulaire_creation_evenement input:not([type=submit]):focus, .modif input:not([type=submit]):focus,
+ +form#formulaire_de_connexion textarea:focus, form#inscription textarea:focus, form#formulaire_creation_evenement textarea:focus, .modif textarea:focus {
+ +background: #eaeaea;
+ +}
+ +					
+ +form#formulaire_de_connexion input[type=radio], form#inscription input[type=radio], form#formulaire_creation_evenement input[type=radio], .modif input[type=radio] {
+ +    margin-left: 5px;
+ +}
+ +
+ +					
+ +form#formulaire_de_connexion button:hover, form#inscription button:hover, form#formulaire_creation_evenement button:hover, .modif button:hover {
+ +    background: yellowgreen;
+ +    cursor: pointer;
+ +	
+ +}
+ +
+ +form#formulaire_de_connexion button, form#inscription button, form#formulaire_creation_evenement button, .modif button{
+ +	 background: grey;
+ +    border: none;
+ +    -moz-border-radius: 20px;
+ +    -webkit-border-radius: 20px;
+ +    -khtml-border-radius: 20px;
+ +    border-radius: 20px;
+ +    color: #ffffff;
+ +    display: block;
+ +    font: 18px Georgia, "Times New Roman", Times, serif;
+ +    letter-spacing: 1px;
+ +    margin: auto;
+ +    padding: 7px 25px;
+ +    text-shadow: 0 1px 1px #000000;
+ +    text-transform: uppercase;
+ +    margin-top: 25px;
+ +}
+ +
+ +
+ +#unPeuPlusBas{
+ +    margin-top:4px;
+ +}
+ +
+ +form{
+ +    margin-bottom: 60px;
+ +}
+ +/* partie footer
+ +___________________________________________________________________________________________________________________________________________________________*/
+ +
+ +
+ +footer {
+ +	background-color:rgb(40,40,40);
+ +	width:100%;
+ +    display: inline-block;
+ +}
+ +footer a h3{
+ +	text-align:center;
+ +	color:#409fb0; 
+ +      	display:inline;
+ +}
+ +footer a h3:hover{
+ +    text-decoration:underline;
+ +}
+ +
+ +
+ +footer img{
+ +	height:35px;
+ +	width:35px;
+ +	margin:0px 10px;
+ +}
+ +.footer_petite_page{
+ +	position: absolute;
+ +	bottom: 0px;
+ +}
+ +.image_footer{
+ +    width: 30%;
+ +    float: left;
+ +}
+ +.lien_footer{
+ +    width: 30%;
+ +    float:right;
+ +}
+ +.lien_footer h3{
+ +        margin:1em;
+ +}
+ +.nom_site_footer{
+ +    text-align: center;
+ +    color:#409fb0;
+ +    padding-bottom:10px;
+ +} 
+ +
+ +/* partie nav accueil
+ +___________________________________________________________________________________________________________________________________________________________*/
+ +
+ +.navaccueil{
+ +
+ +    background-color: rgba(0,0,0,0.4);
+ +}
+ +
+ +/* partie nav
+ +___________________________________________________________________________________________________________________________________________________________*/
+ +.logo{
+ +    margin-top: 10px;
+ +    width:140px;
+ +    margin-left:7%;
+ +}
+ +
+ +nav img{
+ +    width:55px;
+ +    margin-top: 9px;
+ +    margin-right: -15px;
+ +}
+ +
+ +.gauche{
+ +    float:left;
+ +}
+ +
+ +.gauche a{
+ +    padding-left:1em;
+ +}
+ +
+ +.droite{
+ +    float:right;
+ +}
+ +
+ +.droite a{
+ +    padding-right:1em;
+ +    margin-right: 1em;
+ +}
+ +
+ +nav li{
+ +    display:inline-block;
+ +    margin-top: 9px;
+ +}
+ +
+ +nav a{
+ +    color:white;
+ +    font-size:1.5em;
+ +    font-weight: bold;
+ +    text-transform:uppercase;
+ +}
+ +
+ +nav{
+ +    display: inline-block;
+ +    width:100%;
+ +    background-color: rgb(40,40,40);
+ +}
+ +
+ +/* partie profil
+ +___________________________________________________________________________________________________________________________________________________________*/
+ +header{
+ +    text-align: center;
+ +    width:100%;
+ +    margin-left: 0px;
+ +    margin-top: -36px;
+ +    height:16em;
+ +    text-shadow: 3px 3px 5px #777;
+ +}
+ +
+ +section_infos, affichage_liste {
+ +    font-size:19px;
+ +    padding-left:17%;
+ +    padding-right: 17%;
+ +    text-align: center;
+ +    margin-bottom: 70px;
+ +}
+ +
+ +.affichage{
+ +    display: inline-block;
+ +    padding-left: 30%;
+ +    padding-top: 10px;
+ +}
+ +
+ +
+ +/* Afin de redimentionner l'image pour qu'elle s'affiche toujours avec les mêmes dimension, en coupant ce qui dépasse'*/
+ +.image_profil{
+ +    margin-top: 10px;
+ +    display: inline-block;
+ +    height: 250px;
+ +    width: 208px;
+ +    background-position: 50% 50%;
+ +    background-size: cover;
+ +    
+ +}
+ +
+ +.infos{
+ +
+ +    display: inline-block;
+ +    padding-left:7%;
+ +    min-width:300px;
+ +    
+ +}
+ +
+ +.bouton{
+ +    color:white;
+ +    background-color: #409fb0;
+ +    border-radius: 5px;
+ +    max-width: 300px;
+ +    margin-left: auto;
+ +    margin-right: auto;
+ +}
+ +
+ +fieldset a{
+ +    color:white;
+ +}
+ +
+ +.affichage_liste p{
+ +    margin-top: 0;
+ +    margin-bottom: 0;
+ +    padding-top: 7px;
+ +    padding-bottom: 5px;
+ +	text-align: center;
+ +}
+ +
+ +.affichage_liste div{
+ +    margin-top: 40px;
+ +}
+ +
+ +
+ +
+ +/* partie carroucel
+ +___________________________________________________________________________________________________________________________________________________________*/
+ +
+ +#slideshow {
+ +    position: relative;
+ +    width: 1200px;
+ +    height: 500px;
+ +    padding: 15px;
+ +    margin: 0 auto 1em;
+ +    margin-bottom: 45px;
+ +    top: 80px;
+ +}
+ + 
+ +
+ +#slideshow:before,
+ +#slideshow:after {
+ +    position: absolute;
+ +    bottom:16px;
+ +    z-index: -10;
+ +    width: 50%;
+ +    height: 20px;
+ +    content: " ";
+ +    background: rgba(0,0,0,0);
+ +    border-radius: 75%;
+ +    box-shadow: 0 0 0px rgba(0,0,0, 0.4), 0 20px 10px  rgba(0,0,0, 0.7); 
+ +}
+ +#slideshow:before {
+ +    left:0;
+ +    transform: rotate(-4deg);
+ +}
+ +#slideshow:after {
+ +    right:0;
+ +    transform: rotate(4deg);
+ +}
+ +
+ +/* gestion des dimensions et débordement du conteneur */
+ +#slideshow .container {
+ +    position:relative;
+ +    width: 1200px;
+ +    height: 500px;
+ +    overflow: hidden;
+ +}
+ +    
+ +/* on prévoit un petit espace gris pour la timeline */
+ +#slideshow .container:after {
+ +    position:absolute;
+ +    bottom: 0; left:0;
+ +    content: " ";
+ +    width: 100%;
+ +    height: 1px;
+ +   /* background: #999; */
+ +}
+ +/* 
+ +   le conteneur des slides
+ +   en largeur il fait 100% x le nombre de slides
+ +*/
+ +#slideshow .slider {
+ +    position: absolute;
+ +    left:0; top:0;
+ +    width: 400%;
+ +    height: 500px;
+ +}
+ +
+ +/* annulation des marges sur figure */
+ +#slideshow figure {
+ +    position:relative;
+ +    display:inline-block;
+ +    padding:0; margin:0;
+ +}
+ +/* petit effet de vignette sur les images */
+ +#slideshow figure:after {
+ +    position: absolute;
+ +    display:block;
+ +    content: " ";
+ +    top:0; left:0;
+ +    width: 100%; height: 100%;
+ +    box-shadow: 0 0 65px rgba(0,0,0, 0.5) inset;
+ +}
+ +
+ +/* fonction d'animation, n'oubliez pas de prefixer ! */
+ +@keyframes slider {
+ +    0%, 20%, 100%   { left: 0 }
+ +    25%, 45%        { left: -100% }
+ +    50%, 70%        { left: -200% }
+ +    75%, 95%        { left: -300% }
+ +}
+ +
+ +/* complétez le sélecteur : */
+ +#slideshow .slider {
+ +    /* ... avec la propriété animation */
+ +    animation: slider 17s infinite;
+ +}
+ +
+ +.slider img{
+ +background-size: cover;
+ +background-position: 50% 50%;
+ +}
+ +
+ +/* partie page accueil 
+ +___________________________________________________________________________________________________________________________________________________________*/
+ +
+ +.conteneur{
+ +    display: block;
+ +    text-align: center;
+ +    font-size: 2em;
+ +    margin-top: -15px;
+ +    border-radius: 5px;
+ +}
+ +
+ +.conteneur>display>li{
+ +    display:inline;
+ +}
+ +
+ +.petit_conteneur{
+ +    display:inline-table;
+ +    width: 25%;
+ +    background-color: rgb(40,40,40);
+ +    margin-top: 2em;
+ +    border-radius: 5px;
+ +}
+ +
+ +.petit_conteneur h3{
+ +    color:#409fb0;
+ +}
+ +
+ +.petit_conteneur p{
+ +    color:white;
+ +}
+ +
+ +.suggestion-évènement{
+ +    width:85%;
+ +    background-repeat: no-repeat;
+ +    background-size: cover;
+ +    height: 10em;
+ +    margin-left: auto;
+ +    margin-right: auto;
+ +    margin-bottom: 2em;
+ +    border: 3px solid black;
+ +}
+ +
+ +#e-un{
+ +    background-image: url('Images/PSGReal.jpg');
+ +}
+ +
+ +#e-deux{
+ +    background-image: url('Images/ColorRun.jpg');
+ +}
+ +
+ +.suggestion-évènement h3{
+ +    color:black;
+ +    padding: 2px 5px 5px 2px;
+ +    font-size:1.2em;
+ +    background-color: rgba(255,255,255,0.4);
+ +    display:inline-block; 
+ +}
+ +
+ +.titre{
+ +    margin-left: 1em;
+ +}
+ +
+ +.lieu{
+ +    margin-left: 2.5em;
+ +    margin-right: 2.5em;
+ +}
+ +
+ +.date{
+ +    margin-right: 1em;
+ +}
+ +
+ +.suggestion-ville{
+ +    display: inline-block;
+ +    background-repeat: no-repeat;
+ +    background-size: cover;
+ +    width: 40%;
+ +    height:10em;
+ +    margin-bottom: 2em;
+ +    border: 3px solid black;
+ +}
+ +
+ +.suggestion-ville h3{
+ +    background-color: rgba(255,255,255,0.4);
+ +    display: inline-block;
+ +    margin-top: 10px;
+ +    padding:2px 5px 2px 5px;
+ +    font-size: 2em;
+ +}
+ +
+ +.plus{
+ +    color:#409fb0;
+ +    display:block;
+ +    margin-top:-40px;
+ +    margin-bottom: 50px;
+ +}
+ +
+ +#v-un{
+ +    background-image: url('Images/Paris.jpg');
+ +    margin-right: 30px;
+ +}
+ +
+ +#v-deux{
+ +    background-image: url('Images/Lyon.jpg');
+ +    margin-left: 27px;
+ +}
+ +
+ +
+ +header h1{
+ +    font-size:3em;
+ +    padding-top:110px;
+ +    text-align:center;
+ +}
+ +
+ +header p{
+ +    padding-left: 60%;
+ +    font-size: 1.4em;
+ +}
