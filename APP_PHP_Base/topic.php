@@ -18,7 +18,7 @@ catch(Exception $e)
         <link rel='stylesheet' href='CSSglobalAccueil.css'>
         <link rel='stylesheet' href='CSSnav.css'>
         <link rel='stylesheet' href='CSSfooter.css'>
-		<link rel='stylesheet' href='CSSforum.css'>
+        <link rel='stylesheet' href='CSSforum.css'>
         <script type="text/javascript" src="fonctionsJS.js"></script>
     </head>
     <body>
@@ -81,3 +81,5 @@ $donnees= $reponse->fetch()
 	</fieldset>
 	</p>
 	</form>
+    </body>
+</html>

@@ -1,31 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Forum</title>
+    <head>
+        <meta charset="utf-8" />
+        <title>Forum</title>
 	<link rel="stylesheet" href="CSS_forum.css">
-  </head>
- <h1>
-       <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Derniers sujets </p>
-</h1>
+    </head>
+    <body>
+        <h1>Derniers sujets :</h1>
 	  
-<p>
-
-<div class="nouveau">
-<a href="nouveau_sujet.php">
-<button id="nouveau_sujet" type=submit name="nouveau_sujet" >Nouveau Sujet</button>
-
-
-</a>
-
-</div>
-
-</p>
-
-
-
-
-
+        <div class="nouveau">
+            <a href="nouveau_sujet.php"><button id="nouveau_sujet" type=submit name="nouveau_sujet" >Nouveau Sujet</button></a>
+        </div>
 
 <?php
 
@@ -38,29 +23,22 @@ while ($donnees = $reponse->fetch() )
 ?>
 
 <div class="news">
-
-    <h4>
-	<a href="topic.php?sujet=<?php echo $donnees['IDtopic']; ?>">
-
-        <?php echo htmlspecialchars($donnees['titre']); ?>		
-        <li>
-			<em>le <?php echo htmlspecialchars($donnees['date_creation_fr']); ?></em> &nbsp;par 
-			<strong><?php echo htmlspecialchars($donnees['pseudo']); ?></strong>
-		</li>
-	</a>
-    </h4>
-
-    
-
-    <p>
-
-
-    <br />
-
-    <em><a href="topic.php?sujet=<?php echo htmlspecialchars($donnees['IDtopic']); ?>" >Afficher le sujet</a></em>
-
-    </p>
-
+    <table>
+        <tr>
+            <td>
+                <h4>
+                    <?php echo htmlspecialchars($donnees['titre']); ?>		
+                    <li>
+                        <em>le <?php echo htmlspecialchars($donnees['date_creation_fr']); ?></em> &nbsp;par 
+                        <strong><?php echo htmlspecialchars($donnees['pseudo']); ?></strong>
+                    </li>
+                </h4>
+            </td>
+            <td class="lien">
+                <a href="topic.php?sujet=<?php echo htmlspecialchars($donnees['IDtopic']); ?>" ><em>Afficher le sujet</em></a>
+            </td>
+        </tr>
+    </table>
 </div>
 
 <?php

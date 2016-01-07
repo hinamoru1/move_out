@@ -112,9 +112,9 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
                 }
                 $reponse = $bdd->query('SELECT DISTINCT * FROM categorie_evenement');
             ?>
+			<ol>
 	        <li>
-	        	<label for="text">
-				</label>
+	        	<label for="categorie_evenement">categorie evenement</label>
 	        	<select name="categorie_evenement" id="cathegorie_evenement" required>
 	        </li>
             <?php
@@ -125,13 +125,15 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
 	        ?>
 	        <li>
 	        	<label for="nb_participant_max">nombre de participants max</label>
-	        	<input type="number" value="<?php echo $nb_pl_max;?>" name="nb_participant_max" min="1" max="1000000" id="nb_participant_max" placeholder="nombre de participant" required><br> 
-	        	<!-- 1 million de participant max -->
+	        	<input type="number" value="<?php echo $nb_pl_max;?>" name="nb_participant_max" min="1" max="300000" id="nb_participant_max" placeholder="nombre de participant" required><br> 
+	        	<!-- trois cent mille participants max -->
 	        </li>
-	        <label>accessibilité handicapé</label>
+			</ol>
+	        
 	        <li>
 	        	<fieldset>
 	        	<ol>
+				<label>accessibilité handicapé</label>
 	        		<li>
 	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required>
 	        			<label for="accessibilite_ok"><img src="Images/logohandicapeok.png" alt="logo andicaper" width="25" >accessible</label>&nbsp;&nbsp;&nbsp;
