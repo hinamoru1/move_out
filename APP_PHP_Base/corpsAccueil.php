@@ -1,10 +1,17 @@
-
+<?php
+try
+{
+$bdd = new PDO('mysql:host=localhost;dbname=move_out;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
+?>
        <!-- <header>
             <h1>Trouvez votre prochaine sortie!</h1>
             <p>Tous les évènements ici et ailleurs.</p>
         </header>-->
-            
-
         <div class="carrousel">
 <section id="slideshow">
         
@@ -58,27 +65,55 @@
         </div>
         
         <!-- 2 conteneurs pricipaux de suggestions-->
+		
+		<!-- On affiche des évenements qui existe -->
         
         <div class='conteneur'>
             <h2>Suggestions:</h2>
-            <a href="http://www.psg.fr/fr/Club/603002/Renovation">
-                <div class="suggestion-évènement" id="e-un">
-                    <h3 class="titre">PSG - Real Madrid</h3>
-                    <h3 class="lieu">Parc des Princes</h3>
-                    <h3 class="date">19/11/2015</h3>
-                </div>
-            </a>
-            <a href="http://thecolorrun.fr/">
-                <div class="suggestion-évènement" id="e-deux">
-                    <h3 class="titre">Color Run</h3>
-                    <h3 class="lieu">Paris</h3>
-                    <h3 class="date">21/11/2015</h3>
-                </div>
-            </a>
-            <a href="#" class="plus">Plus de suggestions</a>
-        </div> 
+			
+		
+		
+		<?php
+		if (isset($_SESSION['id']))
+		{
+		// il faut afficher des evenements en fonction de la localisation du membre 
+		}
+		else
+		{
+			$reponse= $bdd->query("SELECT *,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr, multimedia.lien FROM multimedia, evenement WHERE multimedia.IDmultimedia = evenement.IDmultimedia LIMIT 0, 2");
+			while ($donnees = $reponse->fetch())
+				{
+		
+				//On va cherche le lien de l'image
+				if ($donnees['IDmultimedia'] == 0)
+					{
+					//Si l'utilisateur n'a pas défini d'image on met une image de base
+					$lien_image_evenement="Images/gris.jpg";
+					}
+				else 
+				{
+					$lien_image_evenement=$donnees['lien'];
+					//echo $lien_image_evenement;
+				}
         
-        <!-- 2 suggestions de villes-->
+		?>
+			
+					<a href="voir_evenement2.php?id=<?php echo $donnees['IDevenement'];;?>">
+							<div class="image_couverture_evenement" style="background-image:url('<?php echo $lien_image_evenement;?>')" alt="image de l'evenement">
+								<h3 class="titre"><?php echo $donnees['nom_evenement']; ;?></h3>
+								<h3 class="lieu"><?php echo $donnees['ville']; ;?></h3>
+								<h3 class="date"><?php echo $donnees['date_debut_fr']; ;?></h3>
+							</div>
+					</a>
+		<?php		
+				}
+		}
+		?>
+		</div>
+        
+		
+		
+		<!-- 2 suggestions de villes-->
         
         <div class="conteneur">
             <h2>Suggestions de villes:</h2>

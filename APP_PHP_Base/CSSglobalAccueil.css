@@ -98,7 +98,18 @@ header p{
     background-image: url('Images/ColorRun.jpg');
 }
 
-.suggestion-évènement h3{
+.image_couverture_evenement{
+    width:85%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    border: 3px solid black;
+}
+
+.image_couverture_evenement h3{
     color:black;
     padding: 2px 5px 5px 2px;
     font-size:1.2em;
