@@ -15,7 +15,9 @@
 
 			
 //			sport, :gastronomie, :soiree, :culturel, :autre_type,  :url_billeterie,:a_propos,:photo_evente
-		
+
+
+				$code_postal_evenement=$_POST['departement'];
 				$nom_evenement= $_POST['nom_evenement'];
 				$numero_de_rue= $_POST['numero_rue'];
 				if (isset($_POST['bis']))
@@ -24,8 +26,6 @@
 				}
 				$rue=$_POST['rue'];
 				$ville=$_POST['ville'];
-				$code_postal_evenement=$_POST['departement'];
-				$pays=$_POST['pays'];
 				$complement_adresse=$_POST['complement_adresse'];
 				$date_debut=$_POST['date_debut'];
 				$date_fin=$_POST['date_fin'];
@@ -47,7 +47,7 @@
                                 $url_auxiliaire=$_POST['url_auxiliere'];
                                 $a_propos=$_POST['a_propos'];
 				
-				$insert = $bdd->prepare("INSERT INTO  evenement(nom_evenement,numero_de_rue,bis,rue,ville,code_postal_evenement,pays,complement_adresse,date_debut,date_fin,heure_debut,heure_fin,description_lieu_accueil,nb_de_places_max,gratuit,prix_min,prix_max,accessibilite_handicape,a_propos,IDcategorie_evenement,IDcreateur)  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+				$insert = $bdd->prepare("INSERT INTO  evenement(nom_evenement,numero_de_rue,bis,rue,ville,code_postal_evenement,complement_adresse,date_debut,date_fin,heure_debut,heure_fin,description_lieu_accueil,nb_de_places_max,gratuit,prix_min,prix_max,accessibilite_handicape,a_propos,IDcategorie_evenement,IDcreateur)  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 				
 				$insert->bindParam(1, $nom_evenement);
 				$insert->bindParam(2, $numero_de_rue);
@@ -55,22 +55,21 @@
 				$insert->bindParam(4, $rue);
 				$insert->bindParam(5, $ville);
 				$insert->bindParam(6, $code_postal_evenement);
-				$insert->bindParam(7, $pays);
-				$insert->bindParam(8, $complement_adresse);
-				$insert->bindParam(9, $date_debut);
-				$insert->bindParam(10, $date_fin);
-				$insert->bindParam(11, $heure_debut);
-				$insert->bindParam(12, $heure_fin);
-				$insert->bindParam(13, $description_lieu_accueil);
-				$insert->bindParam(14, $nb_de_places_max);
-				$insert->bindParam(15, $gratuit);
-				$insert->bindParam(16, $prix_min);
-				$insert->bindParam(17, $prix_max);
-				$insert->bindParam(18, $accessibilite);
-                                $insert->bindParam(19, $a_propos);
+				$insert->bindParam(7, $complement_adresse);
+				$insert->bindParam(8, $date_debut);
+				$insert->bindParam(9, $date_fin);
+				$insert->bindParam(10, $heure_debut);
+				$insert->bindParam(11, $heure_fin);
+				$insert->bindParam(12, $description_lieu_accueil);
+				$insert->bindParam(13, $nb_de_places_max);
+				$insert->bindParam(14, $gratuit);
+				$insert->bindParam(15, $prix_min);
+				$insert->bindParam(16, $prix_max);
+				$insert->bindParam(17, $accessibilite);
+                                $insert->bindParam(18, $a_propos);
                                 //$insert->bindParam(20, $url_auxiliaire);
-                                $insert->bindParam(20, $categorie_evenement);
-                                $insert->bindParam(21, $_SESSION['id']);
+                                $insert->bindParam(19, $categorie_evenement);
+                                $insert->bindParam(20, $_SESSION['id']);
 				$insert->execute();
 				
     
