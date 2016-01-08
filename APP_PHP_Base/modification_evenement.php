@@ -18,15 +18,20 @@ $IDevenement=$_GET['id'];
 $reponse= $bdd->prepare("SELECT IDcreateur FROM evenement WHERE  IDevenement = :id");
 $reponse->execute(array('id' => $IDevenement));
 $donnees = $reponse->fetch();
-                                
-                                
+
+if (isset($_SESSION['id']))
+{
+include_once 'nav_connecte.php'; 
+}   
 ?>
 <!DOCTYPE html>
 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>modification evenement</title>
+        <link rel='stylesheet' href='CSSfooter.css'>
+        <link rel='stylesheet' href='CSSnav.css'>
 		<link rel='stylesheet' href='CSSformulaire.css'>
     </head>
     <body>
@@ -59,7 +64,6 @@ $bis=htmlspecialchars($donnees['bis']);
 $rue=htmlspecialchars($donnees['rue']);
 $ville=htmlspecialchars($donnees['ville']);
 $code_postal=htmlspecialchars($donnees['code_postal_evenement']);
-$pays=htmlspecialchars($donnees['pays']);
 $complement_adresse=htmlspecialchars($donnees['complement_adresse']);
 $date_creation=htmlspecialchars($donnees['date_creation']);
 $date_debut=htmlspecialchars($donnees['date_debut']);
@@ -77,6 +81,7 @@ $a_propos=htmlspecialchars($donnees['a_propos']);
 $lien_aux=htmlspecialchars($donnees['lien_auxiliaire']);
 $IDcat_evt=htmlspecialchars($donnees['IDcategorie_evenement']);
 $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
+$departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
                     
             
             
@@ -113,16 +118,29 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
                 $reponse = $bdd->query('SELECT DISTINCT * FROM categorie_evenement');
             ?>
 			<ol>
-	        <li>
+			<li>
 	        	<label for="categorie_evenement">categorie evenement</label>
 	        	<select name="categorie_evenement" id="cathegorie_evenement" required>
 	        </li>
+			
             <?php
+				$increment=1;
                 while($donnees =$reponse->fetch())
                     {
-                        echo '<option value=' . $donnees['IDcategorie_evenement'] . '>' . $donnees['categorie'] . '</option>';
+						if ($increment!=$IDcat_evt){
+							echo '<option value=' . $donnees['IDcategorie_evenement'] . '>' . $donnees['categorie'] . '</option>';
+							$increment++;
+						}
+                        else{
+							echo '<option value=' . $donnees['IDcategorie_evenement'] . ' selected >' . $donnees['categorie'] . '</option>';
+							$increment++;
+						}
                     }
 	        ?>
+			
+			
+			
+			
 	        <li>
 	        	<label for="nb_participant_max">nombre de participants max</label>
 	        	<input type="number" value="<?php echo $nb_pl_max;?>" name="nb_participant_max" min="1" max="300000" id="nb_participant_max" placeholder="nombre de participant" required><br> 
@@ -135,11 +153,11 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
 	        	<ol>
 				<label>accessibilité handicapé</label>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required>
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="0" required>
 	        			<label for="accessibilite_ok"><img src="Images/logohandicapeok.png" alt="logo andicaper" width="25" >accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="0" required>
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required>
 	        			<label for="accessibilite_nop"><img src="Images/logohandicapenop.png" alt="logo andicaper" width="25" >pas accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        
@@ -175,7 +193,7 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
      <fieldset>
         <legend>où?</legend>
         <ol>
-            <li>
+            
                 <!--label for="pays">lieux</label>
                     <select name="pays" id="pays">
                         <option value="france">France</option>
@@ -187,15 +205,40 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
                         <option value="allemagne">allemagne</option>
                         <option value="japon">Japon</option>
                     </select-->
-                    <input type="number" name="departement" value="<?php echo $code_postal;?>" id="departement" placeholder="code postal">
-                    <input type="text" name ="ville" value="<?php echo $ville;?>" placeholder="ville" maxlength="100" id="ville" required>
-                    <input type="text" name="rue" value="<?php echo $rue;?>" placeholder="rue ... / avenue ..." maxlength="150" id="rue" required>
-                    <input type="number" name="numero_rue" value="<?php echo $num_rue;?>" min="1" max="1000" id="numero_rue" placeholder="numero" required>
-                    <fieldset>
-                            <input type="checkbox" name="bis" value="1" id="bis" value="1"><label for='bis'>bis</label>
-                    </fieldset>
-                    <textarea name="complement_adresse" value="<?php echo $complement_adresse;?>" placeholder="informations utilies sur le lieux?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>
-            </li>   
+					
+			<li>
+	        	<label for="text">departement</label>
+	        	<select name="departement" id="departement" required>
+	        </li>
+            <?php
+				$reponse1 = $bdd->query('SELECT DISTINCT * FROM departement');
+
+				$increment=1;
+                while($donnees1 =$reponse1->fetch())
+                    {
+						echo $departement_id_eve;
+						if ($increment != $departement_id_eve){
+							echo '<option value=' . $donnees1['departement_id'] . '>' .$donnees1['departement_code'].' '. $donnees1['departement_nom'] . '</option>';
+							$increment++;
+						}
+						else{
+							echo '<option value=' . $donnees1['departement_id'] . ' selected >' . $donnees1['departement_nom'] . '</option>';
+							$increment++;
+						}
+                    }
+	        ?>
+			<li>
+				<label for="ville">ville</label>
+				<input type="text" name ="ville" value="<?php echo $ville;?>" placeholder="ville" maxlength="100" id="ville" required>
+				<label for="rue">rue</label>
+				<input type="text" name="rue" value="<?php echo $rue;?>" placeholder="rue ... / avenue ..." maxlength="150" id="rue" required>
+				<label for="numbee">numero</label>
+				<input type="number" name="numero_rue" value="<?php echo $num_rue;?>" min="1" max="1000" id="numero_rue" placeholder="numero" required>
+				<fieldset>
+						<input type="checkbox" name="bis" value="1" id="bis" value="1"><label for='bis'>bis</label>
+				</fieldset>
+				<textarea name="complement_adresse" value="<?php echo $complement_adresse;?>" placeholder="informations utilies sur le lieux?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>
+			</li>
         </ol>
      </fieldset>
      <fieldset>
@@ -246,6 +289,7 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
         exit();
         }
         ?>
+		<?php  include_once 'footer.php'; ?>
         </p>
     </body>
 </html>
