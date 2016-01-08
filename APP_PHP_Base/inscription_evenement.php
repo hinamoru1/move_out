@@ -1,29 +1,57 @@
 <?php session_start();
-try
-{
-$bdd = new PDO('mysql:host=localhost;dbname=move_out;charset=utf8', 'root', '', 
-/* La ligne qui suit est à rajouter pour obtenir des informations beaucoup plus précises lors des erreurs SQL*/
-array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
 
-$IDutilisateur=$_SESSION['id'];
-$IDevenement=$_GET['ide'];
-//$date_inscription=a;
-//$heure_inscription=b;
-
-
-$insert = $bdd->prepare("INSERT INTO  participe(IDevenement,IDutilisateur,date_inscription,heure_inscription)  VALUES(?,?,CURDATE(),CURTIME())");
-$insert->bindParam(1, $IDevenement);
-$insert->bindParam(2, $IDutilisateur);
-//$insert->bindParam(3, $nom_evenement);
-//$insert->bindParam(4, $nom_evenement);
-$insert->execute();
-
-
-header('Location:voir_evenement2.php?id='.$IDevenement);
-exit();
 ?>
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Modification de la photo de couverture de l'évènement</title>
+        <link rel="stylesheet" href="CSSformulaire.css">
+        <link rel='stylesheet' href='CSSnav.css'>
+        <link rel='stylesheet' href='CSSfooter.css'>
+    </head>
+    <body>
+        <?php
+        if(isset($_GET['ide'])){
+            $IDevenement=$_GET['ide'];
+        if (isset($_SESSION['id']))
+        {
+            include_once 'nav_connecte.php';
+            $IDutilisateur=$_SESSION['id'];
+        }
+        else
+        {
+            header('Location:formulaire_connection.php');
+        }
+        ?>
+        <h1 class="titre">Combien de participants voulez-vous ajouter ?</h1>
+        
+        <form class="formulaire" action="inscription_evenement_fin.php?id=<?php echo $IDevenement; ?>" method="post"  autocomplete="off">
+ 
+	<fieldset>
+            <ol>
+	        <li>
+	        	<label for="nb_participant_max">Indiquez le nombre de participants : (70maximum par compte)</label>
+	        	<input type="number" name="nb_participants" min="1" max="70" value=1 id="nb_participant_max" required><br> 
+	        	<!-- 1 million de participant max -->
+                        
+	        </li>
+	    </ol>
+	</fieldset>
+        <fieldset>
+	<button id="sub_cre_eve" type="submit" name="sub_inscr">Valider</button>
+        </fieldset>
+		 
+ </form>
+        
+        
+        
+        
+        <?php
+        include_once 'footer.php';
+        }
+        ?>
+        
+    </body>
+</html>

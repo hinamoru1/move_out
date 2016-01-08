@@ -185,11 +185,15 @@ catch(Exception $e)
                 //Si oui on compte le nombre d'inscrits et on l'affiche
                 if($IDcreateur == $_SESSION['id'])
                 {
-                   $reponse= $bdd->prepare("SELECT COUNT(DISTINCT IDutilisateur) FROM participe WHERE IDevenement= :id");
+                   $reponse= $bdd->prepare("SELECT nombre_participants FROM participe WHERE IDevenement= :id");
                    $reponse->execute(array('id' => $id));
-                   $donnees = $reponse->fetch();
+                   $nb=0;
+                   while($donnees = $reponse->fetch())
+                   {
+                       $nb+=$donnees['nombre_participants'];
+                   }
                    $nb_inscrits_txt='<br/>Nombre d\'inscrits :';
-                   $nb_inscrits='<br/>'.$donnees[0];
+                   $nb_inscrits='<br/>'.$nb;
                 }
                 }
                 ?>
