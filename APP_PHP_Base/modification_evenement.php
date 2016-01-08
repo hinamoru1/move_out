@@ -3,6 +3,7 @@ session_start();
 
 
 $lien='fin_modification_evenement.php?id='.$_GET['id'];
+/* */
 
 try
 {
