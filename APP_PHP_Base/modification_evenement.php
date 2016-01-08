@@ -81,6 +81,7 @@ $a_propos=htmlspecialchars($donnees['a_propos']);
 $lien_aux=htmlspecialchars($donnees['lien_auxiliaire']);
 $IDcat_evt=htmlspecialchars($donnees['IDcategorie_evenement']);
 $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
+$departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
                     
             
             
@@ -139,11 +140,11 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
 	        	<ol>
 				<label>accessibilité handicapé</label>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required>
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="0" required>
 	        			<label for="accessibilite_ok"><img src="Images/logohandicapeok.png" alt="logo andicaper" width="25" >accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="0" required>
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required>
 	        			<label for="accessibilite_nop"><img src="Images/logohandicapenop.png" alt="logo andicaper" width="25" >pas accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        
@@ -197,17 +198,18 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
 	        	<select name="departement" id="departement" required>
 	        </li>
             <?php
-				$reponse = $bdd->query('SELECT DISTINCT * FROM departement');
-				
+				$reponse1 = $bdd->query('SELECT DISTINCT * FROM departement');
+
 				$increment=1;
-                while($donnees =$reponse->fetch())
+                while($donnees1 =$reponse1->fetch())
                     {
-						if ($increment != departement_id){
-							echo '<option value=' . $donnees['departement_id'] . '>' . $donnees['departement_nom'] . '</option>';
+						echo $departement_id_eve;
+						if ($increment != $departement_id_eve){
+							echo '<option value=' . $donnees1['departement_id'] . '>' . $donnees1['departement_nom'] . '</option>';
 							$increment++;
 						}
 						else{
-							echo '<option value=' . $donnees['departement_id'] . 'selected >' . $donnees['departement_nom'] . '</option>';
+							echo '<option value=' . $donnees1['departement_id'] . 'selected >' . $donnees1['departement_nom'] . '</option>';
 							$increment++;
 						}
                     }
