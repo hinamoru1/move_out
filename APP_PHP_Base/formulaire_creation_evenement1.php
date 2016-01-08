@@ -85,6 +85,7 @@
      <fieldset>
         <legend>où?</legend>
         <ol>
+            <li>
                 <!--label for="pays">lieux</label>
                     <select name="pays" id="pays">
                         <option value="france">France</option>
@@ -96,27 +97,15 @@
                         <option value="allemagne">allemagne</option>
                         <option value="japon">Japon</option>
                     </select-->
-					
-			<?php
-                $reponse = $bdd->query('SELECT DISTINCT * FROM departement');
-            ?>
-	        <li>
-	        	<label for="text">departement</label>
-	        	<select name="departement" id="departement" required>
-	        </li>
-            <?php
-                while($donnees =$reponse->fetch())
-                    {
-                        echo '<option value=' . $donnees['departement_id'] . '>' .$donnees['departement_code'].' '. $donnees['departement_nom'] . '</option>';
-                    }
-	        ?>
-            <input type="text" name ="ville" placeholder="ville" maxlength="100" id="ville" required>
-            <input type="text" name="rue" placeholder="rue ... / avenue ..." maxlength="150" id="rue" required>
-            <input type="number" name="numero_rue" min="1" max="1000" id="numero_rue" placeholder="numero" required>
-            <fieldset>
-                    <input type="checkbox" name="bis" id="bis" value="1"><label for='bis'>bis</label>
-            </fieldset>
-            <textarea name="complement_adresse" placeholder="informations utilies sur le lieux?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>  
+                    <input type="number" name="departement" id="departement" placeholder="code postal">
+                    <input type="text" name ="ville" placeholder="ville" maxlength="100" id="ville" required>
+                    <input type="text" name="rue" placeholder="rue ... / avenue ..." maxlength="150" id="rue" required>
+                    <input type="number" name="numero_rue" min="1" max="1000" id="numero_rue" placeholder="numero" required>
+                    <fieldset>
+                            <input type="checkbox" name="bis" id="bis" value="1"><label for='bis'>bis</label>
+                    </fieldset>
+                    <textarea name="complement_adresse" placeholder="informations utilies sur le lieux?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>
+            </li>   
         </ol>
      </fieldset>
      <fieldset>
@@ -145,11 +134,10 @@
                 <label for="a_propos">a propos:</label>
                 <textarea name="a_propos" id="a_propos" maxlength="1500" rows="4" cols="35" placeholder="(\/)_|°,,,°|_(\/)"></textarea>
             </li>
-            <!--li>
+            <li>
 				<label for="photo_evente">photos et videos liées à l'événement</label>
 				<input type="file" name="photo_evente" id="photo_evente">
-            </li-->
-            </li-->
+            </li>
                 <button id="sub_cre_eve" type="submit" name="sub_inscr">Valider</button>
     
          </ol>

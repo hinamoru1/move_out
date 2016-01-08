@@ -15,7 +15,7 @@ session_start();
     </head>
     <body>
         <?php
-        include_once 'nav_connecte.php';
+        include_once 'nav_non_connecte.php';
         include_once 'formulaire_creation_evenement1.php';
         include_once 'footer.php';
         ?>

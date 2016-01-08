@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-
+<!test>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -11,7 +11,6 @@ session_start();
         <link rel='stylesheet' href='CSSnav.css'>
         <link rel='stylesheet' href='CSSglobalAccueil.css'>
         <link rel='stylesheet' href='CSSfooter.css'>
-		<link rel='stylesheet' href='aaa.css'>
     </head>
     <body>
 
