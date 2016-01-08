@@ -3,7 +3,6 @@ session_start();
 
 
 $lien='fin_modification_evenement.php?id='.$_GET['id'];
-/* */
 
 try
 {
@@ -119,16 +118,29 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
                 $reponse = $bdd->query('SELECT DISTINCT * FROM categorie_evenement');
             ?>
 			<ol>
-	        <li>
+			<li>
 	        	<label for="categorie_evenement">categorie evenement</label>
 	        	<select name="categorie_evenement" id="cathegorie_evenement" required>
 	        </li>
+			
             <?php
+				$increment=1;
                 while($donnees =$reponse->fetch())
                     {
-                        echo '<option value=' . $donnees['IDcategorie_evenement'] . '>' . $donnees['categorie'] . '</option>';
+						if ($increment!=$IDcat_evt){
+							echo '<option value=' . $donnees['IDcategorie_evenement'] . '>' . $donnees['categorie'] . '</option>';
+							$increment++;
+						}
+                        else{
+							echo '<option value=' . $donnees['IDcategorie_evenement'] . ' selected >' . $donnees['categorie'] . '</option>';
+							$increment++;
+						}
                     }
 	        ?>
+			
+			
+			
+			
 	        <li>
 	        	<label for="nb_participant_max">nombre de participants max</label>
 	        	<input type="number" value="<?php echo $nb_pl_max;?>" name="nb_participant_max" min="1" max="300000" id="nb_participant_max" placeholder="nombre de participant" required><br> 
@@ -206,24 +218,27 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
                     {
 						echo $departement_id_eve;
 						if ($increment != $departement_id_eve){
-							echo '<option value=' . $donnees1['departement_id'] . '>' . $donnees1['departement_nom'] . '</option>';
+							echo '<option value=' . $donnees1['departement_id'] . '>' .$donnees1['departement_code'].' '. $donnees1['departement_nom'] . '</option>';
 							$increment++;
 						}
 						else{
-							echo '<option value=' . $donnees1['departement_id'] . 'selected >' . $donnees1['departement_nom'] . '</option>';
+							echo '<option value=' . $donnees1['departement_id'] . ' selected >' . $donnees1['departement_nom'] . '</option>';
 							$increment++;
 						}
                     }
 	        ?>
-			
-                    <input type="text" name ="ville" value="<?php echo $ville;?>" placeholder="ville" maxlength="100" id="ville" required>
-                    <input type="text" name="rue" value="<?php echo $rue;?>" placeholder="rue ... / avenue ..." maxlength="150" id="rue" required>
-                    <input type="number" name="numero_rue" value="<?php echo $num_rue;?>" min="1" max="1000" id="numero_rue" placeholder="numero" required>
-                    <fieldset>
-                            <input type="checkbox" name="bis" value="1" id="bis" value="1"><label for='bis'>bis</label>
-                    </fieldset>
-                    <textarea name="complement_adresse" value="<?php echo $complement_adresse;?>" placeholder="informations utilies sur le lieux?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>
-               
+			<li>
+				<label for="ville">ville</label>
+				<input type="text" name ="ville" value="<?php echo $ville;?>" placeholder="ville" maxlength="100" id="ville" required>
+				<label for="rue">rue</label>
+				<input type="text" name="rue" value="<?php echo $rue;?>" placeholder="rue ... / avenue ..." maxlength="150" id="rue" required>
+				<label for="numbee">numero</label>
+				<input type="number" name="numero_rue" value="<?php echo $num_rue;?>" min="1" max="1000" id="numero_rue" placeholder="numero" required>
+				<fieldset>
+						<input type="checkbox" name="bis" value="1" id="bis" value="1"><label for='bis'>bis</label>
+				</fieldset>
+				<textarea name="complement_adresse" value="<?php echo $complement_adresse;?>" placeholder="informations utilies sur le lieux?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>
+			</li>
         </ol>
      </fieldset>
      <fieldset>

@@ -86,8 +86,30 @@
               <label for=adresse>Adresse</label>
               <textarea id=adresse name=adresse rows=1 ></textarea>
             </li>-->
-            <li>
-                <label for="numero_departement_de_residence">département</label>
+			<?php 
+			//On va aller chercher les différentes valeurs des catégories dans la table appropriée
+                try
+                {
+                    $bdd = new PDO('mysql:host=localhost;dbname=move_out;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            
+                }
+                catch(Exception $e)
+                {
+                    die('Erreur : '.$e->getMessage());
+                }
+                $reponse = $bdd->query('SELECT DISTINCT * FROM departement');
+            ?>
+	        <li>
+	        	<label for="text">departement</label>
+	        	<select name="departement" id="departement" required>
+	        </li>
+            <?php
+                while($donnees =$reponse->fetch())
+                    {
+                        echo '<option value=' . $donnees['departement_id'] . '>' .$donnees['departement_code'].' '. $donnees['departement_nom'] . '</option>';
+                    }
+	        ?>
+                <!--label for="numero_departement_de_residence">département</label>
                 <select name="numero_departement_de_residence" id="numero_departement_de_residence">
                     <option value="01">01 Ain</option>
                     <option value="02">02 Aisne</option>
@@ -190,8 +212,7 @@
                     <option value="974">974 Réunion</option>
                     <option value="975">975 Saint Pierre et Miquelon</option>
                     <option value="976">976 Mayotte</option>
-                </select>
-            </li>
+                </select-->
               <!--<li>
               <label for=pays>Pays</label>
               <input id=pays name=pays type=text >
