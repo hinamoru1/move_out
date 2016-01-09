@@ -90,9 +90,9 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
             
 <!--debut_______________________________________________________________________________________________________________________________________________________________-->
 
-<div class="titre">
-    <h1>Formulaire de modification d'evenement :</h1>
-</div>
+
+    <h1 class="titre">Formulaire de modification d'evenement :</h1>
+
  
  
  <form class="formulaire" action="<?php echo $lien;?>" method="post"  autocomplete="off">
@@ -151,13 +151,15 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
 	        <li>
 	        	<fieldset>
 	        	<ol>
+                            $handicap
+                            
 				<label>accessibilité handicapé</label>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="0" required>
+                                        <input type="radio" name="accessibilite" id="accessibilite" value="0" required <?php if ($handicap==0){echo'checked';}?> >
 	        			<label for="accessibilite_ok"><img src="Images/logohandicapeok.png" alt="logo andicaper" width="25" >accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required>
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required <?php if ($handicap==1){echo'checked';}?> >
 	        			<label for="accessibilite_nop"><img src="Images/logohandicapenop.png" alt="logo andicaper" width="25" >pas accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        

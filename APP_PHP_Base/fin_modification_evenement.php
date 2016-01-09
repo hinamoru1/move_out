@@ -9,11 +9,7 @@
             {
                 die('Erreur : '.$e->getMessage());
             }
-			?><pre><?php 
-            print_r($_POST);
 
-			
-//			sport, :gastronomie, :soiree, :culturel, :autre_type,  :url_billeterie,:a_propos,:photo_evente
 		
 				$nom_evenement= $_POST['nom_evenement'];
 				$numero_de_rue= $_POST['numero_rue'];
@@ -24,7 +20,6 @@
 				$rue=$_POST['rue'];
 				$ville=$_POST['ville'];
 				$code_postal_evenement=$_POST['departement'];
-				$pays=$_POST['pays'];
 				$complement_adresse=$_POST['complement_adresse'];
 				$date_debut=$_POST['date_debut'];
 				$date_fin=$_POST['date_fin'];
@@ -46,7 +41,32 @@
                                 $url_auxiliaire=$_POST['url_auxiliere'];
                                 $a_propos=$_POST['a_propos'];
 				
-				$insert = $bdd->prepare("UPDATE evenement SET nom_evenement=?,numero_de_rue=?,bis=?,rue=?,ville=?,code_postal_evenement=?,pays=?,complement_adresse=?,date_debut=?,date_fin=?,heure_debut=?,heure_fin=?,description_lieu_accueil=?,nb_de_places_max=?,gratuit=?,prix_min=?,prix_max=?,accessibilite_handicape=?,a_propos=?,IDcategorie_evenement=?,IDcreateur=? WHERE IDevenement= ?");
+$date_now=date("Y-m-d");
+$date=0;
+$heure=0;
+$prix=0;
+
+          
+          
+if ($prix_min>$prix_max) {
+    echo "to prix min est supperieur a ton prix max <br>";
+    $prix=1;
+}
+if ($date_debut>$date_fin){
+    echo "t'as date de debut est apres ta date de fin <br>";
+    $date=1;
+}
+if ($date_now>$date_debut && $date_now>$date_fin){
+    echo "la fin de ton evenement est deja passée <br>";
+    $date=2;
+}
+if ($heure_debut > $heure_fin && $date_debut<$date_fin){
+    echo "ton evenement debut alors qu'il est deja finit <br>";
+    $heure=1;
+}
+            
+if($prix!=1 && $date!=1 && $date!=2 && $heure!=1){
+				$insert = $bdd->prepare("UPDATE evenement SET nom_evenement=?,numero_de_rue=?,bis=?,rue=?,ville=?,code_postal_evenement=?,complement_adresse=?,date_debut=?,date_fin=?,heure_debut=?,heure_fin=?,description_lieu_accueil=?,nb_de_places_max=?,gratuit=?,prix_min=?,prix_max=?,accessibilite_handicape=?,a_propos=?,IDcategorie_evenement=?,IDcreateur=? WHERE IDevenement= ?");
 				
 				$insert->bindParam(1, $nom_evenement);
 				$insert->bindParam(2, $numero_de_rue);
@@ -55,27 +75,27 @@
 				$insert->bindParam(5, $ville);
 				$insert->bindParam(6, $code_postal_evenement);
 				$insert->bindParam(7, $pays);
-				$insert->bindParam(8, $complement_adresse);
-				$insert->bindParam(9, $date_debut);
-				$insert->bindParam(10, $date_fin);
-				$insert->bindParam(11, $heure_debut);
-				$insert->bindParam(12, $heure_fin);
-				$insert->bindParam(13, $description_lieu_accueil);
-				$insert->bindParam(14, $nb_de_places_max);
-				$insert->bindParam(15, $gratuit);
-				$insert->bindParam(16, $prix_min);
-				$insert->bindParam(17, $prix_max);
-				$insert->bindParam(18, $accessibilite);
-                                $insert->bindParam(19, $a_propos);
+				$insert->bindParam(7, $complement_adresse);
+				$insert->bindParam(8, $date_debut);
+				$insert->bindParam(9, $date_fin);
+				$insert->bindParam(10, $heure_debut);
+				$insert->bindParam(11, $heure_fin);
+				$insert->bindParam(12, $description_lieu_accueil);
+				$insert->bindParam(13, $nb_de_places_max);
+				$insert->bindParam(14, $gratuit);
+				$insert->bindParam(15, $prix_min);
+				$insert->bindParam(16, $prix_max);
+				$insert->bindParam(17, $accessibilite);
+                                $insert->bindParam(18, $a_propos);
                                 //$insert->bindParam(20, $url_auxiliaire);
-                                $insert->bindParam(20, $categorie_evenement);
-                                $insert->bindParam(21, $_SESSION['id']);
-                                $insert->bindParam(22, $_GET['id']);
+                                $insert->bindParam(19, $categorie_evenement);
+                                $insert->bindParam(20, $_SESSION['id']);
+                                $insert->bindParam(21, $_GET['id']);
 				$insert->execute();
 				
 $id=$_GET['id'];
 header('Location:voir_evenement2.php?id='.$id);
-exit();
+exit();}
         ?>
 
 
