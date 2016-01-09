@@ -177,3 +177,21 @@ form#inscription button:hover {
 #unPeuPlusBas{
     margin-top:4px;
 }
+.validation
+    {
+    background: grey;
+    border: none;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    color: brown;
+    display: block;
+    font: 18px Georgia, "Times New Roman", Times, serif;
+    letter-spacing: 1px;
+    margin: auto;
+    padding: 7px 25px;
+    text-shadow: 0 1px 1px #000000;
+    text-transform: uppercase;
+    margin-top: 25px;
+}

@@ -8,10 +8,10 @@ session_start();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Modification photo profil</title>
+        <title>Modification information du profil</title>
         <link rel='stylesheet' href='CSSnav.css'>
-        <link rel='stylesheet' href='CSSprofil.css'>
         <link rel='stylesheet' href='CSSfooter.css'>
+        <link rel='stylesheet' href='CSSformulaire.css'>
     </head>
     <body>
         

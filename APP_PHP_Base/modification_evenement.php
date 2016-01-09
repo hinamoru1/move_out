@@ -90,9 +90,9 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
             
 <!--debut_______________________________________________________________________________________________________________________________________________________________-->
 
-<div class="titre">
-    <h1>Formulaire de modification d'evenement :</h1>
-</div>
+
+    <h1 class="titre">Formulaire de modification d'evenement :</h1>
+
  
  
  <form class="formulaire" action="<?php echo $lien;?>" method="post"  autocomplete="off">
@@ -151,13 +151,15 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
 	        <li>
 	        	<fieldset>
 	        	<ol>
+                            $handicap
+                            
 				<label>accessibilité handicapé</label>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="0" required>
+                                        <input type="radio" name="accessibilite" id="accessibilite" value="0" required <?php if ($handicap==0){echo'checked';}?> >
 	        			<label for="accessibilite_ok"><img src="Images/logohandicapeok.png" alt="logo andicaper" width="25" >accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required>
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required <?php if ($handicap==1){echo'checked';}?> >
 	        			<label for="accessibilite_nop"><img src="Images/logohandicapenop.png" alt="logo andicaper" width="25" >pas accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        
@@ -193,44 +195,31 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
      <fieldset>
         <legend>où?</legend>
         <ol>
-            
-                <!--label for="pays">lieux</label>
-                    <select name="pays" id="pays">
-                        <option value="france">France</option>
-                        <option value="suisse">suisse</option>
-                        <option value="belgique">belgique</option>
-                        <option value="royaume-uni">Royaume-Uni</option>
-                        <option value="italie">italie</option>
-                        <option value="espagne">espagne</option>
-                        <option value="allemagne">allemagne</option>
-                        <option value="japon">Japon</option>
-                    </select-->
-					
-			<li>
+                <li>
 	        	<label for="text">departement</label>
 	        	<select name="departement" id="departement" required>
 	        </li>
-            <?php
-				$reponse1 = $bdd->query('SELECT DISTINCT * FROM departement');
-
-				$increment=1;
+                
+                <?php
+		$reponse1 = $bdd->query('SELECT DISTINCT * FROM departement');
+                $increment=1;
                 while($donnees1 =$reponse1->fetch())
-                    {
-						echo $departement_id_eve;
-						if ($increment != $departement_id_eve){
-							echo '<option value=' . $donnees1['departement_id'] . '>' .$donnees1['departement_code'].' '. $donnees1['departement_nom'] . '</option>';
-							$increment++;
-						}
-						else{
-							echo '<option value=' . $donnees1['departement_id'] . ' selected >' . $donnees1['departement_nom'] . '</option>';
-							$increment++;
-						}
+                {
+                    echo $departement_id_eve;
+                        if ($increment != $departement_id_eve){
+                            echo '<option value=' . $donnees1['departement_id'] . '>' .$donnees1['departement_code'].' '. $donnees1['departement_nom'] . '</option>';
+                		$increment++;
                     }
-	        ?>
-			<li>
+                    else{
+			echo '<option value=' . $donnees1['departement_id'] . ' selected >' . $donnees1['departement_nom'] . '</option>';
+			$increment++;
+                    }
+                }
+                ?>
+		<li>
 				<label for="ville">ville</label>
 				<input type="text" name ="ville" value="<?php echo $ville;?>" placeholder="ville" maxlength="100" id="ville" required>
-				<label for="rue">rue</label>
+                            	<label for="rue">rue</label>
 				<input type="text" name="rue" value="<?php echo $rue;?>" placeholder="rue ... / avenue ..." maxlength="150" id="rue" required>
 				<label for="numbee">numero</label>
 				<input type="number" name="numero_rue" value="<?php echo $num_rue;?>" min="1" max="1000" id="numero_rue" placeholder="numero" required>
@@ -238,7 +227,7 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
 						<input type="checkbox" name="bis" value="1" id="bis" value="1"><label for='bis'>bis</label>
 				</fieldset>
 				<textarea name="complement_adresse" value="<?php echo $complement_adresse;?>" placeholder="informations utilies sur le lieux?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>
-			</li>
+		</li>
         </ol>
      </fieldset>
      <fieldset>
