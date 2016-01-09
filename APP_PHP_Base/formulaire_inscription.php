@@ -217,8 +217,19 @@
               <label for=pays>Pays</label>
               <input id=pays name=pays type=text >
             </li>-->
-          </ol>
-		  <button id="sub_inscr" type=submit name="sub_inscr" >Valider</button>
+          
+        <li>
+       <fieldset>
+           
+           <input type="checkbox" name="condition_utilisations" id="condition_utilisations" value="1"><br>
+           j'accepte les <a>conditions d'utilisation</a>
+           
+       </fieldset>
+        </li>
+        </ol>
+        <button id=sub_inscr type=submit name=sub_inscr >connexion</button>
+        
+        
         </fieldset>
 	 </form>
 

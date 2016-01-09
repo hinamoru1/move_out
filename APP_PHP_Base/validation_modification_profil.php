@@ -19,7 +19,7 @@ if(isset($_POST['sub_inscr']))
 
         $pseudo= $_POST['pseudo'];
         $nom= $_POST['nom'];
-	//$sexe= $_POST['sexe'];
+	$sexe= $_POST['sexe'];
 	$prenom= $_POST['prenom_utilisateur'];
         //$telephone= $_POST['telephone'];
 	$date_naissance= $_POST['date_naissance'];
@@ -28,7 +28,7 @@ if(isset($_POST['sub_inscr']))
         $newsletter=$_POST['accepte_newsletter'];
         //On associe une variable a la valeur d'un input
         
-        $insert= $bdd->prepare('UPDATE utilisateur SET pseudo=?, nom_utilisateur=?, prenom_utilisateur=?, date_de_naissance=?, adresse_mail= ?, numero_departement_de_residence= ?, accepte_newsletter=? WHERE IDutilisateur = ? ');
+        $insert= $bdd->prepare('UPDATE utilisateur SET pseudo=?, nom_utilisateur=?, prenom_utilisateur=?, date_de_naissance=?, adresse_mail= ?, numero_departement_de_residence= ?, accepte_newsletter=?, sexe=? WHERE IDutilisateur = ? ');
         $insert->bindParam(1, $pseudo);
         $insert->bindParam(2, $nom);
         $insert->bindParam(3, $prenom);
@@ -38,8 +38,8 @@ if(isset($_POST['sub_inscr']))
 		//$insert->bindParam(6, $pass);
         $insert->bindParam(6, $dept_residence);
         $insert->bindParam(7, $newsletter);
-        $insert->bindParam(8, $_SESSION['id']);
-		//$insert->bindParam(8, $sexe);
+        $insert->bindParam(9, $_SESSION['id']);
+        $insert->bindParam(8, $sexe);
         $insert->execute();
         }
         
