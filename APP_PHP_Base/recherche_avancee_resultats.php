@@ -1,39 +1,74 @@
 <?php
+
+//On va commencer par définir la requête sql en fonction des champs qui on été remplis
+//On définit les différentes variables qui peuvent être définies
+$mot_cle='%%';
+$ville='%%';
+$popularite=0;
+//On va obtenir la date actuelle grâce à une requête
+try
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=move_out;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch(Exception $e)
+    {
+        die('Erreur : '.$e->getMessage());
+    }
+$insert = $bdd->prepare("UPDATE date SET date_actuelle=DATE(NOW()) WHERE id =1");
+$insert->execute();
+$resultat=$bdd->query('SELECT date_actuelle FROM date WHERE id=1');
+$donnees=$resultat ->fetch();
+$date_min=$donnees['date_actuelle'];
+//echo $date_min;
+$date_max='2500-00-00';
+
 if(!empty($_POST['mot_cle']))
 {
-    echo 'mot cle';
+    //echo 'mot cle';
+    $mot_cle='%'.$_POST['mot_cle'].'%';
 }
+
 if(!empty($_POST['categorie']))
 {
     echo 'categorie';
+    echo $_POST['categorie'];
 }
+
 if(!empty($_POST['date_min_ok']))
 {
     echo 'date_min_ok';
+    if(!empty($_POST['date_min']))
+    {
+        $date_min=$_POST['date_min'];
+        echo 'date_min';
+    }
 }
-if(!empty($_POST['date_min']))
-{
-    echo 'date_min';
-}
+
 if(!empty($_POST['date_max_ok']))
 {
     echo 'date_max_ok';
+    if(!empty($_POST['date_max']))
+    {
+        $date_max=$_POST['date_max'];
+        echo 'date_max';
+    }
 }
-if(!empty($_POST['date_max']))
-{
-    echo 'date_max';
-}
+
 if(!empty($_POST['departement']))
 {
     echo 'departement';
 }
+
 if(!empty($_POST['lieu']))
 {
-    echo 'lieu';
+    //echo 'lieu';
+    $ville='%'.$_POST['lieu'].'%';
 }
+
 if(!empty($_POST['popularite']))
 {
-    echo 'popularite';
+    //echo 'popularite';
+    $popularite=$_POST['popularite'];
 }
 if(!empty($_POST['gratuit']))
 {
@@ -52,10 +87,18 @@ catch(Exception $e)
 {
     die('Erreur : '.$e->getMessage());
 }
-$req="SELECT IDevenement, nom_evenement,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,gratuit,accessibilite_handicape WHERE nom_evenement=:idev AND categorie=:idcat LIKE %a%";
-$reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet FROM evenement WHERE nom_evenement LIKE :a");
 
-$reponse->execute(array('a' => '%'.$_POST['mot_cle'].'%'));
+
+
+$reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet FROM evenement WHERE nom_evenement LIKE :nom_evt AND ville LIKE :ville AND accessibilite_handicape LIKE :handicap AND nb_de_places_max >= :popularite AND date_debut >= :date_min AND date_fin <= :date_max");
+
+$reponse->execute(array('nom_evt' => $mot_cle,
+                        'date_min' => $date_min,
+                        'date_max' => $date_max,
+                        'ville' => $ville,
+                        'handicap' => '%%',
+                        'popularite' =>$popularite,
+                        ));
 
 ?>
 <table>
@@ -104,8 +147,7 @@ while($donnees = $reponse->fetch())
         {
             $imgpayant='';
             if($donnees['gratuit']!=1){$imgpayant='<img class="payant" src="Images/payant.png"/>';}
-            $infos_fin='<p>'.$donnees['nb_de_places_max'].'</p>'.$imgpayant;
-            $infos_fin=  htmlspecialchars($info_fin);
+            $infos_fin='<p>'.htmlspecialchars($donnees['nb_de_places_max']).'</p>'.$imgpayant;
         }
         
         

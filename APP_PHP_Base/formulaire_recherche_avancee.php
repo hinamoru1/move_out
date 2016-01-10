@@ -62,13 +62,13 @@
                     }
 	    ?>
             </select>
-        <label for="">Ou alors par mot clé</label>
+        <label for="">Ou alors par mot clé (Ville) :</label>
             <input type="text" id="lieu" name="lieu" placeholder="Mot clé"/>
         
         <br/>
-        <label for="popularite">Rechercher par popularité : Evènements ayant au moins </label>
+        <label for="popularite">Rechercher par popularité : Evènements ayant un nombre maximum de participant d'au moins </label>
             <input type="number" name="popularite" min="0" max="300000" id="popularite"/>
-            <label for="popularite">participants.</label>
+            
         
         <br/>    
         <label for="gratuit">Rechercher seulement les évènements gratuits</label>
