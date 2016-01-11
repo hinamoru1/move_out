@@ -51,6 +51,7 @@ $pseudo=htmlspecialchars($donnees['pseudo']);
 $nom=htmlspecialchars($donnees['nom_utilisateur']);
 $prenom=htmlspecialchars($donnees['prenom_utilisateur']);
 $sexe=htmlspecialchars($donnees['sexe']);
+$ville=htmlspecialchars($donnees['ville']);
 $mail=htmlspecialchars($donnees['adresse_mail']);
 $date_naissance=htmlspecialchars($donnees['date_de_naissance_fr']);
 $dept_residence=htmlspecialchars($donnees['numero_departement_de_residence']);
