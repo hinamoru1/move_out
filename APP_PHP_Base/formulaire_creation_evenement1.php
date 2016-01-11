@@ -120,7 +120,7 @@
         </ol>
      </fieldset>
      <fieldset>
-        <legend class="titre">information complementaires </legend>
+        <legend class="titre">informations complementaires </legend>
         <ol>
             <li>
                 <fieldset>
@@ -134,7 +134,7 @@
                 <input type="number" name="prix_entree_max" min="0" max="2000" id="prix_entree_max" placeholder="ex:75.22">
             </li>
             <li>
-                <label for="url_auxiliaire">lien auxiliere/billeterie</label>
+                <label for="url_auxiliaire">lien auxiliaire/billetterie</label>
                 <input type="url" name="url_auxiliere" placeholder="entrez un url auxiliaire, de billetterie..." id="url_auxiliere" maxlength="256"><br>
             </li>
             <li>
