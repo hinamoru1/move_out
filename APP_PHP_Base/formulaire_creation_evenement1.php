@@ -40,7 +40,7 @@
 	        	<input type="number" name="nb_participant_max" min="1" max="1000000" id="nb_participant_max" placeholder="nombre de participant" required><br> 
 	        	<!-- 1 million de participant max -->
 	        </li>
-	        <label>accessibilité handicapé</label>
+	        <label>accessibilité handicapés</label>
 	        <li>
 	        	<fieldset>
 	        	<ol>
@@ -116,7 +116,7 @@
             <fieldset>
                     <input type="checkbox" name="bis" id="bis" value="1"><label for='bis'>bis</label>
             </fieldset>
-            <textarea name="complement_adresse" placeholder="informations utilies sur le lieux?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>  
+            <textarea name="complement_adresse" placeholder="informations utilies sur le lieu?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>  
         </ol>
      </fieldset>
      <fieldset>
@@ -135,10 +135,10 @@
             </li>
             <li>
                 <label for="url_auxiliaire">lien auxiliere/billeterie</label>
-                <input type="url" name="url_auxiliere" placeholder="entrez un url auxilière, de billeterie..." id="url_auxiliere" maxlength="256"><br>
+                <input type="url" name="url_auxiliere" placeholder="entrez un url auxiliaire, de billetterie..." id="url_auxiliere" maxlength="256"><br>
             </li>
             <li>
-                <label for="description_lieux">description du lieux</label><br>
+                <label for="description_lieux">description du lieu</label><br>
                 <textarea name="description_lieux" placeholder="ex:parc de 1000hectars avec des fontaines" id="description_lieux" maxlength="1500" rows="6" cols="35"></textarea>
             </li>
             <li>

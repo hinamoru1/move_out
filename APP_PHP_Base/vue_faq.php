@@ -9,7 +9,7 @@
 	<div class="taide">
 		<h2> Je n’arrive pas à me connecter. </h2>
 		<p>Pour se connecter il suffit de cliquer sur l’onglet « connexion » disponible depuis la page d’accueil <a href="www.move-out.com"> www.move-out.com</a> ou directement depuis <a href="www.move-out.com/connexion"> www.move-out.com/connexion</a>.
-Si cela ne fonctionne pas, vérifies que tu es bien inscrit sur move-out, si ce n’est pas le cas rends toi vite sur www.move-out.com/inscription , ou vérifies que ton mot de passe et ton login sont corrects ! Si le problème persiste, n’hésites pas à contacter notre service technique, nous répondrons dans les plus brefs délais.
+Si cela ne fonctionne pas, vérifie que tu es bien inscrit sur move-out, et si ce n’est pas le cas rends toi vite sur www.move-out.com/inscription , ou vérifie que ton mot de passe et ton login sont corrects ! Si le problème persiste, n’hésite pas à contacter notre service technique, nous répondrons dans les plus brefs délais.
 </p>
 	</div>
 
@@ -35,13 +35,13 @@ Si cela ne fonctionne pas, vérifies que tu es bien inscrit sur move-out, si ce 
 
 	<div class="taide">
 		<h2>Les paiements sont ils sécurisés ?</h2>
-		<p>Les liens vers les billetteries renvois vers des plateformes partenaires de move-out. La fiabilité de nos partenaires est vérifiée par nos équipes, et nous ne travaillons qu’avec des plateformes certifiées (Fnac, e-ticket, digitick ...). La sécurité des paiements est donc assurée.</p>
+		<p>Les liens vers les billetteries renvoient vers des plateformes partenaires de move-out. La fiabilité de nos partenaires est vérifiée par nos équipes, et nous ne travaillons qu’avec des plateformes certifiées (Fnac, e-ticket, digitick ...). La sécurité des paiements est donc assurée.</p>
 	</div>
 </div>
 
 <div class="faq2">
 	<div class="faq" id="faq2">
-		<p>Si cette FAQ ne vous à pas permit de résoudre votre problème, vous pouvez nous envoyer un email à <a href="mailto:serviceclientmoveout@gmail.com">
+		<p>Si cette FAQ ne vous à pas permis de résoudre votre problème, vous pouvez nous envoyer un email à <a href="mailto:serviceclientmoveout@gmail.com">
 	serviceclientmoveout@gmail.com </a>
 	</p>
 	</div> 

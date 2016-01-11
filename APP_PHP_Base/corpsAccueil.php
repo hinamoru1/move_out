@@ -56,7 +56,7 @@ catch(Exception $e)
             </div>
             <div class='petit_conteneur' id="p2">
                 <h3>Invitez</h3>
-                <p>Sortir c'est bien, sortir à plusieurs c'est mieux. Grâce au système d'amis invitez qui vous voulez à participer aux mêmes évènements que vous ou rejoigner vos amis sur les leurs.</p>
+                <p>Sortir c'est bien, sortir à plusieurs c'est mieux. Grâce au système d'amis invitez qui vous voulez à participer aux mêmes évènements que vous ou rejoignez vos amis sur les leurs.</p>
             </div>
             <div class='petit_conteneur' id="p3">
                 <h3>Créez</h3>

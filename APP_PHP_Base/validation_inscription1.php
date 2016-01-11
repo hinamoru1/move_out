@@ -64,12 +64,12 @@ if(isset($_POST['sub_inscr']))
 					
 					}
 					else{
-						echo"Votre mot de passe et votre mot de passe de confirmation ne correspondent pas, veuillez faire un retour en arrier et modifier vos informations";
+						echo"Votre mot de passe et votre mot de passe de confirmation ne correspondent pas, veuillez faire un retour en arriere et modifier vos informations";
 					}
 					
 				}
 			else{
-			echo"Votre adresse mail et votre adresse mail de confirmation ne correspondent pas, veuillez faire un retour en arrier et modifier vos informations";
+			echo"Votre adresse mail et votre adresse mail de confirmation ne correspondent pas, veuillez faire un retour en arriere et modifier vos informations";
 			}
 	}
 	

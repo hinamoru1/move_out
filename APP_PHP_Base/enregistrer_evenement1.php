@@ -56,11 +56,11 @@ $prix=0;
           
           
 if ($prix_min>$prix_max) {
-    echo "to prix min est supperieur a ton prix max <br>";
+    echo "ton prix min est supperieur a ton prix max <br>";
     $prix=1;
 }
 if ($date_debut>$date_fin){
-    echo "t'as date de debut est apres ta date de fin <br>";
+    echo "ta date de debut est apres ta date de fin <br>";
     $date=1;
 }
 if ($date_now>$date_debut && $date_now>$date_fin){
@@ -68,7 +68,7 @@ if ($date_now>$date_debut && $date_now>$date_fin){
     $date=2;
 }
 if ($heure_debut > $heure_fin && $date_debut<$date_fin){
-    echo "ton evenement debut alors qu'il est deja finit <br>";
+    echo "ton evenement debute alors qu'il est deja fini <br>";
     $heure=1;
 }
             
