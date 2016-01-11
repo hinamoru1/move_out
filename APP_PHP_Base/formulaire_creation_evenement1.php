@@ -3,7 +3,7 @@
 </div>
  
  
- <form class="formulaire" action="test_enregistrer_evenement1.php" method="post"  autocomplete="off">
+ <form class="formulaire" action="enregistrer_evenement1.php" method="post"  autocomplete="off">
  
 	<fieldset>
 	    <legend class="titre"> proposer un événement</legend><br>
