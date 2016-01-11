@@ -51,6 +51,7 @@ $mail=htmlspecialchars($donnees['adresse_mail']);
 $mdp=htmlspecialchars($donnees['mot_de_passe']);
 $date_naissance=htmlspecialchars($donnees['date_de_naissance']);
 $dept_residence=htmlspecialchars($donnees['numero_departement_de_residence']);
+$ville=htmlspecialchars($donnees['ville']);
 $newsletter=htmlspecialchars($donnees['accepte_newsletter']);
 
 

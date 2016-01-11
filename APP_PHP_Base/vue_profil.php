@@ -21,6 +21,7 @@
             echo '<p>Adresse mail :  '.htmlspecialchars($mail).' </p>';
             echo '<p>Date de naissance :  '.htmlspecialchars($date_naissance).' </p>';
             if($dept_residence!==0){echo'<p>Departement de résidence :  '.htmlspecialchars($dept_residence).' </p>';}
+            if($ville!==''){echo'<p>Ville :  '.htmlspecialchars($ville).' </p>';}
             if($newsletter==0){echo '<p>Vous n\'acceptez pas de newsletter.<p/>';}
             if($newsletter==1){echo '<p>Vous acceptez la newsletter.<p/>';}
             ?>

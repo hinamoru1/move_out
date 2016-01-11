@@ -34,11 +34,12 @@ if(isset($_POST['sub_inscr']))
 					$date_naissance= $_POST['date_naissance'];
 					$adresse_mail = $_POST['email'];
 					$pass = sha1($_POST['mot_de_passe']);
-					$numero_departement_de_residence= $_POST['numero_departement_de_residence'];
+                                        $ville = $_POST['ville'];
+					$numero_departement_de_residence= $_POST['departement'];
 					$newsletter=$_POST['accepte_newsletter'];
 					//On associe une variable a la valeur d'un input
 		
-					$insert = $bdd->prepare("INSERT INTO utilisateur (pseudo, nom_utilisateur, prenom_utilisateur, date_de_naissance, adresse_mail, mot_de_passe, numero_departement_de_residence, sexe,accepte_newsletter) VALUES (?, ?, ?, ?, ?, ?, ?,?,?)");
+					$insert = $bdd->prepare("INSERT INTO utilisateur (pseudo, nom_utilisateur, prenom_utilisateur, date_de_naissance, adresse_mail, mot_de_passe, numero_departement_de_residence, sexe,accepte_newsletter,ville) VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?)");
 					$insert->bindParam(1, $pseudo);
 					$insert->bindParam(2, $nom);
 					$insert->bindParam(3, $prenom_utilisateur);
@@ -49,6 +50,7 @@ if(isset($_POST['sub_inscr']))
 					$insert->bindParam(7, $numero_departement_de_residence);
 					$insert->bindParam(8, $sexe);
 					$insert->bindParam(9, $newsletter);
+                                        $insert->bindParam(10, $ville);
 					$insert->execute();
 			
 					//Comme la validation par mail n'est pas fonctionnelle pour l'instant on procède tout de suite à l connection-->
