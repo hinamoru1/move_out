@@ -24,7 +24,7 @@ if(isset($_POST['sub_inscr']))
         //$telephone= $_POST['telephone'];
 	$date_naissance= $_POST['date_naissance'];
         $adresse_mail = $_POST['email'];
-        $dept_residence= $_POST['numero_departement_de_residence'];
+        $dept_residence= $_POST['departement'];
         $newsletter=$_POST['accepte_newsletter'];
         //On associe une variable a la valeur d'un input
         
