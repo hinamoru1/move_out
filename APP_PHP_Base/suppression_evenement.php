@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(isset($_SESSION['id']))
+{
 try
 {
 $bdd = new PDO('mysql:host=localhost;dbname=move_out;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -22,7 +24,10 @@ $donnees = $reponse->fetch();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Confirmation de suppression</title>
+        <link rel='stylesheet' href='CSSerreur.css'>
+        <link rel='stylesheet' href='CSSnav.css'>
+        <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
         <p>
@@ -30,11 +35,17 @@ $donnees = $reponse->fetch();
         //On vérifie que l'utilisateur est bien le créateur de l'évènement
         if($donnees['IDcreateur']==$_SESSION['id'])
         {
-         echo'Etes vous bien sur de vouloir supprimer l\'évènement?';
-         $lien='fin_suppression_evenement.php?id='.$IDevenement;
-         echo '<br/> <a href="'.$lien.'">Oui</a>';
-         $lien2='voir_evenement2.php?id='.$IDevenement;
-         echo '<br/><a href="'.$lien2.'">Non</a>';
+            include_once 'nav_connecte.php';
+            $lien='fin_suppression_evenement.php?id='.$IDevenement;
+            $lien2='voir_evenement2.php?id='.$IDevenement;
+            ?>
+        <section>
+        <h3> Etes vous bien sur de vouloir supprimer l'évènement?
+        <br/> <a href="<?php echo $lien ?>">Oui</a>
+        <br/><a href="<?php echo $lien2 ?>">Non</a>
+        </section>
+         <?php
+         include_once 'footer.php';
         }else
         {
         header('Location:voir_evenement2.php?id='.$IDevenement);
@@ -44,3 +55,11 @@ $donnees = $reponse->fetch();
         </p>
     </body>
 </html>
+
+<?php
+}else
+        {
+        header('Location:voir_evenement2.php?id='.$IDevenement);
+        exit();
+        }
+?>
