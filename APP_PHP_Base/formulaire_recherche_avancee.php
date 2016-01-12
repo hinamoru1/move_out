@@ -66,7 +66,7 @@
             <input type="text" id="lieu" name="lieu" placeholder="Mot clé"/>
         
         <br/>
-        <label for="popularite">Rechercher par popularité : Evènements ayant un nombre maximum de participant d'au moins </label>
+        <label for="popularite">Rechercher par popularité : Evènements ayant un nombre maximum de participants d'au moins </label>
             <input type="number" name="popularite" min="0" max="300000" id="popularite"/>
             
         
@@ -75,7 +75,7 @@
             <input type="checkbox" id="gratuit" name="gratuit" value="oui"/>
             
         <br/>    
-        <label for="handicap">Rechercher seulement les évènements accessibles aux handcapés</label>
+        <label for="handicap">Rechercher seulement les évènements accessibles aux handicapés</label>
             <input type="checkbox" id="handicap" name="handicap" value="oui"/>
             
         <br/>
