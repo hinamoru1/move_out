@@ -21,7 +21,7 @@ catch(Exception $e)
         <!-- première série de boutons-->
         <div>
             <!-- Logo handicapé -->
-            <?php if($handicap==0){ echo '<img src="Images/logohandicapeok.png" alt = "accessibe aux andicapes moteur"/>';}
+            <?php if($handicap==1){ echo '<img src="Images/logohandicapeok.png" alt = "accessibe aux andicapes moteur"/>';}
             else{ echo '<img src="Images/logohandicapenop.png" alt="non accessible aux andicapes moteur"/>';} ?>
             
             <?php
@@ -157,25 +157,36 @@ catch(Exception $e)
             <?php if($bis==1){$bis='bis ';}else{$bis='';}?>
             <tr><td class="gras_souligne">Lieu :</td> <td><?php echo $num_rue.' '.$bis.$rue.', '.$code_postal.' '.$ville.', '.$pays;?>
             <?php if(isset($complement_adresse)){echo '<br/>'.$complement_adresse;}?></td></tr>
-            <tr class="gris"><td class="gras_souligne">Categorie :</td> <td><?php echo $IDcat_evt;?></td></tr>
+            
+            <!-- On s'occupe maintenant d'ajouter le prix-->
+            <?php
+            if($gratuit==1){$prix="gratuit";}
+            elseif($prix_min == 0 AND $prix_max == 0){$prix="gratuit";}
+            else{$prix='Prix minimum : '.$prix_min.' €<br/>Prix maximum : '.$prix_max.' €';}
+            ?>
+            
+            <tr class="gris"><td class="gras_souligne">Prix :</td> <td><?php echo $prix;?></td></tr>
+            <tr><td class="gras_souligne">Categorie :</td> <td><?php echo $IDcat_evt;?></td></tr>
             
             <!--On change un peu l'affichage en fonction de si les dates de début et de fin sont les mêmes ou non-->
             <?php if($date_debut == $date_fin)
                 {
                 ?>
-                <tr><td class="gras_souligne">Date :</td> <td><?php echo $date_debut;?></td></tr>
-                <tr class="gris"><td class="gras_souligne">Heure de debut :<br/>Heure de fin :</td> <td><?php echo $heure_debut . '<br/>' . $heure_fin;?></td><tr/>
+                <tr class="gris"><td class="gras_souligne">Date :</td> <td><?php echo $date_debut;?></td></tr>
+                <tr><td class="gras_souligne">Heure de debut :<br/>Heure de fin :</td> <td><?php echo $heure_debut . '<br/>' . $heure_fin;?></td><tr/>
                 
                 <?php
                 }
                 else
                 {
                 ?>
-                <tr><td class="gras_souligne">Date de debut :<br/>Heure de debut</td> <td class="marge"><?php echo $date_debut . '<br/>' . $heure_debut;?></td></tr>
-                <tr class="gris"><td class="gras_souligne">Date de fin :<br/>Heure de fin :</td> <td><?php echo $date_fin . '<br/>' . $heure_fin;?></td></tr>
+                <tr class="gris"><td class="gras_souligne">Date de debut :<br/>Heure de debut</td> <td class="marge"><?php echo $date_debut . '<br/>' . $heure_debut;?></td></tr>
+                <tr><td class="gras_souligne">Date de fin :<br/>Heure de fin :</td> <td><?php echo $date_fin . '<br/>' . $heure_fin;?></td></tr>
                 <?php
                 }
                 ?>
+                 
+                
                 <?php // On ajoute le nombre d'inscrits pour le créateur de l'évènement
                 $nb_inscrits_txt='';
                 $nb_inscrits='';
@@ -197,10 +208,10 @@ catch(Exception $e)
                 }
                 }
                 ?>
-                <tr><td class="gras_souligne">Nombre de places maximum :<?php echo $nb_inscrits_txt?></td> <td><?php echo $nb_pl_max;?><?php echo $nb_inscrits?></td></tr>
-            <?php//gestion de la couleur du dernier champs 
-            $couleur='class="gris"';?>
-            <?php if($desc_accueil != ''){ echo'<tr class="gris"><td class="gras_souligne">Description des lieux :</td> <td class="marge">'.$desc_accueil.'</td></tr>'; $couleur='';}?>
+                <tr class="gris"><td class="gras_souligne">Nombre de places maximum :<?php echo $nb_inscrits_txt?></td> <td><?php echo $nb_pl_max;?><?php echo $nb_inscrits?></td></tr>
+            
+            <?php $couleur='';
+            if($desc_accueil != ''){ echo'<tr><td class="gras_souligne">Description des lieux :</td> <td class="marge">'.$desc_accueil.'</td></tr>'; $couleur='class="gris"';}?>
             <?php if($lien_aux != ''){echo '<tr '.$couleur.'><td class="gras_souligne">Lien auxiliaire :</td> <td class="marge"><a href="'.$lien_aux.'">Cliquez ici</a></td></tr>';}?>
         </table>
     </article>

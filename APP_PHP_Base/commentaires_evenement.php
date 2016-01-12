@@ -21,16 +21,19 @@ if(isset($_SESSION['id'])){
 //On sélectionne le nom de l'auteur, la date, et le texte des différents commentaires
 if(isset($_GET['limit']))
 {
-    if($_GET['limit']==40)
-    {
-       $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout_fr, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC, heure_ajout DESC LIMIT 0,40");
-        $reponse->execute(array('id' => $id)); 
-    }
     if($_GET['limit']=='tout')
-    {
-        $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout_fr, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC, heure_ajout DESC");
-        $reponse->execute(array('id' => $id));
-    }
+        {
+            $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout_fr, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC, heure_ajout DESC");
+            $reponse->execute(array('id' => $id));
+        }
+        else
+            {
+                $nb=  intval($_GET['limit']);
+                $reponse= $bdd->prepare("SELECT DATE_FORMAT(date_ajout, '%d/%m/%Y') AS date_ajout_fr, heure_ajout, texte, IDutilisateur FROM commentaires WHERE IDevenement = :id ORDER BY date_ajout DESC, heure_ajout DESC LIMIT 0, :limit");
+                $reponse->bindValue('id', $id, PDO::PARAM_STR);
+                $reponse->bindValue('limit', $nb, PDO::PARAM_INT);     
+                $reponse->execute();
+            }
 }
 else
 {
@@ -84,14 +87,15 @@ if($color>=1)
 {
 if(isset($_GET['limit']))
 {
-    if($_GET['limit']==40)
-    {
-        echo'<a class="plus" href="voir_evenement2.php?id='.$_GET['id'].'&limit=tout">Afficher tous les commentaires</a><br/>';
-    }
+    $plus= intval($_GET['limit']);
+    if($plus>=125)
+    {echo'<a class="plus" href="voir_evenement2.php?id='.$_GET['id'].'&limit=tout">Afficher tous les commentaires</a><br/>';}
+    else{$plus+=30;
+    echo'<a class="plus" href="voir_evenement2.php?id='.$_GET['id'].'&limit='.$plus.'">Afficher plus les commentaires</a><br/>';}
 }
  else 
 {
-    echo'<a class="plus" href="voir_evenement2.php?id='.$_GET['id'].'&limit=40">Afficher plus de commentaires</a><br/>';
+    echo'<a class="plus" href="voir_evenement2.php?id='.$_GET['id'].'&limit=35">Afficher plus de commentaires</a><br/>';
 }
 }
 ?>

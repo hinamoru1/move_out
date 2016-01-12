@@ -99,8 +99,12 @@
                 }
                 $reponse = $bdd->query('SELECT DISTINCT * FROM departement');
             ?>
+                <li>
+                        <label for=pseudo>Ville*</label>
+                        <input id="ville" name="ville" type=text placeholder="par ex&nbsp;: Paris" required>
+                </li>
 	        <li>
-	        	<label for="text">departement</label>
+	        	<label for="text">Departement :</label>
 	        	<select name="departement" id="departement" required>
 	        </li>
             <?php

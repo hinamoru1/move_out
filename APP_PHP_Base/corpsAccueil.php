@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 try
 {
@@ -74,16 +75,19 @@ catch(Exception $e)
 		
 		
 		<?php
-		if (isset($_SESSION['id']))
+		if (isset($_SESSION['id'])) // il faut afficher des evenements en fonction de la localisation du membre (sa ville)
 		{
-		// il faut afficher des evenements en fonction de la localisation du membre 
-		}
-		else
-		{
-			$reponse= $bdd->query("SELECT *,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr, multimedia.lien FROM multimedia, evenement WHERE multimedia.IDmultimedia = evenement.IDmultimedia LIMIT 0, 2");
-			while ($donnees = $reponse->fetch())
-				{
 		
+		$reponse = $bdd->prepare("SELECT ville FROM utilisateur WHERE IDutilisateur = ?");
+		$reponse->execute(array($_SESSION['id']));
+		$donnees = $reponse->fetch();
+		$ville=$donnees['ville'];
+		$compte=0;		
+		$reponse= $bdd->prepare("SELECT *,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr, multimedia.lien FROM multimedia, evenement WHERE multimedia.IDmultimedia = evenement.IDmultimedia AND ville=? LIMIT 0, 2");
+		$reponse->execute(array($ville));
+			while ($donnees = $reponse->fetch())
+			{
+				$compte++;
 				//On va cherche le lien de l'image
 				if ($donnees['IDmultimedia'] == 0)
 					{
@@ -96,8 +100,8 @@ catch(Exception $e)
 					//echo $lien_image_evenement;
 				}
         
-		?>
-			
+	
+		?>			
 					<a href="voir_evenement2.php?id=<?php echo $donnees['IDevenement'];;?>">
 							<div class="image_couverture_evenement" style="background-image:url('<?php echo $lien_image_evenement;?>')" alt="image de l'evenement">
 								<h3 class="titre"><?php echo $donnees['nom_evenement']; ;?></h3>
@@ -106,10 +110,24 @@ catch(Exception $e)
 							</div>
 					</a>
 		<?php		
-				}
+			}
+		
+		if ($compte==0) //Si il n'existe pas d'évenement correspondant à la ville de l'utilisateur, on en affiche des aléatoires
+			{
+			include ("suggestion_evenement.php");
+			}
+		
+		}
+		
+			
+		
+		else // le cas où l'utilisateur n'est pas connecté
+		{
+			include ("suggestion_evenement.php");
 		}
 		?>
-		</div>
+		
+        </div>
         
 		
 		

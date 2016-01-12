@@ -1,0 +1,66 @@
+@font-face{
+    font-family: 'Police';
+    src: url('introheadr-base-webfont.ttf');
+}
+
+@font-face{
+    font-family: 'Police2';
+    src: url('introrustg-base2line-webfont.ttf');
+}
+
+body{
+    //background-image: url('Images/Fond2.jpg');
+    
+    background-color:#E6E6E6;
+    margin:0;
+    font-family: Police;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+table{
+    border-collapse:collapse;
+}
+
+table p{
+    display:inline-block;
+}
+
+.image_evenement{
+    height:150px;
+    width: 200px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    display: inline-block;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.complet{
+    border-radius: 7px;
+    background-color: red;
+    padding-left:3px;
+    padding-right:3px;
+}
+
+.lien_evenement{
+    border-radius: 7px;
+    background-color: #409fb0;
+    padding-left:3px;
+    padding-right:3px;
+}
+
+.payant{
+    width:30px;
+}
+
+.img_handicap{
+    width:30px;
+}

@@ -5,7 +5,7 @@
             </div>
             <div class="gauche">
                 <ul>
-                    <li><a href="Rechercher.php">Rechercher</a></li>
+                    <li><a href="recherche_avancee.php">Rechercher</a></li>
                 </ul>
             </div>
             <div class="droite">
