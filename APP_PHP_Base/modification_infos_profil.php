@@ -8,7 +8,7 @@ session_start();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Modification information du profil</title>
+        <title>Modification informations du profil</title>
         <link rel='stylesheet' href='CSSnav.css'>
         <link rel='stylesheet' href='CSSfooter.css'>
         <link rel='stylesheet' href='CSSformulaire.css'>

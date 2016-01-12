@@ -21,8 +21,8 @@ catch(Exception $e)
         <!-- première série de boutons-->
         <div>
             <!-- Logo handicapé -->
-            <?php if($handicap==1){ echo '<img src="Images/logohandicapeok.png" alt = "accessibe aux andicapes moteur"/>';}
-            else{ echo '<img src="Images/logohandicapenop.png" alt="non accessible aux andicapes moteur"/>';} ?>
+            <?php if($handicap==1){ echo '<img src="Images/logohandicapeok.png" alt = "accessible aux handicapes moteur"/>';}
+            else{ echo '<img src="Images/logohandicapenop.png" alt="non accessible aux handicapes moteur"/>';} ?>
             
             <?php
                 //Si l'utilisateur est connecté:
