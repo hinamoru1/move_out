@@ -1,5 +1,10 @@
 <header>
-    <h1>Mon Profil:</h1>
+<?php
+if($admin==1){echo '<a class="back_office" href="back_office.php">Accéder au Back Office</a>';
+echo'<h1>Profil de '.$pseudo.':</h1>';
+}
+else{echo '<h1>Mon Profil:</h1>';}
+    ?>
 </header>
 
 <section class="section_infos">

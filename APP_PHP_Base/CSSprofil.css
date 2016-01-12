@@ -26,7 +26,18 @@ a:hover{
 
 header{
     text-align: center;
+    margin-top:20px;
 }
+
+.back_office{
+    color:white;
+    padding-left: 5px;
+    padding-right:5px;
+    font-size:1.8em;
+    background-color: #409fb0;
+    border-radius:9px;
+}
+
 
 h1{
     font-size: 35px;
@@ -104,4 +115,13 @@ a>p :hover{
 /* Juste pour la page de recheche à laquelle on a appliqué ce CSS*/
 form{
     text-align: center;
+}
+
+/*Juste pour la recherche dans le back office*/
+.image_recherche{
+    display: inline-block;
+    height: 70px;
+    width: 80px;
+    background-position: 50% 50%;
+    background-size: cover;
 }

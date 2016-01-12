@@ -25,8 +25,15 @@ if (isset($_SESSION['id']))
     $reponse->execute(array('id' => $id));
     $donnes = $reponse->fetch();
     $IDcreateur=$donnes['IDcreateur'];
+    
+$idok=0;
+$adminok=0;
+if($IDcreateur == $_SESSION['id'])
+{$idok=1;}
+if(isset($_SESSION['admin']))
+{$adminok=1;}
 
-    if($IDcreateur == $_SESSION['id'])
+if($idok===1 or $adminok===1)
         {
         //On modifie la valeur voulue
             $reponse= $bdd->prepare("UPDATE evenement SET complet=:complet WHERE IDevenement=:id");

@@ -1,9 +1,12 @@
 <?php
 
 //On va commencer par définir la requête sql en fonction des champs qui on été remplis
-//On définit les différentes variables qui peuvent être définies
+//On définit le valeurs de bases des différentes variables qui peuvent être utilisées.
+//On définit aussi des variables qui permettent de savoir quelle requête effectuer
 $mot_cle='%%';
 $ville='%%';
+$handicap='%%';
+$gratuit='%%';
 $popularite=0;
 //On va obtenir la date actuelle grâce à une requête
 try
@@ -21,62 +24,86 @@ $donnees=$resultat ->fetch();
 $date_min=$donnees['date_actuelle'];
 //echo $date_min;
 $date_max='2500-00-00';
+$categorie_valid=0;
+$mot_cle_valid=0;
+$date_min_valid=0;
+$date_max_valid=0;
+$ville_cle_valid=0;
+$popularite_valid=0;
+$gratuit_valid=0;
+$handicap_valid=0;
+$dept_valid=0;
+
+
+
 
 if(!empty($_POST['mot_cle']))
 {
     //echo 'mot cle';
+    $mot_cle_valid=1;
     $mot_cle='%'.$_POST['mot_cle'].'%';
 }
 
 if(!empty($_POST['categorie']))
 {
-    echo 'categorie';
-    echo $_POST['categorie'];
+    //echo 'categorie';
+    $categorie_valid=1;
 }
 
 if(!empty($_POST['date_min_ok']))
 {
-    echo 'date_min_ok';
+    $date_min_valid=1;
+    //echo 'date_min_ok';
     if(!empty($_POST['date_min']))
     {
         $date_min=$_POST['date_min'];
-        echo 'date_min';
+        //echo 'date_min';
     }
 }
 
 if(!empty($_POST['date_max_ok']))
 {
-    echo 'date_max_ok';
+    //echo 'date_max_ok';
+    $date_max_valid=1;
     if(!empty($_POST['date_max']))
     {
         $date_max=$_POST['date_max'];
-        echo 'date_max';
+        //echo 'date_max';
     }
 }
 
 if(!empty($_POST['departement']))
 {
-    echo 'departement';
-}
+    //echo $_POST['departement'];
+    $dept_valid=1;
+    
+}else{$_POST['departement']=0;}
+
 
 if(!empty($_POST['lieu']))
 {
     //echo 'lieu';
+    $ville_cle_valid=1;
     $ville='%'.$_POST['lieu'].'%';
 }
 
 if(!empty($_POST['popularite']))
 {
+    $popularite_valid=1;
     //echo 'popularite';
     $popularite=$_POST['popularite'];
 }
 if(!empty($_POST['gratuit']))
 {
-    echo 'gratuit';
+    if($_POST['gratuit']=='oui'){$gratuit=1;};
+    //echo 'gratuit';
+    $gratuit_valid=1;
 }
 if(!empty($_POST['handicap']))
 {
-    echo 'handicap';
+    //echo 'handicap';
+    $handicap_valid=1;
+    if($_POST['handicap']=='oui'){$handicap=1;}
 }
 
 try
@@ -88,17 +115,110 @@ catch(Exception $e)
     die('Erreur : '.$e->getMessage());
 }
 
+//
+//En fonction des variables qui ont été mises à 1 on effectue la requête appropriée
+//
+$cas1=0;
+if($mot_cle_valid===1 or $ville_cle_valid===1 or $date_min_valid===1 or $date_max_valid===1 or $handicap_valid===1 or $popularite_valid===1 or $gratuit_valid===1)
+{$cas1=1;}
+$compte=0;
 
+//Cas 1
+if($cas1===1)
+    {
+    $reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet,prix_min,prix_max FROM evenement WHERE nom_evenement LIKE :nom_evt AND ville LIKE :ville AND accessibilite_handicape LIKE :handicap AND nb_de_places_max >= :popularite AND date_debut >= :date_min AND date_fin <= :date_max AND gratuit LIKE :gratuit ORDER BY date_debut");
+    
+    $reponse->execute(array('nom_evt' => $mot_cle,
+                            'date_min' => $date_min,
+                            'date_max' => $date_max,
+                            'ville' => $ville,
+                            'handicap' => $handicap,
+                            'popularite' =>$popularite,
+                            'gratuit' =>$gratuit
+                            ));
+    $compte++;
+    }
+//Cas 2
+if ($categorie_valid===1)
+    {
+        $reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet,prix_min,prix_max FROM evenement WHERE IDcategorie_evenement =:IDcat AND date_debut >= :date_min ORDER BY date_debut");
+        
+        $reponse->execute(array('IDcat' => $_POST['categorie'],
+                                'date_min' => $date_min,
+                                ));
+        $compte++;
+    }
+//Cas 3
+if ($dept_valid===1)
+    {
+    //echo $_POST['departement'];
+        $reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet,prix_min,prix_max FROM evenement WHERE nom_evenement LIKE :nom_evt AND ville LIKE :ville AND accessibilite_handicape LIKE :handicap AND nb_de_places_max >= :popularite AND date_debut >= :date_min AND date_fin <= :date_max AND gratuit LIKE :gratuit AND code_postal_evenement = :dept ORDER BY date_debut");
+    
+    $reponse->execute(array('nom_evt' => $mot_cle,
+                            'date_min' => $date_min,
+                            'date_max' => $date_max,
+                            'ville' => $ville,
+                            'handicap' => $handicap,
+                            'popularite' =>$popularite,
+                            'gratuit' =>$gratuit,
+                            'dept' => $_POST['departement']
+                            ));;
+        $compte++;
+    }
+//Cas 4
+if($cas1===1 and $categorie_valid===1)
+    {
+    $reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet,prix_min,prix_max FROM evenement WHERE nom_evenement LIKE :nom_evt AND ville LIKE :ville AND accessibilite_handicape LIKE :handicap AND nb_de_places_max >= :popularite AND date_debut >= :date_min AND date_fin <= :date_max AND gratuit LIKE :gratuit AND IDcategorie_evenement =:IDcat ORDER BY date_debut");
+    
+    $reponse->execute(array('nom_evt' => $mot_cle,
+                            'date_min' => $date_min,
+                            'date_max' => $date_max,
+                            'ville' => $ville,
+                            'handicap' => $handicap,
+                            'popularite' =>$popularite,
+                            'gratuit' =>$gratuit,
+                            'IDcat' => $_POST['categorie']
+                            ));
+    $compte++;
+    }
+//Cas 5
+if($cas1===1 and $dept_valid===1)
+    {
+    $reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet,prix_min,prix_max FROM evenement WHERE nom_evenement LIKE :nom_evt AND ville LIKE :ville AND accessibilite_handicape LIKE :handicap AND nb_de_places_max >= :popularite AND date_debut >= :date_min AND date_fin <= :date_max AND gratuit LIKE :gratuit AND code_postal_evenement = :dept ORDER BY date_debut");
+    
+    $reponse->execute(array('nom_evt' => $mot_cle,
+                            'date_min' => $date_min,
+                            'date_max' => $date_max,
+                            'ville' => $ville,
+                            'handicap' => $handicap,
+                            'popularite' =>$popularite,
+                            'gratuit' =>$gratuit,
+                            'dept' => $_POST['departement']
+                            ));
+    $compte++;
+    }
+//Cas 6
+if ($categorie_valid===1 and $dept_valid===1)
+    {
+        $reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet,prix_min,prix_max FROM evenement WHERE IDcategorie_evenement =:IDcat AND date_debut >= :date_min AND code_postal_evenement = :dept ORDER BY date_debut");
+        
+        $reponse->execute(array('IDcat' => $_POST['categorie'],
+                                'date_min' => $date_min,
+                                'dept' => $_POST['departement']
+                                ));
+        $compte++;
+    }
+//Cas restant
+   // echo $compte;
+if($compte===0)
+{
+    //echo 'autre';
+   $reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet,prix_min,prix_max FROM evenement WHERE date_debut >= :date_min ORDER BY date_debut");
 
-$reponse= $bdd->prepare("SELECT IDevenement, nom_evenement,ville,DATE_FORMAT(date_debut, '%d/%m/%Y') AS date_debut_fr,nb_de_places_max,gratuit,complet,accessibilite_handicape,IDcategorie_evenement,IDmultimedia,complet FROM evenement WHERE nom_evenement LIKE :nom_evt AND ville LIKE :ville AND accessibilite_handicape LIKE :handicap AND nb_de_places_max >= :popularite AND date_debut >= :date_min AND date_fin <= :date_max");
+$reponse->execute(array('date_min' => $date_min,
+                        )); 
+}
 
-$reponse->execute(array('nom_evt' => $mot_cle,
-                        'date_min' => $date_min,
-                        'date_max' => $date_max,
-                        'ville' => $ville,
-                        'handicap' => '%%',
-                        'popularite' =>$popularite,
-                        ));
 
 ?>
 <table>
@@ -146,7 +266,11 @@ while($donnees = $reponse->fetch())
         else
         {
             $imgpayant='';
-            if($donnees['gratuit']!=1){$imgpayant='<img class="payant" src="Images/payant.png"/>';}
+            if($donnees['gratuit']!=1)
+                {
+                if($donnees['prix_min']!=0 and $donnees['prix_max']!=0)
+                {$imgpayant='<img class="payant" src="Images/payant.png"/>';}
+                }
             $infos_fin='<p>'.htmlspecialchars($donnees['nb_de_places_max']).'</p>'.$imgpayant;
         }
         
@@ -159,7 +283,7 @@ while($donnees = $reponse->fetch())
         $nb=htmlspecialchars($donnees['nb_de_places_max']);
         
         //gestion de l'affichage des logos accessibilité handicapé
-        if($donnees['accessibilite_handicape']==0)
+        if($donnees['accessibilite_handicape']==1)
         {$imghandicap='<img class="img_handicap" src="Images/logohandicapeok.png"/>';}
         else{$imghandicap='<img class="img_handicap" src="Images/logohandicapenop.png"/>';}
         

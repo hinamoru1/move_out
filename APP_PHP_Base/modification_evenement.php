@@ -159,7 +159,7 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
 	        			<label for="accessibilite_ok"><img src="Images/logohandicapeok.png" alt="logo handicapé" width="25" >accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required <?php if ($handicap==0){echo'checked';}?> >
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="0" required <?php if ($handicap==0){echo'checked';}?> >
 	        			<label for="accessibilite_nop"><img src="Images/logohandicapenop.png" alt="logo handicapé" width="25" >pas accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        
@@ -235,7 +235,7 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
         <ol>
             <li>
                 <fieldset>
-                    <input type="checkbox" name="gratuit" id="bis" value="1"><label for='gratuit'>gratuit</label>
+                    <input type="checkbox" name="gratuit" id="bis" value="1" <?php if($gratuit==1){echo 'checked';}?><label for='gratuit'>gratuit</label>
                 </fieldset>
             </li>
             <li>
