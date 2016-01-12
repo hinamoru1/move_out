@@ -10,12 +10,21 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
+$idok=0;
+$adminok=0;
+if(isset($_SESSION['id']))
+{$idok=1;}
+if(isset($_SESSION['admin']))
+{$adminok=1;}
+
+if($idok===1 or $adminok===1)
+{
 $IDutilisateur=$_SESSION['id'];
 $IDevenement=$_GET['ide'];
 
 $req = $bdd->prepare('DELETE FROM participe WHERE IDutilisateur=:idu AND IDevenement=:ide');
 $req->execute(array('ide' => $IDevenement, 'idu' => $IDutilisateur));
-
+}
 
 header('Location:voir_evenement2.php?id='.$IDevenement);
 exit();
