@@ -141,5 +141,5 @@ catch(Exception $e)
             <div class="suggestion-ville" id="v-deux">
                 <h3>Lyon</h3>
             </div>
-            <a href="#" class="plus">Plus de villes</a>
+            <a href="recherche_avancee.php" class="plus">Plus de villes</a>
         </div>
