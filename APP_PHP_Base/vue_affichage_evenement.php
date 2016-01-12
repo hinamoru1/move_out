@@ -102,9 +102,9 @@ catch(Exception $e)
                 //Si l'utilisateur est connecté:
                 if (isset($_SESSION['id']))
                 {
-                 // On regarde si l'utilisateur est le créateur de l'évènement.
+                 // On regarde si l'utilisateur est le créateur de l'évènement ou un admin
                 //Si oui on lui affiche des commandes de gestion de l'évènement
-                if($IDcreateur == $_SESSION['id'])
+                if($IDcreateur == $_SESSION['id'] or isset($_SESSION['admin']))
                 {
                  //Si l'évènement est complet on propose d'indiquer qu'il l'est et inversement
                 if($complet==1)

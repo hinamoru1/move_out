@@ -31,7 +31,7 @@
 				if (isset($_POST['gratuit']))
 				{
 				$gratuit=$_POST['gratuit'];
-				}
+                                }else{$gratuit=0;}
 				$prix_min=$_POST['prix_entree_mini'];
 				$prix_max=$_POST['prix_entree_max'];
 				if (isset($_POST['accessibilite']))
