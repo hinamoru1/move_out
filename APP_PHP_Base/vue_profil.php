@@ -1,7 +1,10 @@
 <header>
 <?php
+if(isset($_GET['creationok'])){
+        echo '<p>Votre compte a bien été créé. Bienvenue sur le site Move-Out !</p>';}
 if(isset($_SESSION['admin'])){echo '<a class="back_office" href="back_office.php">Accéder au Back Office</a>';
-echo'<h1>Profil de '.$pseudo.':</h1>';
+if(isset($_GET['id'])){echo'<h1>Profil de '.$pseudo.':</h1>';}
+else{echo '<h1> Mon Profil</h1>';}
 }
 else{echo '<h1>Mon Profil:</h1>';}
     ?>
@@ -32,7 +35,7 @@ else{echo '<h1>Mon Profil:</h1>';}
             ?>
             <a href="modification_infos_profil.php"><p class="bouton">Modifier mes informations</p></a>
             <a href="modification_mdp.php"><p class="bouton">Modifier mon mot de passe</p></a>
-            <a href="suppression_compte_validation.php"><p class="bouton">Supprimer mon compte</p></a>
+            <a href="suppression_compte_validation.php?id=<?php echo $id;?>"><p class="bouton"><?php if(isset($_SESSION['admin'])){echo'Supprimer ce compte?';}else{ echo'Supprimer mon compte?';}?></p></a>
         </fieldset>
     </article>
 </section>
@@ -41,7 +44,12 @@ else{echo '<h1>Mon Profil:</h1>';}
 <!-- Affichons les évènements créés par l'utilisateur-->
 <section class="affichage_liste">
     <h1>Mes évènements :</h1>
-    <a href="creation_evenement.php"><p class="bouton">Créer un évènement</p></a>
+    <?php if(isset($_SESSION['admin']))
+        {
+            if(isset($_GET['id'])){;}else{echo '<a href="creation_evenement.php"><p class="bouton">Créer un évènement</p></a>';}
+        }
+        else
+        {echo '<a href="creation_evenement.php"><p class="bouton">Créer un évènement</p></a>';}?>
     <div>
     <table>
 <?php

@@ -37,17 +37,25 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
- 
+
+$id=$_SESSION['id'];
+if(isset($_SESSION['admin']))
+    {
+        $admin=$_SESSION['admin'];
+        if(isset($_GET['id']))
+            {
+                $id=$_GET['id'];
+            }
+    }
 
 $reponse= $bdd->prepare("SELECT *,DATE_FORMAT(date_de_naissance, '%d/%m/%Y') AS date_de_naissance_fr FROM utilisateur WHERE  IDutilisateur = :id");
 
-$reponse->execute(array('id' => $_SESSION['id']));
+$reponse->execute(array('id' => $id));
 $donnees = $reponse->fetch();
 
 //On définit des variables contenant les informations sur le site
 //echo $_SESSION['admin'];
-if(isset($_SESSION['admin']))
-{$admin=$_SESSION['admin'];}
+
 //$admin=htmlspecialchars($donnees['admin']);
 $pseudo=htmlspecialchars($donnees['pseudo']);
 $nom=htmlspecialchars($donnees['nom_utilisateur']);
@@ -95,16 +103,16 @@ $lien_image_profil=$donnees['lien'];
 
 //On charge maintenant les informations sur les évènements créés par l'utilisateur
 $reponse2= $bdd->prepare("SELECT IDevenement,nom_evenement,date_debut,numero_de_rue,rue,ville,pays FROM evenement WHERE IDcreateur= :id ORDER BY evenement.date_debut");
-$reponse2->execute(array('id' => $_SESSION['id']));
+$reponse2->execute(array('id' => $id));
 
 //On charge les informations sur les évènements auxquels l'utilisateur participe
 $reponse3= $bdd->prepare("SELECT evenement.IDevenement,nom_evenement,date_debut,numero_de_rue,rue,ville,pays FROM evenement,participe WHERE evenement.IDevenement=participe.IDevenement  AND participe.IDutilisateur= :id ORDER BY evenement.date_debut");
-$reponse3->execute(array('id' => $_SESSION['id']));
+$reponse3->execute(array('id' => $id));
 
 
 //On charge les informations sur les évènements de sa wishlist
 $reponse4= $bdd->prepare("SELECT evenement.IDevenement,nom_evenement,date_debut,numero_de_rue,rue,ville,pays FROM evenement,wishlist WHERE evenement.IDevenement=wishlist.IDevenement AND wishlist.IDutilisateur= :id ORDER BY evenement.date_debut");
-$reponse4->execute(array('id' => $_SESSION['id']));
+$reponse4->execute(array('id' => $id));
 
 
 include_once 'vue_profil.php';

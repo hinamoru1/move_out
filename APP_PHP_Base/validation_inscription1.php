@@ -62,7 +62,7 @@ if(isset($_POST['sub_inscr']))
 		
 					$_SESSION['id']=$donnees['IDutilisateur'];
 					
-					header('Location:profil.php');
+					header('Location:profil.php?creationok=1');
 					
 					}
 					else{

@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+if(isset($_SESSION['id']))
+{
 try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=move_out;charset=utf8', 'root', '', 
@@ -11,7 +12,6 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
-
 
 if(isset($_POST['sub_inscr']))
 	{
@@ -43,7 +43,7 @@ if(isset($_POST['sub_inscr']))
         $insert->bindParam(8, $sexe);
         $insert->bindParam(9, $ville);
         $insert->execute();
-        }
+        
         
 ?>
         
@@ -59,6 +59,7 @@ if(isset($_POST['sub_inscr']))
 </html>
 
 <?php
-header('Location:profil.php');
+}header('Location:profil.php');
 exit();
+}else{header('Location:formulaire_connection.php');}
 ?>
