@@ -1,6 +1,6 @@
 <header>
 <?php
-if($admin==1){echo '<a class="back_office" href="back_office.php">Accéder au Back Office</a>';
+if(isset($_SESSION['admin'])){echo '<a class="back_office" href="back_office.php">Accéder au Back Office</a>';
 echo'<h1>Profil de '.$pseudo.':</h1>';
 }
 else{echo '<h1>Mon Profil:</h1>';}
@@ -17,7 +17,7 @@ else{echo '<h1>Mon Profil:</h1>';}
         <fieldset>
             <legend>Informations du profil</legend>
             <?php
-            if($admin==1){echo'<p> Vous êtes administrateur. </p>';}
+            if(isset($_SESSION['admin'])){echo'<p> Vous êtes administrateur. </p>';}
             if($nom!==''){echo'<p>Nom :  '.htmlspecialchars($nom).' </p>';}
             if($prenom!==''){echo'<p>Prenom :  '.htmlspecialchars($prenom).' </p>';}
             if($sexe==1){echo '<p>Sexe :  Homme</p>';}

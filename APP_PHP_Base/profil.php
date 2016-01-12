@@ -46,7 +46,8 @@ $donnees = $reponse->fetch();
 
 //On définit des variables contenant les informations sur le site
 //echo $_SESSION['admin'];
-$admin=$_SESSION['admin'];
+if(isset($_SESSION['admin']))
+{$admin=$_SESSION['admin'];}
 //$admin=htmlspecialchars($donnees['admin']);
 $pseudo=htmlspecialchars($donnees['pseudo']);
 $nom=htmlspecialchars($donnees['nom_utilisateur']);
