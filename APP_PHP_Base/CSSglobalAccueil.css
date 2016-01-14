@@ -155,8 +155,6 @@ header p{
 .plus{
     color:#409fb0;
     display:block;
-    margin-top:-40px;
-    margin-bottom: 50px;
 }
 
 #v-un{
@@ -178,14 +176,14 @@ header p{
     margin-left:1%;
     margin-right:3%;
     margin-top: 20px;
-
+    box-shadow: 25px 25px 10px rgba(0,0,0,0.6); 
 }
  
 
 #slideshow:before,
 #slideshow:after {
     position: absolute;
-    bottom:16px;
+    
     z-index: -10;
     width: 50%;
     height: 20px;
