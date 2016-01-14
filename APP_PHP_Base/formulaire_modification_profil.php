@@ -69,10 +69,7 @@
           <fieldset>
             <legend>Adresse</legend>
               <ol>
-                  <li>
-                    <label for=ville>Ville*</label>
-                    <input id=ville name=ville type=text value="<?php echo $ville ;?>" required>
-                  </li>
+                  
             <!--<li>
               <label for=adresse>Adresse</label>
               <textarea id=adresse name=adresse rows=1 ></textarea>
@@ -96,10 +93,14 @@
                         }
                         }  ?>
                 
+                <li>
+                    
+                    <input id=ville name=ville type=text placeholder='ville' value="<?php echo $ville ;?>" required>
+                    <label for=ville>Ville*</label>
+                  </li>
           </ol>
           
-            <input>
-        </fieldset>
+          </fieldset>
                  <button id=sub_inscr type=submit name=sub_inscr >valider</button>
                 
                </form>

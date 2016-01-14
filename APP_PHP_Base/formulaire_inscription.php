@@ -2,7 +2,7 @@
 	<div class="titre">
     <h1>Formulaire d'Inscription :</h1>
 	</div>
-    <form id="inscription" action="validation_inscription1.php" method="post" onSubmit="return verify(this.mot_de_passe,this.mot_de_passe_conf,'mdp'),verify(this.email,this.conf_email,'mail')">
+<form id="inscription" action="validation_inscription1.php" method="post" <!--onSubmit="return verify(this.mot_de_passe,this.mot_de_passe_conf,'mdp'),verify(this.email,this.conf_email,'mail')"--> >
 	
       <fieldset>
         <legend>Votre identité</legend>
@@ -16,11 +16,11 @@
             <input id="prenom_utilisateur" name="prenom_utilisateur" type=text placeholder="par exemple: Antonin">
 		  <li>
             <label for=email>Email*</label>
-            <input id="email" name="email" type=email placeholder="exemple@domaine.com" required>
+            <input id="email" name="email" type=email placeholder="exemple@domaine.com" onkeyup=" compare(this.email,this.conf_email,7)" required>
           </li>
 		  <li>
             <label for=conf_email>Confirmer Email*</label>
-            <input id="conf_email" name="conf_email" type=email required>
+            <input id="conf_email" name="conf_email" type=email  onkeyup=" compare(this.email,this.conf_email,7)" required>
           </li>
           <!--<li>
             <label for=telephone>Téléphone</label>
@@ -56,11 +56,11 @@
                     </li>
 		    <li>
                         <label for="mdp">Mot de Passe*</label>
-                        <input id="mot_de_passe" name="mot_de_passe" type=password required>
+                        <input id="mot_de_passe" name="mot_de_passe" type=password onkeyup="compare(this.mot_de_passe,this.mot_de_passe_conf)" required>
                     </li>
                     <li>
                         <label for="mdp2">Confirmer le mdp*</label>
-                        <input id="mot_de_passe_conf" name="mot_de_passe_conf" type=password required>
+                        <input id="mot_de_passe_conf" name="mot_de_passe_conf" type=password onkeyup="compare(this.mot_de_passe,this.mot_de_passe_conf)" required>
                     </li>
 			<li>
 			<fieldset>
@@ -118,8 +118,8 @@
         <li>
        <fieldset>
            
-           <input type="checkbox" name="condition_utilisations" id="condition_utilisations" value="1"><br>
-           j'accepte les <a>conditions d'utilisation</a>
+           <input type="checkbox" name="condition_utilisations" id="condition_utilisations" value="1" required><br>
+           *j'accepte les <a href='#'>conditions d'utilisation</a>
            
        </fieldset>
         </li>

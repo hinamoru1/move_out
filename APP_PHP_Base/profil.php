@@ -55,9 +55,18 @@ $sexe=htmlspecialchars($donnees['sexe']);
 $ville=htmlspecialchars($donnees['ville']);
 $mail=htmlspecialchars($donnees['adresse_mail']);
 $date_naissance=htmlspecialchars($donnees['date_de_naissance_fr']);
-$dept_residence=htmlspecialchars($donnees['numero_departement_de_residence']);
+$dept_residence1=htmlspecialchars($donnees['numero_departement_de_residence']);
+echo $dept_residence1;
 $newsletter=htmlspecialchars($donnees['accepte_newsletter']);
 $IDimage_profil=htmlspecialchars($donnees['IDimage_profil']);
+
+$reponse1= $bdd->prepare("SELECT departement_nom FROM departement WHERE  departement_id = :dept_residence1");
+$reponse1->execute(array('dept_residence1' => $dept_residence1));
+$donnees1 = $reponse->fetch();
+echo $donnees1;
+$dept_residence=htmlspecialchars($donnees1['departement_nom']);
+echo $dept_residence;
+
 
 /*test
 echo $admin . '<br/>';

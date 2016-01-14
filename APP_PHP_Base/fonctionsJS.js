@@ -3,9 +3,7 @@
 // fonction qui permet de verifier que deux element contiennent la meme choses
 function verify(element1, element2,faculta){   // La fonction reçois en paramètre les 3 éléments dont un facultatif
 
-		console.log(element1);
-				console.log(element2);
-						console.log(faculta);
+
         if(typeof faculta === 'undefined'){
 		faculta = 'information'}
         
