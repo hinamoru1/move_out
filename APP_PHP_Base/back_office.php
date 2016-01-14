@@ -42,6 +42,7 @@ $nb_messages=$donnees['nb'];
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+        <div id="global">
         
 <?php
 if(isset($_SESSION['id']))
@@ -55,10 +56,14 @@ if(isset($_SESSION['id']))
             {
                 header('Location:profil.php');
             }
+            ?>
+            </div>
+            <?php
             include_once 'footer.php';
 }
         else
         {
+            
             header('Location:formulaire_connection.php');
         }
         ?>

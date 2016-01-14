@@ -26,6 +26,7 @@ if($_GET['id']==$_SESSION['id'])
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+        <div id="global">
         <?php
         include_once 'nav_connecte.php';
         ?>
@@ -38,6 +39,7 @@ if($_GET['id']==$_SESSION['id'])
         <p><br/><a href="suppression_compte_fin.php?id=<?php echo $_GET['id'];?>">Oui</a></p>
         <p><br/><a href="profil.php">Non</a></p>
         </section>
+        </div>
          <?php
          include_once 'footer.php';
          ?>

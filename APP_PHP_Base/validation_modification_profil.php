@@ -54,7 +54,15 @@ if(isset($_POST['sub_inscr']))
        <title>Validation de modification</title>
     </head>
     <body>
+        <div id='global'>
+            <?php 
+            include_once 'nav_connecte.php';
+            ?>
         <p>Vos informations ont bien été modifiées.    <a href="profil.php">OK</a><br/></p>
+        </div>
+            <?php
+            include_once 'footer.php';
+            ?>
     </body>
 </html>
 

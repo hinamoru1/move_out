@@ -9,10 +9,11 @@
 }
 
 body{
-    //background-image: url('Images/Fond2.jpg');
+    background-image: url('Images/Fond2.jpg');
     
-    background-color:#E6E6E6;
+    //background-color:#E6E6E6;
     margin:0;
+    padding: 0;
     font-family: Police;
 }
 
@@ -24,17 +25,105 @@ a:hover{
     text-decoration: underline;
 }
 
-table{
-    border-collapse:collapse;
+
+
+h1{
+    text-align:center;
+    font-size:2.5em;
 }
 
-table p{
-    display:inline-block;
+
+.formulaire{
+    text-align:center;
+    margin-bottom: 50px;
+    font-size: 1.1em;
+    padding:1px 50px 3px 10px;
+    background-color: #409fb0;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right:auto;
+    width:60%;
+}
+
+.formulaire input:not([type=radio]),
+.formulaire textarea {
+    background: #ffffff;
+    border: none;
+    border-radius: 3px;
+    font: italic 13px Georgia, serif;
+    outline: none;
+}
+.gra{
+    font-weight: bold;
+}
+#mot_cle{
+    margin-left: 15px;
+    width:216px;
+    margin-bottom:5px;
+}
+#categorie{
+   margin-bottom:5px; 
+}
+#label_date{
+    margin-right:82px;
+}
+#date1{
+    margin-left: 37px;
+    width: 120px;
+}
+#date2{
+    width:120px;
+    margin-bottom:5px;
+}
+#lieu{
+    margin-top:5px;
+    width:216px;
+    margin-bottom:5px;
+}
+
+						
+.formulaire button {
+    background: grey;
+    border: none;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    color: #ffffff;
+    display: block;
+    font: 15px Georgia, serif;
+    letter-spacing: 1px;
+    margin: auto;
+    padding: 7px 25px;
+    text-shadow: 0 1px 1px #000000;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+					
+.formulaire button:hover {
+    background: yellowgreen;
+    cursor: pointer;
+}
+
+input [type=text]{
+    width:200px;
+}
+
+
+
+
+
+.billet_evenement{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    height: 180px;
 }
 
 .image_evenement{
-    height:150px;
-    width: 200px;
+    display:inline-block;;
+    height:170px;
+    width: 40%;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 5px;
@@ -46,8 +135,8 @@ table p{
 .complet{
     border-radius: 7px;
     background-color: red;
-    padding-left:3px;
-    padding-right:3px;
+    padding-left: 8px;
+    width:3.5em;
 }
 
 .lien_evenement{
@@ -58,9 +147,29 @@ table p{
 }
 
 .payant{
+    margin-top:7px;
+    margin-bottom: -8px;
+    margin-right:10px;
     width:30px;
 }
 
 .img_handicap{
+    margin-top:7px;
+    margin-bottom: -8px;
+    margin-right:10px;
     width:30px;
+}
+
+table{
+    margin-bottom: 35px;
+    margin-left: 2%;
+    border-collapse:collapse;
+    width:30%;
+    font-size: 1.8em;
+    width:55%;
+    display: inline-block;
+}
+td{
+    width:19%;
+    padding-top: 15px;
 }

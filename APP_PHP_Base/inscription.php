@@ -15,9 +15,13 @@ session_start();
         <script type="text/javascript" src="fonctionsJS.js"></script>
     </head>
     <body>
+        <div id="global">
         <?php
         include_once 'nav_non_connecte.php';
         include_once 'formulaire_inscription.php';
+        ?>
+        </div>
+        <?php
         include_once 'footer.php';
         ?>
     </body>

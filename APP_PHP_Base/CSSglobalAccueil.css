@@ -41,17 +41,20 @@ header{
 }
 
 header h1{
-    font-size:3em;
+    font-size:2.5em;
     padding-top:110px;
     text-align:center;
 }
 
 header p{
-    padding-left: 60%;
+    text-align:center;
     font-size: 1.4em;
 }
 
 .conteneur{
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
     display: block;
     text-align: center;
     font-size: 2em;
@@ -64,11 +67,12 @@ header p{
 }
 
 .petit_conteneur{
-    display:inline-table;
     width: 25%;
     background-color: rgb(40,40,40);
     margin-top: 2em;
-    border-radius: 5px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-rignt:10px;
 }
 
 .petit_conteneur h3{
@@ -76,6 +80,7 @@ header p{
 }
 
 .petit_conteneur p{
+    margin:20px;
     color:white;
 }
 

@@ -22,6 +22,7 @@ catch(Exception $e)
         <script type="text/javascript" src="fonctionsJS.js"></script>
     </head>
     <body>
+        <div id="global">
         <?php
 		if (isset($_SESSION['id']))
 		{   
@@ -33,7 +34,9 @@ catch(Exception $e)
 			include_once 'nav_non_connecte.php';
 			print "<h1><p><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspVous devez être connecté pour accéder au forum</strong></p></h1>";
 		}
+                ?></div><?php
 		include_once 'footer.php';
         ?>
+        
     </body>
 </html>

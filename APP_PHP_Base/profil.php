@@ -16,6 +16,7 @@ session_start();
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+        <div id="global">
         
         <?php
         //On vérifie que l'utilisateur est bien connecté
@@ -123,7 +124,9 @@ else
 include_once 'nav_non_connecte.php';
 include_once 'erreur_profil.php';
 }
-
+?>
+    </div>
+    <?php
 include_once 'footer.php';
 
 ?>

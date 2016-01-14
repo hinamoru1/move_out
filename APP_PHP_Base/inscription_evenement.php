@@ -12,6 +12,7 @@
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+        <div id="global">
         <?php
         if(isset($_GET['ide'])){
             $IDevenement=$_GET['ide'];
@@ -47,7 +48,7 @@
         
         
         
-        
+        </div>
         <?php
         include_once 'footer.php';
         }

@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="CSS_forum.css">
     </head>
     <body>
+        <div id="global">
         <h1>Derniers sujets :</h1>
 	  
         <div class="nouveau">
@@ -40,13 +41,16 @@ while ($donnees = $reponse->fetch() )
         </tr>
     </table>
 </div>
-
+        
 <?php
 
 } // Fin de la boucle des billets
 
 $reponse->closeCursor();
-
+?>
+        </div>
+        <?php
+        include_once 'footer.php';
 ?>
 </body>
 
