@@ -8,6 +8,8 @@
     src: url('introrustg-base2line-webfont.ttf');
 }
 
+/*{border: solid black 2px;}*/
+
 body{
     background-image: url('Images/Fond2.jpg');
     
@@ -31,20 +33,18 @@ header{
     display:block;
     width:100%;
     margin-left: 0px;
-    margin-top: -36px;
     //background-image: url("Images/Party.jpg");
-    height:16em;
     background-repeat: no-repeat;
     background-size: cover;/*Rogne l'image de façon à ce qu'elle prenne toute la largeur de l'écran et que ce qui dépasse en hauteur au dessus et au dessous soit coupé, sans déformer l'image*/
-    text-shadow: 3px 3px 5px #777;
-    //box-shadow: 0px 3px 15px black;
+    text-shadow:  3px 3px 5px #777;
 }
 
 header h1{
     font-size:2.5em;
-    padding-top:110px;
     text-align:center;
+    padding-top: 20px;
 }
+
 
 header p{
     text-align:center;
@@ -58,7 +58,6 @@ header p{
     display: block;
     text-align: center;
     font-size: 2em;
-    margin-top: -15px;
     border-radius: 5px;
 }
 
@@ -69,10 +68,9 @@ header p{
 .petit_conteneur{
     width: 25%;
     background-color: rgb(40,40,40);
-    margin-top: 2em;
     border-radius: 10px;
     margin-left: 10px;
-    margin-rignt:10px;
+    margin-right:10px;
 }
 
 .petit_conteneur h3{
@@ -171,14 +169,16 @@ header p{
     margin-left: 27px;
 }
 
+    
+
 #slideshow {
-    position: relative;
-    width: 1200px;
+    width: 95%;
     height: 500px;
     padding: 15px;
-    margin: 0 auto 1em;
-    margin-bottom: 45px;
-    top: 80px;
+    margin-left:1%;
+    margin-right:3%;
+    margin-top: 20px;
+
 }
  
 
@@ -192,8 +192,7 @@ header p{
     content: " ";
     background: rgba(0,0,0,0);
     border-radius: 75%;
-    box-shadow: 0 0 0px rgba(0,0,0, 0.4), 0 20px 10px  rgba(0,0,0, 0.7); 
-}
+ }
 #slideshow:before {
     left:0;
     transform: rotate(-4deg);
@@ -201,6 +200,7 @@ header p{
 #slideshow:after {
     right:0;
     transform: rotate(4deg);
+     /*box-shadow: 0 0 0px rgba(0,0,0, 0.4), 0 20px 10px  rgba(0,0,0, 0.7); */
 }
 
 /* gestion des dimensions et débordement du conteneur */
