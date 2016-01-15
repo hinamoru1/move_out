@@ -87,15 +87,11 @@ if($color>=1)
 {
 if(isset($_GET['limit']))
 {
-    if($_GET['limit']=='tout'){;}
-    else
-    {
     $plus= intval($_GET['limit']);
     if($plus>=125)
     {echo'<a class="plus" href="voir_evenement2.php?id='.$_GET['id'].'&limit=tout">Afficher tous les commentaires</a><br/>';}
     else{$plus+=30;
     echo'<a class="plus" href="voir_evenement2.php?id='.$_GET['id'].'&limit='.$plus.'">Afficher plus les commentaires</a><br/>';}
-    }
 }
  else 
 {

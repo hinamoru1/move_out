@@ -2,10 +2,10 @@
 footer {
 	background-color:rgb(40,40,40);
 	width:100%;
-        display: block;
+        display: inline-block;
         position: absolute;
         bottom:0;
-        max-height:171px;
+        max-height:171px
 }
 footer a h3{
 	text-align:center;

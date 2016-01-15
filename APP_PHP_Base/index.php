@@ -3,15 +3,15 @@ session_start();
 ?>
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Move-out: Accueil</title>
-        <link rel='stylesheet' href='CSSglobalAccueil.css'>
-        <link rel='stylesheet' href='CSSnav_accueil.css'>
-        <link rel='stylesheet' href='CSSfooter.css'>
-    </head>
-    <body>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Move-out: Accueil</title>
+            <link rel='stylesheet' href='CSSglobalAccueil.css'>
+            <link rel='stylesheet' href='CSSnav_accueil.css'>
+            <link rel='stylesheet' href='CSSfooter.css'>
+        </head>
+        <body>
         <div id="global">
         
         <?php

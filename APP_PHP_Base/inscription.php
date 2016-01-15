@@ -13,7 +13,8 @@ session_start();
         <link rel='stylesheet' href='CSSfooter.css'>
         <link rel='stylesheet' href='CSSinscription.css'>
         <link rel='stylesheet' href='CSStestJS.css'>
-        <script type="text/javascript" src="testJS.js"></script>
+        <script type="text/javascript" src="fonctionsJS.js"></script>
+        <script type="text/javascript" src="test_verification_adresse_mail.js"></script>
     </head>
     <body>
         <div id="global">

@@ -10,25 +10,12 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
+if(isset($_POST['submit']))
+{
+		$req = $bdd->prepare('INSERT INTO messages (IDutilisateur, texte,IDtopic,date_creation) VALUES(?, ?,?,CURTIME())');
 
+		$req->execute(array($_SESSION['id'], $_POST['message'],$_GET['sujet']));
+}
 
-if(isset($_SESSION['id']))
-    {
-        if(isset($_POST['submit']))
-        {
-            if(isset($_POST['reponse']))
-                {
-                    $req = $bdd->prepare('INSERT INTO messages (texte , date_creation , IDreponse, IDutilisateur, IDtopic) VALUES( :txt, CURTIME(), :idr, :idu, :idt)');
-                    $req->execute(array('txt' => $_POST['message'], 'idr' => $_POST['reponse'], 'idu' => $_SESSION['id'],'idt' => $_GET['sujet']));
-                }
-                else
-                {
-                    $req = $bdd->prepare('INSERT INTO messages (texte , date_creation , IDreponse, IDutilisateur, IDtopic) VALUES( :txt, CURTIME(), :idr, :idu, :idt)');
-                    $req->execute(array('txt' => $_POST['message'], 'idr' => 0, 'idu' => $_SESSION['id'],'idt' => $_GET['sujet']));
-                }
-                    
-        }
-        
-    }
 header('Location: topic.php?sujet='.$_GET['sujet']);
 ?>

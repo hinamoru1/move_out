@@ -10,7 +10,7 @@
 	    <ol>
 	        <li>
                 <label for="nom_evenement">Nom de l'événement</label>
-                <input type="text" name="nom_evenement" placeholder="Ex : Sortie au musée du Louvre" size="50" maxlength="100" id="nom_evenement"required>
+                <input type="text" name="nom_evenement" placeholder="Ex : Sortie au musée du Louvre" size="50" maxlength="100" id="nom_evenement"  required>
 	        </li>
 	        <?php
                 //On va aller chercher les différentes valeurs des catégories dans la table appropriée
@@ -27,7 +27,7 @@
             ?>
 	        <li>
 	        	<label for="text">Catégorie</label>
-	        	<select name="categorie_evenement" id="cathegorie_evenement" required>
+	        	<select name="categorie_evenement" id="cathegorie_evenement"   required>
 	        </li>
             <?php
                 while($donnees =$reponse->fetch())
@@ -37,7 +37,7 @@
 	        ?>
 	        <li>
 	        	<label for="nb_participant_max">Nombre de participants maximum</label>
-	        	<input type="number" name="nb_participant_max" min="1" max="1000000" id="nb_participant_max" placeholder="nombre de participant" required><br> 
+	        	<input type="number" name="nb_participant_max" min="1" max="1000000" id="nb_participant_max" placeholder="nombre de participant"   required><br> 
 	        	<!-- 1 million de participant max -->
 	        </li>
 	        <label>Accessibilité handicapés</label>
@@ -45,17 +45,17 @@
 	        	<fieldset>
 	        	<ol>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required>
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="1"   required>
 	        			<label for="accessibilite_ok"><img src="Images/logohandicapeok.png" alt="logo andicaper" width="25" >accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        		<li>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="0" required>
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="0"   required>
 	        			<label for="accessibilite_nop"><img src="Images/logohandicapenop.png" alt="logo andicaper" width="25" >pas accessible</label>&nbsp;&nbsp;&nbsp;
 	        		</li>
 	        
 	        			<!--label>Accessibilité handicapé :</label>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="1" required><label>Oui</label>
-	        			<input type="radio" name="accessibilite" id="accessibilite" value="0" required><label>Non</label>&nbsp;&nbsp;&nbsp;
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="1"   required><label>Oui</label>
+	        			<input type="radio" name="accessibilite" id="accessibilite" value="0"   required><label>Non</label>&nbsp;&nbsp;&nbsp;
 	        			<img src="Images/logohandicapeok.png" alt="logo andicaper" width="25" -->
 	        
 	        
@@ -69,15 +69,15 @@
         <ol>        	
             <li>
                 <label for="date">Date debut</label>
-                <input type="date" name="date_debut" id="date_debut" required><br/>
+                <input type="date" name="date_debut" id="date_debut"   required><br/>
                 <label for="date">Date fin</label>
-                <input type="date" name="date_fin" id="date_fin" required><br/>
+                <input type="date" name="date_fin" id="date_fin"   required><br/>
             </li>
             <li>
                 <label for="heure_debut">Heure de début</label>
-                <input type="time" name="heure_debut" id="heure_debut" required><br>
+                <input type="time" name="heure_debut" id="heure_debut"   required><br>
                 <label for="heure_fin">Heure de fin</label>
-                <input type="time" name="heure_fin" id="heure_fin" required>
+                <input type="time" name="heure_fin" id="heure_fin"   required>
             </li>
         </ol>            
     </fieldset>
@@ -102,7 +102,7 @@
             ?>
 	        <li>
 	        	<label for="text">Département</label>
-	        	<select name="departement" id="departement" required>
+	        	<select name="departement" id="departement"   required>
 	        </li>
             <?php
                 while($donnees =$reponse->fetch())
@@ -110,9 +110,9 @@
                         echo '<option value=' . $donnees['departement_id'] . '>' .$donnees['departement_code'].' '. $donnees['departement_nom'] . '</option>';
                     }
 	        ?>
-            <input type="text" name ="ville" placeholder="ville" maxlength="100" id="ville" required>
-            <input type="text" name="rue" placeholder="rue ... / avenue ..." maxlength="150" id="rue" required>
-            <input type="number" name="numero_rue" min="1" max="1000" id="numero_rue" placeholder="numero" required>
+            <input type="text" name ="ville" placeholder="ville" maxlength="100" id="ville"   required>
+            <input type="text" name="rue" placeholder="rue ... / avenue ..." maxlength="150" id="rue"   required>
+            <input type="number" name="numero_rue" min="1" max="1000" id="numero_rue" placeholder="numero"   required>
             <fieldset>
                     <input type="checkbox" name="bis" id="bis" value="1"><label for='bis'>Bis</label>
             </fieldset>

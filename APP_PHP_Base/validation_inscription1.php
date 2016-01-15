@@ -32,7 +32,7 @@ if(isset($_POST['sub_inscr']))
 					$prenom_utilisateur= $_POST['prenom_utilisateur'];
 					//$telephone= $_POST['telephone'];
 					$date_naissance= $_POST['date_naissance'];
-					$adresse_mail = $_POST['email'];
+                                        $adresse_mail = $_POST['email'];
 					$pass = sha1($_POST['mot_de_passe']);
                                         $ville = $_POST['ville'];
 					$numero_departement_de_residence= $_POST['departement'];

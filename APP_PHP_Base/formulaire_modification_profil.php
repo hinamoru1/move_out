@@ -1,6 +1,6 @@
     <h1 classe="titre">Formulaire de modification de vos informations</h1>
     
-    <form class="formulaire" id="formulaire_modification_profil" action ="validation_modification_profil.php" method="post">
+    <form class="formulaire" id="formulaire_modification_profil" action ="validation_modification_profil.php" method="post" onSubmit="return verify(this.email,this.conf_email,'mail')">
 	
       <fieldset>
         <legend>Votre identité</legend>
@@ -15,11 +15,11 @@
 	    </li>
             <li>
             <label for=email>Email*</label>
-            <input id=email name=email type=email value="<?php echo $mail ;?>" required>
+            <input id=email name=email type=email value="<?php echo $mail ;?>" onkeyup="verifMail(this)" required>
           </li>
 		  <li>
             <label for=conf_email>Confirmer Email*</label>
-            <input id=conf_email name=conf_email value="<?php echo $mail ;?>" type=email required>
+            <input id=conf_email name=conf_email value="<?php echo $mail ;?>" type=email onkeyup="compare(email,conf_email)" required>
           </li>
             <li>
             <label for=date_naissance>Date de Naissance*</label>
@@ -69,7 +69,10 @@
           <fieldset>
             <legend>Adresse</legend>
               <ol>
-                  
+                  <li>
+                    <label for=ville>Ville*</label>
+                    <input id=ville name=ville type=text value="<?php echo $ville ;?>" required>
+                  </li>
             <!--<li>
               <label for=adresse>Adresse</label>
               <textarea id=adresse name=adresse rows=1 ></textarea>
@@ -94,13 +97,17 @@
                         }  ?>
                 
                 <li>
-                    
-                    <input id=ville name=ville type=text placeholder='ville' value="<?php echo $ville ;?>" required>
-                    <label for=ville>Ville*</label>
-                  </li>
+       <fieldset>
+           
+           <input type="checkbox" name="condition_utilisations" id="condition_utilisations" value="1" required><br>
+           j'accepte les <a>conditions d'utilisation</a>
+           
+       </fieldset>
+        </li>
+                
           </ol>
-          
-          </fieldset>
+        
+        </fieldset>
                  <button id=sub_inscr type=submit name=sub_inscr >valider</button>
                 
                </form>
