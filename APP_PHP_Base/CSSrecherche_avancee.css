@@ -69,10 +69,10 @@ h1{
 }
 #date1{
     margin-left: 37px;
-    width: 120px;
+    width: 125px;
 }
 #date2{
-    width:120px;
+    width:125px;
     margin-bottom:5px;
 }
 #lieu{
@@ -117,7 +117,7 @@ input [type=text]{
     width:80%;
     margin-left:auto;
     margin-right:auto;
-    height: 180px;
+    min-height: 180px;
 }
 
 .image_evenement{
@@ -125,7 +125,6 @@ input [type=text]{
     height:170px;
     width: 40%;
     margin-top: 5px;
-    margin-bottom: 5px;
     margin-left: 5px;
     display: inline-block;
     background-position: 50% 50%;
@@ -172,4 +171,8 @@ table{
 td{
     width:19%;
     padding-top: 15px;
+}
+
+span{
+    font-weight:bold;
 }
