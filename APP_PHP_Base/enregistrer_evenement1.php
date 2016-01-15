@@ -1,4 +1,14 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Erreur de connection</title>
+        <link rel='stylesheet' href='CSSerreur.css'>
+        <link rel='stylesheet' href='CSSnav.css'>
+        <link rel='stylesheet' href='CSSfooter.css'>
+    </head>
+    <body>
+        <div id="global">
         <?php
 		session_start();
             try
@@ -62,23 +72,23 @@ $prix=0;
 
           
 if ($prix_min>$prix_max) {
-    echo "ton prix min est supperieur a ton prix max <br>";
+    echo "<section><h1>Ton prix minimum est supérieur a ton prix maximum !</h1></section> <br>";
     $prix=1;
 }
 if ($date_debut>$date_fin){
-    echo "ta date de debut est apres ta date de fin <br>";
+    echo "<section><h1> Ta date de début est après ta date de fin ! </h1></section><br>";
     $date=1;
 }
 if ($date_now>$date_debut){
-    echo "ton evenement a deja commencer <br>";
+    echo "<section><h1> Ton evenement a déjà commencé ! </h1> </section><br>";
     $date=1;
 }
 if ($date_now>$date_fin){
-    echo "tonevenement est deja fini <br>";
+    echo "<section><h1> Ton évenement est déjà fini ! </h1></section><br>";
     $date=1;
 }
 if ($heure_debut > $heure_fin && $date_debut===$date_fin){
-    echo "il y a un probleme au niveau de tes horaires de debut et de fin <br>";
+    echo "<section><h1> Il y a un probleme au niveau de tes horaires de debut et de fin </h1></section> <br>";
     $heure=1;
 }
 if ($date_debut>$date_now && $date_fin>$date_debut){
@@ -113,6 +123,16 @@ if($prix!=1 && $date!=1 && $heure!=1){
     header('Location:profil.php');
     exit();
 }
+else 
+{ ?>
+         
+                <section>
+                    <a href='creation_evenement.php'>Retour au formulaire</a>
+                </section>
+        </div>
+<?php      
+
+}
 ?>
-    
-    
+   
+        
