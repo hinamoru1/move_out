@@ -52,3 +52,9 @@ nav{
     width:100%;
     background-color: rgb(40,40,40);
 }
+
+#back_office{
+    width:45px;
+    margin-right: 1em;
+    margin-top: 17px;
+}

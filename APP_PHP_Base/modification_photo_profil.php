@@ -14,6 +14,7 @@ session_start();
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+        <div id="global">
         <?php
         if (isset($_SESSION['id']))
         {
@@ -35,7 +36,9 @@ session_start();
         {
         header('Location:formulaire_connection.php');  
         }
-        
+        ?>
+    </div>
+    <?php
                 include_once 'footer.php';
         ?>
         

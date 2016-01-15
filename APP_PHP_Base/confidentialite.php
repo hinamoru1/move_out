@@ -14,6 +14,7 @@ session_start();
         <link rel='stylesheet' href='aaa.css'>
     </head>
     <body>
+        <div id="global">
 
         <?php
         if (isset($_SESSION['id']))
@@ -25,6 +26,9 @@ session_start();
          include_once 'nav_non_connecte.php';
         }
         include_once 'vue_confidentialite.php';
+        ?>
+        </div>
+        <?php
         include_once 'footer.php';
         ?>
     </body>

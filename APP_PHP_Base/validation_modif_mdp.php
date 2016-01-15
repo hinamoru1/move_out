@@ -11,7 +11,8 @@ catch(Exception $e)
 {
         die('Erreur : '.$e->getMessage());
 }
-
+if(isset($_POST['id']))
+{
 if(isset($_POST['sub_inscr']))
 {
     if($_POST['mot_de_passe'] == $_POST['mot_de_passe_conf'])
@@ -27,7 +28,7 @@ if(isset($_POST['sub_inscr']))
         }
         
 }
-    
+
     
 
 ?>
@@ -38,13 +39,25 @@ if(isset($_POST['sub_inscr']))
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Validation de modification de mot de passe</title>
+        <link rel='stylesheet' href='CSSerreur.css'>
+        <link rel='stylesheet' href='CSSnav.css'>
+        <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+        <div id="footer">
+        <?php
+            include_once 'nav_connecte.php';
+        ?>
         <p>Votre mot de passe a bien été modifié.      <a href="profil.php">OK</a></p>
+        </div>
+        <?php
+            include_once 'footer.php';
+        ?>
     </body>
 </html>
 <?php
+}
 header('Location:profil.php');
 exit();
 ?>

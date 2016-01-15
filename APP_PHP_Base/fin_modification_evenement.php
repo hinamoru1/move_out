@@ -41,28 +41,46 @@
                                 $url_auxiliaire=$_POST['url_auxiliere'];
                                 $a_propos=$_POST['a_propos'];
 				
+//verif prix
+                                if ($gratuit==1){
+                                    $prix_min=0;
+                                    $prix_max=0;
+                                }
+                                if ($prix_min==$prix_max && $prix_min==0){
+                                    $gratuit=1;
+                                }
+            
+            
+            
+            
 $date_now=date("Y-m-d");
 $date=0;
 $heure=0;
 $prix=0;
 
           
-          
 if ($prix_min>$prix_max) {
-    echo "ton prix min est superieur a ton prix max <br>";
+    echo "ton prix min est supperieur a ton prix max <br>";
     $prix=1;
 }
 if ($date_debut>$date_fin){
     echo "ta date de debut est apres ta date de fin <br>";
     $date=1;
 }
-if ($date_now>$date_debut && $date_now>$date_fin){
-    echo "la fin de ton evenement est deja passée <br>";
-    $date=2;
+if ($date_now>$date_debut){
+    echo "ton evenement a deja commencer <br>";
+    $date=1;
 }
-if ($heure_debut > $heure_fin && $date_debut<$date_fin){
-    echo "ton evenement debute alors qu'il est deja fini <br>";
+if ($date_now>$date_fin){
+    echo "tonevenement est deja fini <br>";
+    $date=1;
+}
+if ($heure_debut > $heure_fin && $date_debut===$date_fin){
+    echo "il y a un probleme au niveau de tes horaires de debut et de fin <br>";
     $heure=1;
+}
+if ($date_debut>$date_now && $date_fin>$date_debut){
+$heure=0;
 }
             
 if($prix!=1 && $date!=1 && $date!=2 && $heure!=1){

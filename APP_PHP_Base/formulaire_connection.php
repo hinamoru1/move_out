@@ -12,6 +12,7 @@ session_start();
     </head>
 	
     <body>
+        <div id="global">
         
         <?php
         if (isset($_SESSION['id']))
@@ -43,7 +44,8 @@ session_start();
             <button id=sub_inscr type=submit name=sub_inscr >connexion</button>
             </form>
                 
-        <?php    
+        <?php   
+        ?></div><?php
                 include_once 'footer.php';
         ?>
     </body>

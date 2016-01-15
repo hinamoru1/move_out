@@ -12,6 +12,7 @@ session_start();
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+    <div id="global">
         
         <?php
         if (isset($_SESSION['id']))
@@ -28,8 +29,11 @@ session_start();
         {
             include_once 'recherche_avancee_resultats.php';
         }
-        
+?>
+    </div>
+<?php
         include_once 'footer.php';
+        
         ?>
     </body>
 </html>

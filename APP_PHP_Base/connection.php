@@ -38,6 +38,7 @@ if($donnees['admin']==1){$_SESSION['admin']=1;}
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+        <div id="global">
 <?php
 //Maintenant on cherche si l'utilisateur est bien connecté
 //En gros si les variables de sessions ne contiennt rien c'est qu'il a rentré un mauvais login ou mot de passe
@@ -56,7 +57,7 @@ include_once 'nav_non_connecte.php'
 <section>
     <h1>Pseudo ou login incorrect.<br/>Veuillez réessayer de vous connecter en cliquant <a href="formulaire_connection.php">ici</a>.</h1> 
 </section>       
-        
+        </div>        
 <?php
 include_once 'footer.php';
 }

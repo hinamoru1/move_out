@@ -35,6 +35,7 @@ include_once 'nav_connecte.php';
 		<link rel='stylesheet' href='CSSformulaire.css'>
     </head>
     <body>
+        <div id="global">
         <p>
         <?php
         //On vérifie que l'utilisateur est bien le créateur de l'évènement
@@ -278,7 +279,8 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
         exit();
         }
         ?>
+        </div>
 		<?php  include_once 'footer.php'; ?>
-        </p>
+        
     </body>
 </html>

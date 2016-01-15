@@ -221,15 +221,15 @@ $reponse->execute(array('date_min' => $date_min,
 
 
 ?>
-<table>
+
 <?php
 
 $color=0;
 while($donnees = $reponse->fetch())
 {
     //Définition du gris un affichage sur deux
-    $style='';
-    if($color % 2 ==0){$style=' style="background-color: silver"';}
+    $style=' style="background-color: rgba(255,255,255,0.5)"';
+    if($color % 2 ==0){$style=' style="background-color: rgba(50,50,50,0.4)"';}
     $color+=1;
 
 
@@ -262,7 +262,7 @@ while($donnees = $reponse->fetch())
         //création du dernier champ "places/gratuit" si l'évènement n'est pas complet
         //Ou complet si l'évènement l'est
         $infos_fin='';
-        if($donnees['complet']==1){$infos_fin='<p class=complet>Complet</p>';}
+        if($donnees['complet']==1){$infos_fin='<div class=complet>Complet</div></td><td>';}
         else
         {
             $imgpayant='';
@@ -271,7 +271,7 @@ while($donnees = $reponse->fetch())
                 if($donnees['prix_min']!=0 and $donnees['prix_max']!=0)
                 {$imgpayant='<img class="payant" src="Images/payant.png"/>';}
                 }
-            $infos_fin='<p>'.htmlspecialchars($donnees['nb_de_places_max']).'</p>'.$imgpayant;
+            $infos_fin='Places : '.htmlspecialchars($donnees['nb_de_places_max']).'</td><td>'.$imgpayant;
         }
         
         
@@ -288,10 +288,22 @@ while($donnees = $reponse->fetch())
         else{$imghandicap='<img class="img_handicap" src="Images/logohandicapenop.png"/>';}
         
         
-        
-    echo '<tr class="billet_evenement" '.$style.'><td class="image_evenement" style="background-image:url(\''.$lien_image_evenement.'\')"></td><td><div><p>'.$titre.'</p><p>'.$date.'</p><p>'.$categorie.'</p></div><div><p>'.$ville.'</p>'.$imghandicap.$infos_fin.'<a class="lien_evenement" href="voir_evenement2.php?id='.$donnees['IDevenement'].'">voir</a></div></td></tr>';   
-}
+    echo '<div class="billet_evenement" '.$style.'>'
+            . '<div class="image_evenement" style="background-image:url(\''.$lien_image_evenement.'\')"></div>'
+                . '<table id="description">'
+                . '<tr>'
+                    . '<td>Titre : '.$titre.'</td>'
+                    . '<td>Date : '.$date.'</td>'
+                    . '<td> Categorie : '.$categorie.'</td>'
+                . '</tr>'
+                . '<tr>'
+                    . '<td>Ville : '.$ville.'</td>'
+                    . '<td>'.$infos_fin.$imghandicap.'<a class="lien_evenement" href="voir_evenement2.php?id='.$donnees['IDevenement'].'">voir</a></td>'
+                . '</table>'
+        . '</div>';   
+
+
+        }
 if($color===0){echo 'Désolé. Il n\'y a aucun résultat correspondant à votre recherche.';}
 ?>
-</table>
 

@@ -11,6 +11,7 @@
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+        <div id="global">
 <?php       
 //On définit toutes les variables nécessaires sur l'évènement
 try
@@ -72,6 +73,9 @@ $IDcreateur=htmlspecialchars($donnees['IDcreateur']);
         }
         
         include_once 'vue_affichage_evenement.php';
+        ?>
+        </di>
+        <?php
         include_once 'footer.php';
         ?>
     </body>

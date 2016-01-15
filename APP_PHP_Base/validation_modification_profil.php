@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+if(isset($_SESSION['id']))
+{
 try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=move_out;charset=utf8', 'root', '', 
@@ -12,11 +13,11 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-
 if(isset($_POST['sub_inscr']))
 	{
     //On vérifie qu'on a appuyé sur le bouton d'inscription
-
+        if($_POST['email'] == $_POST['conf_email'])
+        {
         $pseudo= $_POST['pseudo'];
         $nom= $_POST['nom'];
 	$sexe= $_POST['sexe'];
@@ -44,6 +45,10 @@ if(isset($_POST['sub_inscr']))
         $insert->bindParam(9, $ville);
         $insert->execute();
         }
+			else{
+			echo"Votre adresse mail et votre adresse mail de confirmation ne correspondent pas, veuillez faire un retour en arriere et modifier vos informations";
+			}
+        
         
 ?>
         
@@ -54,11 +59,20 @@ if(isset($_POST['sub_inscr']))
        <title>Validation de modification</title>
     </head>
     <body>
+        <div id='global'>
+            <?php 
+            include_once 'nav_connecte.php';
+            ?>
         <p>Vos informations ont bien été modifiées.    <a href="profil.php">OK</a><br/></p>
+        </div>
+            <?php
+            include_once 'footer.php';
+            ?>
     </body>
 </html>
 
 <?php
-header('Location:profil.php');
+}header('Location:profil.php');
 exit();
+}else{header('Location:formulaire_connection.php');}
 ?>
