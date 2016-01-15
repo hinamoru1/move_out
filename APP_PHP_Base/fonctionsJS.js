@@ -24,7 +24,7 @@ function verify(element1, element2,faculta){   // La fonction reçois en paramè
         }
 
         else if (element1.value!=element2.value){       // on verifie si les deux champs sont identique
-                alert("Les deux "+faculta+" ne condordent pas");
+                alert("Les deux "+faculta+" ne concordent pas");
                 element1.select();
         }
 

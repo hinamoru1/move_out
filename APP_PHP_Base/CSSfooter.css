@@ -2,7 +2,10 @@
 footer {
 	background-color:rgb(40,40,40);
 	width:100%;
-        display: inline-block;
+        display: block;
+        position: absolute;
+        bottom:0;
+        max-height:171px;
 }
 footer a h3{
 	text-align:center;
@@ -25,6 +28,8 @@ footer img{
     float: left;
 }
 .lien_footer{
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 30%;
     float:right;
 }
@@ -35,4 +40,19 @@ footer img{
     text-align: center;
     color:#409fb0;
     padding-bottom:10px;
-} 
+}
+
+/*Pour que le footer reste en bas de la page quelle que soit la taille du contenu*/
+html{
+    height:100%;
+}
+body{
+    min-height:100%;
+    position:relative;
+}
+#global{
+   padding-bottom: 171px;
+}
+*{
+    box-sizing:border-box;
+}

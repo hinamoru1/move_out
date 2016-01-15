@@ -117,7 +117,7 @@ exit();
 }//Fin de la boucle de réussite de changement de photo
 //On traite maintenant les différents messages 
 elseif ($extension==1) {echo'<p>Votre photo n\'est pas dans un format standard ( .jpg , .jpeg ,.png , .gif). Veuillez <a href="modification_photo_profil.php">reessayer</a></p>';}
-elseif ($taille==1) {echo'<p>Votre photo est tra grosse (>5Mo). Veuillez <a href="modification_photo_profil.php">reessayer</a></p>';}
+elseif ($taille==1) {echo'<p>Votre photo est trop grosse (>5Mo). Veuillez <a href="modification_photo_profil.php">reessayer</a></p>';}
 elseif ($erreur==1) {echo'<p>Erreur de chargement de la photo. Veuillez <a href="modification_photo_profil.php">reessayer</a></p>';}
 ?>
     </body>

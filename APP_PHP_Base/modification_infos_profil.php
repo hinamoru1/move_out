@@ -8,12 +8,13 @@ session_start();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Modification information du profil</title>
+        <title>Modification informations du profil</title>
         <link rel='stylesheet' href='CSSnav.css'>
         <link rel='stylesheet' href='CSSfooter.css'>
         <link rel='stylesheet' href='CSSformulaire.css'>
     </head>
     <body>
+        <div id="global">
         
         
 <?php
@@ -63,7 +64,9 @@ else
 include_once 'nav_non_connecte.php';
 include_once 'erreur_profil.php';
 }
-
+?>
+        </div>
+        <?php
 include_once 'footer.php';
 ?>
         

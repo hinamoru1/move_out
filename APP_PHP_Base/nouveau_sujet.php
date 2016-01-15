@@ -11,6 +11,7 @@
         <script type="text/javascript" src="fonctionsJS.js"></script>
     </head>
     <body>
+        <div is="global">
         <?php
         include_once 'nav_connecte.php';    
 		?>
@@ -37,7 +38,7 @@
 		
 		
 		
-		
+        </div>	
 	<?php	
 	include_once 'footer.php';
 	?>	

@@ -52,7 +52,6 @@ html, body, h1, form, fieldset, legend, ol, li {
 	margin: auto;
 	padding: auto;
 	}
-
 .titre{
 	text-align: center;
 	color: black;
@@ -62,6 +61,7 @@ h1 {
     font-size: 28px;
     margin-top:20px;
     margin-bottom: 20px;
+    text-align: center;
 }
 	
 .formulaire {

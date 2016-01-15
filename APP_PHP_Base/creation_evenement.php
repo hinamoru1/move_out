@@ -14,9 +14,13 @@ session_start();
         <link rel='stylesheet' href='CSSformulaire.css'>
     </head>
     <body>
+        <div id="global">
         <?php
         include_once 'nav_connecte.php';
         include_once 'formulaire_creation_evenement1.php';
+        ?>
+        </div>
+        <?php
         include_once 'footer.php';
         ?>
     </body>

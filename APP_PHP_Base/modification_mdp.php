@@ -16,6 +16,7 @@ session_start();
         <title>Modification du mot de passe</title>
     </head>
     <body>
+        <div id="global">
         
         
     <?php
@@ -49,6 +50,9 @@ session_start();
         header('Location:formulaire_connection.php');
          
         }
+    ?>
+    </div>
+    <?php
     include_once 'footer.php';
     ?>
     

@@ -30,10 +30,17 @@ $donnees = $reponse->fetch();
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
-        <p>
+        <div id="global">
         <?php
-        //On vérifie que l'utilisateur est bien le créateur de l'évènement
+        //On vérifie que l'utilisateur est bien le créateur de l'évènement ou un administrateur
+        $idok=0;
+        $adminok=0;
         if($donnees['IDcreateur']==$_SESSION['id'])
+            {$idok=1;}
+        if(isset($_SESSION['admin']))
+            {$adminok=1;}
+    
+        if($idok===1 or $adminok===1)
         {
             include_once 'nav_connecte.php';
             $lien='fin_suppression_evenement.php?id='.$IDevenement;
@@ -44,6 +51,7 @@ $donnees = $reponse->fetch();
         <br/> <a href="<?php echo $lien ?>">Oui</a>
         <br/><a href="<?php echo $lien2 ?>">Non</a>
         </section>
+        </div>
          <?php
          include_once 'footer.php';
         }else

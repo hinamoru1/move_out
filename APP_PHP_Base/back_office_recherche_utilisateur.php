@@ -22,6 +22,7 @@ catch(Exception $e)
         <link rel='stylesheet' href='CSSfooter.css'>
     </head>
     <body>
+        <div id="global">
         
         <?php
         if(isset($_SESSION['admin']))
@@ -126,7 +127,7 @@ if($color==0){echo '<p>Aucun évènement ne correspond à votre recherche. </p>'
         
         
         
-        
+        </div>
         <?php
         }
         

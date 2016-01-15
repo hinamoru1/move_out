@@ -35,6 +35,7 @@ include_once 'nav_connecte.php';
 		<link rel='stylesheet' href='CSSformulaire.css'>
     </head>
     <body>
+        <div id="global">
         <p>
         <?php
         //On vérifie que l'utilisateur est bien le créateur de l'évènement
@@ -153,7 +154,7 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
 	        	<ol>
                             $handicap
                             
-				<label>accessibilité handicapé</label>
+				<label>accessibilité handicapés</label>
 	        		<li>
                                         <input type="radio" name="accessibilite" id="accessibilite" value="1" required <?php if ($handicap==1){echo'checked';}?> >
 	        			<label for="accessibilite_ok"><img src="Images/logohandicapeok.png" alt="logo handicapé" width="25" >accessible</label>&nbsp;&nbsp;&nbsp;
@@ -226,7 +227,7 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
 				<fieldset>
 						<input type="checkbox" name="bis" value="1" id="bis" value="1"><label for='bis'>bis</label>
 				</fieldset>
-				<textarea name="complement_adresse" value="<?php echo $complement_adresse;?>" placeholder="informations utilies sur le lieux?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>
+				<textarea name="complement_adresse" value="<?php echo $complement_adresse;?>" placeholder="informations utilies sur le lieu?" maxlength="150" id="complement_adresse" rows="4" cols="35"></textarea>
 		</li>
         </ol>
      </fieldset>
@@ -246,10 +247,10 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
             </li>
             <li>
                 <label for="url_auxiliaire">lien auxiliere/billeterie</label>
-                <input type="url" value="<?php echo $lien_aux;?>"  name="url_auxiliere" placeholder="entrez un url auxilière, de billeterie..." id="url_auxiliere" maxlength="256"><br>
+                <input type="url" value="<?php echo $lien_aux;?>"  name="url_auxiliere" placeholder="entrez un url auxiliaire, de billetterie..." id="url_auxiliere" maxlength="256"><br>
             </li>
             <li>
-                <label for="description_lieux">description du lieux</label><br>
+                <label for="description_lieux">description du lieu</label><br>
                 <textarea name="description_lieux" value="<?php echo $desc_accueil;?>" placeholder="ex:parc de 1000hectars avec des fontaines" id="description_lieux" maxlength="1500" rows="6" cols="35"></textarea>
             </li>
             <li>
@@ -278,7 +279,8 @@ $departement_id_eve=htmlspecialchars($donnees['code_postal_evenement']);
         exit();
         }
         ?>
+        </div>
 		<?php  include_once 'footer.php'; ?>
-        </p>
+        
     </body>
 </html>

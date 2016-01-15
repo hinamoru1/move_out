@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 try
 {
@@ -13,7 +13,7 @@ catch(Exception $e)
             <h1>Trouvez votre prochaine sortie!</h1>
             <p>Tous les évènements ici et ailleurs.</p>
         </header>-->
-        <div class="carrousel">
+<div class="carrousel">
 <section id="slideshow">
         
     <div class="container">
@@ -43,27 +43,27 @@ catch(Exception $e)
 </section>
             
 <header>
-            <h1>Trouvez votre prochaine sortie!</h1>
+            <h1>Avec Move-Out, trouvez votre prochaine sortie!</h1>
             <p>Tous les évènements ici et ailleurs.</p>
-</header>      
-            
-</div>
+</header>
         <!-- Description des fonctionnalités du site-->
             
-        <div class='conteneur'>
-            <div class="petit_conteneur" id="p1">
+        <table class='conteneur'>
+            <tr>
+            <td class="petit_conteneur" id="p1">
                 <h3>Participez</h3>
                 <p>Envie de sortir? De la gastronomie aux soirées festives en passant par les visites culturelles et les évènements sportifs, il y en a pour tous les goûts, et forcément pour le votre!</p>
-            </div>
-            <div class='petit_conteneur' id="p2">
+            </td>
+            <!--<td class='petit_conteneur' id="p2">
                 <h3>Invitez</h3>
                 <p>Sortir c'est bien, sortir à plusieurs c'est mieux. Grâce au système d'amis invitez qui vous voulez à participer aux mêmes évènements que vous ou rejoigner vos amis sur les leurs.</p>
-            </div>
-            <div class='petit_conteneur' id="p3">
+            </td>-->
+            <td class='petit_conteneur' id="p3">
                 <h3>Créez</h3>
                 <p>Vous êtes débordant de créativité et voulez tester votre sens de l'organisation:Créez vos propres évènements et montrez les à la face du monde!</p>
-            </div>
-        </div>
+            </td>
+            </tr>
+        </table>
         
         <!-- 2 conteneurs pricipaux de suggestions-->
 		
@@ -141,5 +141,5 @@ catch(Exception $e)
             <div class="suggestion-ville" id="v-deux">
                 <h3>Lyon</h3>
             </div>
-            <a href="#" class="plus">Plus de villes</a>
+            <a href="recherche_avancee.php" class="plus">Plus de villes</a>
         </div>
